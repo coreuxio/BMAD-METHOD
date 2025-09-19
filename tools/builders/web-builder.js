@@ -405,8 +405,15 @@ These references map directly to bundle sections:
               for (const resourceName of resources) {
                 let found = false;
 
+                // Add appropriate extension if not present
+                const resourceFileName = resourceName.includes('.')
+                  ? resourceName
+                  : resourceType === 'templates'
+                    ? `${resourceName}.yaml`
+                    : `${resourceName}.md`;
+
                 // Try expansion pack first
-                const resourcePath = path.join(packDir, resourceType, resourceName);
+                const resourcePath = path.join(packDir, resourceType, resourceFileName);
                 try {
                   const resourceContent = await fs.readFile(resourcePath, 'utf8');
                   const resourceWebPath = this.convertToWebPath(resourcePath, packName);
@@ -418,7 +425,7 @@ These references map directly to bundle sections:
 
                 // If not found in expansion pack, try core
                 if (!found) {
-                  const corePath = path.join(this.rootDir, 'bmad-core', resourceType, resourceName);
+                  const corePath = path.join(this.rootDir, 'bmad-core', resourceType, resourceFileName);
                   try {
                     const coreContent = await fs.readFile(corePath, 'utf8');
                     const coreWebPath = this.convertToWebPath(corePath, packName);
@@ -431,7 +438,7 @@ These references map directly to bundle sections:
 
                 // If not found in core, try common folder
                 if (!found) {
-                  const commonPath = path.join(this.rootDir, 'common', resourceType, resourceName);
+                  const commonPath = path.join(this.rootDir, 'common', resourceType, resourceFileName);
                   try {
                     const commonContent = await fs.readFile(commonPath, 'utf8');
                     const commonWebPath = this.convertToWebPath(commonPath, packName);
@@ -582,15 +589,24 @@ These references map directly to bundle sections:
     for (const [key, dep] of allDependencies) {
       let found = false;
 
+      // Add appropriate extension if not present
+      const depFileName = dep.name.includes('.')
+        ? dep.name
+        : dep.type === 'templates'
+          ? `${dep.name}.yaml`
+          : `${dep.name}.md`;
+
       // Always check expansion pack first, even if the dependency came from a core agent
-      if (expansionResources.has(key)) {
+      // Check with the full filename including extension
+      const keyWithExtension = `${dep.type}#${depFileName}`;
+      if (expansionResources.has(keyWithExtension)) {
         // We know it exists in expansion pack, find and load it
-        const expansionPath = path.join(packDir, dep.type, dep.name);
+        const expansionPath = path.join(packDir, dep.type, depFileName);
         try {
           const content = await fs.readFile(expansionPath, 'utf8');
           const expansionWebPath = this.convertToWebPath(expansionPath, packName);
           sections.push(this.formatSection(expansionWebPath, content, packName));
-          console.log(`      ✓ Using expansion override for ${key}`);
+          console.log(`      ✓ Using expansion override for ${keyWithExtension}`);
           found = true;
         } catch {
           // Try next extension
@@ -599,7 +615,7 @@ These references map directly to bundle sections:
 
       // If not found in expansion pack (or doesn't exist there), try core
       if (!found) {
-        const corePath = path.join(this.rootDir, 'bmad-core', dep.type, dep.name);
+        const corePath = path.join(this.rootDir, 'bmad-core', dep.type, depFileName);
         try {
           const content = await fs.readFile(corePath, 'utf8');
           const coreWebPath = this.convertToWebPath(corePath, packName);
@@ -612,7 +628,7 @@ These references map directly to bundle sections:
 
       // If not found in core, try common folder
       if (!found) {
-        const commonPath = path.join(this.rootDir, 'common', dep.type, dep.name);
+        const commonPath = path.join(this.rootDir, 'common', dep.type, depFileName);
         try {
           const content = await fs.readFile(commonPath, 'utf8');
           const commonWebPath = this.convertToWebPath(commonPath, packName);

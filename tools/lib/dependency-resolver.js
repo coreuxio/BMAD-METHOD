@@ -49,9 +49,29 @@ class DependencyResolver {
   }
 
   async resolveTeamDependencies(teamId) {
-    const teamPath = path.join(this.bmadCore, 'agent-teams', `${teamId}.yaml`);
-    const teamContent = await fs.readFile(teamPath, 'utf8');
-    const teamConfig = yaml.load(teamContent);
+    let teamPath;
+    let teamContent;
+    let teamConfig;
+
+    // Try new teams directory structure first
+    if (teamId.startsWith('team-')) {
+      const newTeamPath = path.join(this.rootDir, 'teams', teamId, 'config.yaml');
+      try {
+        teamContent = await fs.readFile(newTeamPath, 'utf8');
+        teamPath = newTeamPath;
+        teamConfig = yaml.load(teamContent);
+      } catch {
+        // Not in new structure, try old location
+        teamPath = path.join(this.bmadCore, 'agent-teams', `${teamId}.yaml`);
+        teamContent = await fs.readFile(teamPath, 'utf8');
+        teamConfig = yaml.load(teamContent);
+      }
+    } else {
+      // Try old location for backward compatibility
+      teamPath = path.join(this.bmadCore, 'agent-teams', `${teamId}.yaml`);
+      teamContent = await fs.readFile(teamPath, 'utf8');
+      teamConfig = yaml.load(teamContent);
+    }
 
     const dependencies = {
       team: {
@@ -163,12 +183,42 @@ class DependencyResolver {
   }
 
   async listTeams() {
+    const teams = [];
+
+    // Check old location for backward compatibility
     try {
       const files = await fs.readdir(path.join(this.bmadCore, 'agent-teams'));
-      return files.filter((f) => f.endsWith('.yaml')).map((f) => f.replace('.yaml', ''));
+      const oldTeams = files.filter((f) => f.endsWith('.yaml')).map((f) => f.replace('.yaml', ''));
+      teams.push(...oldTeams);
     } catch {
-      return [];
+      // Directory might not exist
     }
+
+    // Check new teams directory structure
+    try {
+      const teamsDir = path.join(this.rootDir, 'teams');
+      const teamDirs = await fs.readdir(teamsDir);
+
+      for (const dir of teamDirs) {
+        if (dir.startsWith('team-')) {
+          const teamPath = path.join(teamsDir, dir);
+          const stat = await fs.stat(teamPath);
+          if (stat.isDirectory()) {
+            // Check if config.yaml exists
+            try {
+              await fs.access(path.join(teamPath, 'config.yaml'));
+              teams.push(dir);
+            } catch {
+              // No config.yaml, skip
+            }
+          }
+        }
+      }
+    } catch {
+      // Teams directory might not exist
+    }
+
+    return teams;
   }
 }
 
