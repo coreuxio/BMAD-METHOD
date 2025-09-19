@@ -5,6 +5,19 @@ bun.lock
 deno.lock
 pnpm-workspace.yaml
 package-lock.json
+yarn.lock
+
+# Yarn PnP files
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/cache
+.yarn/install-state.gz
+.yarn/build-state.yml
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Logs
 logs/
@@ -14,6 +27,7 @@ npm-debug.log*
 # Build output
 build/*.txt
 web-bundles/
+dist/
 
 # Environment variables
 .env
