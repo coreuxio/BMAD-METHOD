@@ -1,0 +1,102 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-tasks-template-v1
+  name: Video Production Tasks Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: tasks.md
+    title: "Video Production Tasks - {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: basic
+
+sections:
+  - id: video-info
+    title: Video Information
+    instruction: Basic video project information and goals
+    sections:
+      - id: project-specs
+        title: Project Specifications
+        type: structured-list
+        fields:
+          - "Production Level": "Quick/Standard/Premium/Series"
+          - "Target Length": "Duration"
+          - "Target Audience": "Audience description"
+          - "Start Date": "YYYY-MM-DD"
+          - "Target Completion": "YYYY-MM-DD"
+
+  - id: production-phases
+    title: Production Phases
+    instruction: Track progress through video production pipeline
+    sections:
+      - id: planning-phase
+        title: Planning Phase
+        type: checklist
+        items:
+          - "Video concept development"
+          - "Target audience analysis"
+          - "Message framework definition"
+          - "Chapter outline creation"
+          - "Visual style considerations"
+      - id: research-phase
+        title: Research Phase
+        type: checklist
+        items:
+          - "Research areas identified"
+          - "Primary research tasks created"
+          - "Research task lifecycle: todo → draft → approved"
+          - "Source credibility verification"
+          - "Fact compilation and organization"
+      - id: production-phase
+        title: Production Phase
+        type: checklist
+        items:
+          - "Scene structure development"
+          - "Visual flow planning"
+          - "Script first draft"
+          - "Script review and revision"
+          - "Visual note integration"
+      - id: finalization-phase
+        title: Finalization Phase
+        type: checklist
+        items:
+          - "Description optimization"
+          - "Source formatting"
+          - "Final document assembly"
+          - "Quality review completed"
+
+  - id: research-tracking
+    title: Research Tasks Status
+    instruction: Track research tasks through their lifecycle
+    sections:
+      - id: research-table
+        title: Research Task Status
+        type: table
+        columns: ["Task Name", "Status", "Source Count", "Credibility", "Assigned", "Due Date", "Notes"]
+        instruction: Track each research task from todo to approved
+
+  - id: agent-assignments
+    title: Agent Assignments
+    instruction: Track which agents are working on what phases
+    sections:
+      - id: assignment-table
+        title: Agent Assignment Tracking
+        type: table
+        columns: ["Phase", "Agent", "Status", "Start Date", "Completion Date", "Notes"]
+
+  - id: issues-blockers
+    title: Issues and Blockers
+    instruction: Track problems and their resolution
+    sections:
+      - id: issues-table
+        title: Issues Tracking
+        type: table
+        columns: ["Issue", "Impact", "Assigned", "Status", "Resolution"]
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track task updates and progress changes

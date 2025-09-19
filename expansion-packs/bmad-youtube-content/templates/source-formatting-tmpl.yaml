@@ -1,0 +1,284 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: source-formatting-template-v1
+  name: Source Formatting Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: source-formatting.md
+    title: "Source Formatting Guide"
+
+workflow:
+  mode: reference
+
+sections:
+  - id: formatting-overview
+    title: Source Formatting Overview
+    instruction: Guidelines for consistently formatting sources across YouTube content
+    sections:
+      - id: formatting-principles
+        title: Formatting Principles
+        type: structured-list
+        fields:
+          - "Consistency": "Use the same format for similar source types"
+          - "Readability": "Format sources so viewers can easily find them"
+          - "Accessibility": "Include clickable links where possible"
+          - "Mobile-Friendly": "Ensure formatting works on mobile devices"
+          - "Professional": "Maintain professional appearance"
+          - "Verification": "Include enough information for independent verification"
+
+  - id: citation-formats
+    title: Citation Formats by Source Type
+    instruction: Specific formatting for different types of sources
+    sections:
+      - id: academic-sources
+        title: Academic Sources
+        type: citation-format
+        examples:
+          - format: "Journal Articles"
+            template: "[Author Last Name, First Initial] ([Year]). [Title]. [Journal Name], [Volume]([Issue]), [Page Range]. [DOI/URL]"
+            example: "Smith, J. (2023). Climate Change Effects on Agriculture. Environmental Science Journal, 15(3), 45-67. https://doi.org/10.1234/example"
+          - format: "Research Papers"
+            template: "[Author(s)] ([Year]). [Title]. [Institution/Publisher]. [URL]"
+            example: "Johnson, M. & Davis, L. (2023). Renewable Energy Trends. MIT Energy Initiative. https://energy.mit.edu/research/renewables"
+          - format: "Books"
+            template: "[Author Last Name, First Initial] ([Year]). [Title]. [Publisher]."
+            example: "Brown, R. (2022). The Future of Technology. Academic Press."
+
+      - id: news-sources
+        title: News and Media Sources
+        type: citation-format
+        examples:
+          - format: "News Articles"
+            template: "[Author] ([Date]). [Headline]. [Publication]. [URL]"
+            example: "Thompson, A. (March 15, 2023). 'New Climate Data Reveals Surprising Trends.' The Science Times. https://sciencetimes.com/climate-data-2023"
+          - format: "Press Releases"
+            template: "[Organization] ([Date]). [Title]. [Press Release]. [URL]"
+            example: "NASA (April 2, 2023). New Mars Rover Discoveries Announced. NASA Press Release. https://nasa.gov/news/mars-rover-discoveries"
+          - format: "Online Articles"
+            template: "[Author] ([Date]). [Title]. [Website]. [URL]"
+            example: "Wilson, K. (January 10, 2023). Understanding Quantum Computing. TechExplained. https://techexplained.com/quantum-computing-guide"
+
+      - id: government-sources
+        title: Government and Official Sources
+        type: citation-format
+        examples:
+          - format: "Government Reports"
+            template: "[Agency] ([Year]). [Report Title]. [Government Department]. [URL]"
+            example: "Environmental Protection Agency (2023). Annual Air Quality Report. U.S. Department of Environmental Protection. https://epa.gov/reports/air-quality-2023"
+          - format: "Statistics"
+            template: "[Agency] ([Date]). [Data Title]. [Source Database]. [URL]"
+            example: "Bureau of Labor Statistics (March 2023). Employment Data March 2023. U.S. Department of Labor. https://bls.gov/data/employment-march-2023"
+          - format: "Policy Documents"
+            template: "[Department] ([Year]). [Policy/Law Title]. [Document Type]. [URL]"
+            example: "Department of Education (2023). New Student Loan Policies. Federal Register. https://federalregister.gov/student-loans-2023"
+
+      - id: expert-sources
+        title: Expert and Interview Sources
+        type: citation-format
+        examples:
+          - format: "Expert Interviews"
+            template: "[Expert Name], [Title/Credentials] ([Date]). [Type of Communication]. [Institution/Organization]."
+            example: "Dr. Sarah Mitchell, Climate Scientist (March 20, 2023). Personal Interview. Stanford University Climate Lab."
+          - format: "Expert Quotes from Articles"
+            template: "[Expert Name], [Credentials], quoted in [Author] ([Date]). [Article Title]. [Publication]. [URL]"
+            example: "Dr. Robert Chen, AI Researcher at MIT, quoted in Anderson, P. (February 15, 2023). 'The Future of Artificial Intelligence.' Tech Weekly. https://techweekly.com/ai-future-2023"
+          - format: "Conference Presentations"
+            template: "[Speaker] ([Date]). [Presentation Title]. [Conference Name], [Location]."
+            example: "Dr. Maria Rodriguez (January 25, 2023). Breakthrough in Gene Therapy. International Medical Conference, Boston, MA."
+
+      - id: digital-sources
+        title: Digital and Online Sources
+        type: citation-format
+        examples:
+          - format: "Websites"
+            template: "[Organization/Author] ([Date Updated/Accessed]). [Page Title]. [Website Name]. [URL]"
+            example: "World Health Organization (Updated March 2023). Global Health Statistics. WHO.int. https://who.int/data/global-health-statistics"
+          - format: "Databases"
+            template: "[Database Name] ([Date Accessed]). [Data/Query Description]. [URL]"
+            example: "PubMed Database (Accessed March 15, 2023). Studies on renewable energy efficiency. https://pubmed.ncbi.nlm.nih.gov"
+          - format: "Social Media (when appropriate)"
+            template: "[Account Name] ([@handle]) ([Date]). [Post Content/Description]. [Platform]. [URL]"
+            example: "NASA (@nasa) (March 10, 2023). Mars rover update with new geological findings. Twitter. https://twitter.com/nasa/status/example"
+
+  - id: youtube-specific-formatting
+    title: YouTube-Specific Source Formatting
+    instruction: How to format sources for YouTube descriptions and video content
+    sections:
+      - id: description-formatting
+        title: Description Box Formatting
+        type: formatting-guide
+        sections:
+          - id: source-section-header
+            title: Source Section Header
+            template: |
+              📚 SOURCES & REFERENCES:
+
+              The following sources were used to research and verify the information in this video:
+
+          - id: source-list-format
+            title: Source List Format
+            template: |
+              🔗 [Short Description] - [Author/Organization] ([Date])
+              [Full URL]
+
+              🔗 [Next Source Description] - [Author/Organization] ([Date])
+              [Full URL]
+            example: |
+              🔗 Climate Change Report - NASA (2023)
+              https://nasa.gov/climate/evidence/
+
+              🔗 Renewable Energy Statistics - International Energy Agency (2023)
+              https://iea.org/reports/renewable-energy-statistics-2023
+
+          - id: categorized-sources
+            title: Categorized Source Format
+            template: |
+              📚 SOURCES & REFERENCES:
+
+              📊 DATA & STATISTICS:
+              • [Source 1] - [URL]
+              • [Source 2] - [URL]
+
+              🔬 RESEARCH STUDIES:
+              • [Source 1] - [URL]
+              • [Source 2] - [URL]
+
+              📰 NEWS & REPORTS:
+              • [Source 1] - [URL]
+              • [Source 2] - [URL]
+
+      - id: in-video-attribution
+        title: In-Video Attribution
+        type: formatting-guide
+        sections:
+          - id: spoken-attribution
+            title: Spoken Attribution Examples
+            examples:
+              - "According to a 2023 study by MIT researchers..."
+              - "NASA's latest climate report shows that..."
+              - "Dr. Sarah Johnson from Stanford University explains..."
+              - "Government data from the EPA indicates..."
+              - "A peer-reviewed study published in Nature found..."
+
+          - id: visual-attribution
+            title: Visual Attribution
+            examples:
+              - "Source: NASA Climate Report 2023"
+              - "Data: MIT Energy Lab (2023)"
+              - "Study: Journal of Environmental Science"
+              - "Image: NASA/JPL-Caltech"
+
+  - id: credibility-indicators
+    title: Credibility Indicators
+    instruction: How to indicate source credibility in formatting
+    sections:
+      - id: credibility-badges
+        title: Credibility Indicators
+        type: indicator-system
+        examples:
+          - indicator: "🏛️"
+            meaning: "Government/Official source"
+            usage: "🏛️ EPA Air Quality Report (2023)"
+          - indicator: "🎓"
+            meaning: "Academic/University source"
+            usage: "🎓 MIT Climate Study (2023)"
+          - indicator: "🔬"
+            meaning: "Peer-reviewed research"
+            usage: "🔬 Nature Journal Study (2023)"
+          - indicator: "📊"
+            meaning: "Statistical/Data source"
+            usage: "📊 Bureau of Labor Statistics (2023)"
+          - indicator: "🏢"
+            meaning: "Organization/Think tank"
+            usage: "🏢 Pew Research Center (2023)"
+          - indicator: "📰"
+            meaning: "News/Media source"
+            usage: "📰 Science Daily Report (2023)"
+
+  - id: accessibility-features
+    title: Accessibility Features
+    instruction: Making sources accessible to all viewers
+    sections:
+      - id: mobile-optimization
+        title: Mobile-Friendly Formatting
+        type: best-practices
+        practices:
+          - "Keep URLs on separate lines for easy tapping"
+          - "Use clear, descriptive link text"
+          - "Avoid overly long URLs (use URL shorteners if needed)"
+          - "Include publication dates for context"
+          - "Use emojis sparingly but effectively for visual scanning"
+
+      - id: screen-reader-friendly
+        title: Screen Reader Compatibility
+        type: best-practices
+        practices:
+          - "Use descriptive text instead of just URLs"
+          - "Include publication dates and authors"
+          - "Avoid special characters that don't read well"
+          - "Structure sources with clear headings"
+          - "Provide context for each source"
+
+  - id: quality-standards
+    title: Quality Standards
+    instruction: Standards for source formatting quality
+    sections:
+      - id: minimum-requirements
+        title: Minimum Requirements
+        type: checklist
+        items:
+          - "✓ Author or organization name included"
+          - "✓ Publication or access date provided"
+          - "✓ Working URL or location information"
+          - "✓ Brief description of source content"
+          - "✓ Consistent formatting across all sources"
+
+      - id: excellence-standards
+        title: Excellence Standards
+        type: checklist
+        items:
+          - "✓ Credibility indicators used appropriately"
+          - "✓ Sources categorized by type when helpful"
+          - "✓ Mobile-friendly formatting applied"
+          - "✓ Context provided for technical sources"
+          - "✓ Primary sources prioritized over secondary"
+          - "✓ Recent sources used when currency matters"
+
+  - id: special-cases
+    title: Special Formatting Cases
+    instruction: How to handle unusual or complex source situations
+    sections:
+      - id: complex-sources
+        title: Complex Sources
+        type: special-case-guide
+        cases:
+          - case: "Multiple Authors"
+            format: "First Author, et al. (2023)"
+            example: "Smith, J., et al. (2023). Climate Research Study."
+          - case: "No Author Listed"
+            format: "[Organization/Website] (2023)"
+            example: "Science Daily (2023). New Discovery in Physics."
+          - case: "Updated/Revised Sources"
+            format: "[Author] ([Original Year], updated [Update Year])"
+            example: "WHO (2020, updated March 2023). Global Health Guidelines."
+
+      - id: sensitive-sources
+        title: Sensitive or Controversial Sources
+        type: special-case-guide
+        cases:
+          - case: "Conflicting Information"
+            approach: "Present multiple perspectives with equal formatting"
+            example: "Multiple sources with different conclusions - all formatted equally"
+          - case: "Preliminary Research"
+            approach: "Add disclaimer about preliminary nature"
+            example: "⚠️ Preliminary Study - Johnson et al. (2023)"
+          - case: "Industry-Sponsored Research"
+            approach: "Note funding source"
+            example: "Study funded by [Sponsor] - Smith (2023)"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track source formatting template updates

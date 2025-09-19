@@ -82,9 +82,9 @@ dependencies:
     - analyze-target-audience.md
     - create-video-plan.md
   templates:
-    - video-plan-tmpl.md
-    - message-framework-tmpl.md
-    - audience-profile-tmpl.md
+    - video-plan-tmpl.yaml
+    - message-framework-tmpl.yaml
+    - audience-profile-tmpl.yaml
   checklists:
     - video-planning-checklist.md
     - message-clarity-checklist.md

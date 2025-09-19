@@ -72,6 +72,7 @@ commands:
   - citation-format: Format sources for proper attribution
   - identify-gaps: Find areas needing additional research
   - categorize-facts: Organize facts by topic and relevance
+  - extract-research: Analyze video content to identify research requirements
   - doc-out: Output full research document to destination file
   - execute-checklist {checklist}: Run specified checklist (default→source-verification-checklist)
   - deep-dive {topic}: Conduct exhaustive research on specific aspect
@@ -84,10 +85,11 @@ dependencies:
     - compile-research-doc.md
     - assess-credibility.md
     - find-primary-sources.md
+    - extract-research-steps.md
   templates:
-    - research-doc-tmpl.md
-    - source-evaluation-tmpl.md
-    - fact-compilation-tmpl.md
+    - research-doc-tmpl.yaml
+    - source-evaluation-tmpl.yaml
+    - fact-compilation-tmpl.yaml
   checklists:
     - source-verification-checklist.md
     - research-completeness-checklist.md

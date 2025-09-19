@@ -1,0 +1,354 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-script-template-v1
+  name: YouTube Video Script Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: "{{video_title}}-final.md"
+    title: "Video Script: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: script-metadata
+    title: Script Metadata
+    instruction: |
+      Define script parameters for natural pacing and production planning.
+    sections:
+      - id: timing-specs
+        title: Timing Specifications
+        type: structured-list
+        instruction: Target duration and pacing calculations
+        fields:
+          - "Target Duration": "X:XX - X:XX (range for flexibility)"
+          - "Reading Speed": "~150 words per minute (standard)"
+          - "Total Word Count": "Approximate word count target"
+          - "Pace Variation": "Fast/Normal/Slow sections noted"
+
+  - id: scene-scripts
+    title: Scene Scripts
+    instruction: |
+      Write natural, conversational script for each scene with visual guidance and editor flexibility. Focus on authentic delivery that integrates research facts naturally.
+    elicit: true
+    sections:
+      - id: script-sequence
+        title: Script Sequence
+        type: scene-script
+        instruction: Write conversational script for each scene with natural fact integration
+        template:
+          scene-header: "Scene [Number]: [Scene Title]"
+          duration: "[Start Time]-[End Time]"
+          script-content:
+            type: "script-text"
+            instruction: "Write naturally flowing script as if speaking to a friend. Integrate facts conversationally."
+            guidelines:
+              - "Use natural attribution phrases"
+              - "Maintain conversational tone"
+              - "Build logical flow between ideas"
+              - "Include natural pauses and emphasis"
+            examples:
+              - "Opening line that grabs attention immediately"
+              - "Natural transition with 'Now, here's what's fascinating...'"
+              - "Attribution: 'According to [Source], [fact]...'"
+              - "Personal connection: 'Think about it this way...'"
+          visual-notes:
+            title: "[VISUAL NOTE: Optional suggestion for visuals]"
+            type: "text"
+            instruction: "Flexible visual suggestions - editor has creative freedom"
+            prefix: "[VISUAL NOTE:"
+            suffix: "]"
+          editor-notes:
+            title: "[EDITOR NOTE: Production guidance]"
+            type: "text"
+            instruction: "Optional guidance that preserves editor flexibility"
+            prefix: "[EDITOR NOTE:"
+            suffix: "]"
+
+      - id: standard-scene-scripts
+        title: Standard Scene Script Patterns
+        instruction: Common script patterns for typical YouTube video scenes
+        scenes:
+          - id: hook-script
+            title: "Hook/Cold Open Script"
+            duration: "0:00-0:10"
+            script_pattern: |
+              [Opening line that immediately grabs attention - question, shocking statement, or intriguing setup]
+
+              [Follow-up that builds on hook and promises value]
+
+              **[VISUAL NOTE: Consider dramatic visual, quick montage, or compelling demonstration]**
+
+              **[EDITOR NOTE: This opening is flexible - if you have a better hook idea, feel free to adjust]**
+
+          - id: intro-script
+            title: "Introduction & Context Script"
+            duration: "0:10-0:30"
+            script_pattern: |
+              Hey everyone! [Or your standard greeting]
+
+              Today we're diving into [topic], and I promise you, by the end of this video, you'll [specific value proposition].
+
+              [Personal connection or credibility statement - why you're talking about this]
+
+              But first, let me show you why this matters...
+
+              **[VISUAL NOTE: Title card with topic, channel branding elements]**
+
+          - id: main-content-script
+            title: "Main Content Block Script"
+            duration: "Variable"
+            script_pattern: |
+              [Transition connecting to previous point]
+
+              Now, [introduce main point conversationally].
+
+              [Explain concept clearly, as if talking to a friend]
+
+              According to [Source Name], [integrate researched fact naturally]. This is significant because [explain relevance].
+
+              [Analogy or relatable example]: Think about it this way...
+
+              [Continue developing point with additional facts]
+
+              Research from [Institution] found that [statistic]. [Explain implications]
+
+              **[VISUAL NOTE: Animation, demonstration, or relevant B-roll]**
+
+              **[EDITOR NOTE: Pacing guidance or creative suggestions]**
+
+          - id: practical-script
+            title: "Practical Application Script"
+            duration: "30-60 seconds"
+            script_pattern: |
+              So how can you actually use this information? Let me give you [number] quick ways:
+
+              First, [practical tip 1].
+
+              Second, [practical tip 2].
+
+              [Continue with actionable advice]
+
+              The key thing to remember is [most important takeaway].
+
+              **[VISUAL NOTE: Numbered list on screen, step-by-step graphics]**
+
+          - id: conclusion-script
+            title: "Conclusion & CTA Script"
+            duration: "20-30 seconds"
+            script_pattern: |
+              So there you have it! We've covered [quick recap - keep brief].
+
+              [Final thought that reinforces value or leaves them thinking]
+
+              If you found this helpful, [specific call to action].
+
+              And if you want to learn more about [related topic], check out this video right here [gesture].
+
+              [Your standard sign-off]
+
+              **[VISUAL NOTE: End screen with suggested videos, subscribe button]**
+
+  - id: script-guidance
+    title: Script Writing Guidance
+    instruction: |
+      Guidelines for natural delivery, fact integration, and production considerations.
+    sections:
+      - id: tone-guidance
+        title: Tone Guidance
+        type: structured-list
+        instruction: Delivery characteristics for consistent brand voice
+        fields:
+          - "Energy Level": "High/Medium/Calm (match video plan)"
+          - "Speaking Style": "Conversational/Professional/Enthusiastic"
+          - "Personality": "Friendly/Authoritative/Humorous"
+          - "Pace Variation": "Where to speed up or slow down"
+      - id: emphasis-points
+        title: Key Phrases to Emphasize
+        type: bullet-list
+        instruction: Critical points that need vocal or visual emphasis
+        examples:
+          - "Important statistics or findings"
+          - "Key concepts or terminology"
+          - "Call-to-action phrases"
+          - "Surprising revelations"
+      - id: natural-attribution
+        title: Natural Attribution Phrases
+        type: bullet-list
+        instruction: Conversational ways to cite sources without breaking flow
+        examples:
+          - "According to [Source]..."
+          - "Research from [Institution] shows..."
+          - "[Expert name], a [title], explains that..."
+          - "A recent study found..."
+          - "Data from [Organization] reveals..."
+          - "Scientists at [Institution] discovered..."
+
+  - id: production-notes
+    title: Production Notes
+    instruction: |
+      Technical guidance for video production team including timing, visuals, and audio.
+    sections:
+      - id: timing-considerations
+        title: Timing Considerations
+        type: structured-list
+        instruction: Pacing and timing guidance for production
+        fields:
+          - "Potential Ad Break Points": "Natural pause points for monetization"
+          - "Attention Retention Points": "Where to add visual interest"
+          - "Pace Changes": "When to speed up or slow down delivery"
+          - "Natural Pauses": "Where presenter should pause for emphasis"
+      - id: visual-suggestions
+        title: B-Roll and Visual Suggestions
+        type: structured-list
+        instruction: Visual content suggestions organized by type
+        fields:
+          - "B-Roll Suggestions": "Specific footage that would enhance script"
+          - "Stock Footage Keywords": "Search terms for stock video"
+          - "Screen Recording Needs": "Software demonstrations or web content"
+          - "Graphics Opportunities": "Where custom graphics would help"
+          - "Animation Moments": "Concepts that benefit from animated explanation"
+      - id: audio-guidance
+        title: Music and Audio Cues
+        type: structured-list
+        instruction: Audio design guidance for emotional support
+        fields:
+          - "Intro Music": "Energy level and style for opening"
+          - "Main Content": "Background music presence level"
+          - "Climax Moment": "Musical build or change for emphasis"
+          - "Outro Music": "Resolution feeling for conclusion"
+          - "Sound Effects": "Where emphasis sounds might help"
+
+  - id: fact-integration
+    title: Source Integration Documentation
+    instruction: |
+      Track how research facts are integrated into the script with proper attribution.
+    sections:
+      - id: attribution-tracking
+        title: Attribution Tracking
+        type: structured-entries
+        instruction: Document each fact's integration into the script
+        template:
+          - "Fact": "The specific information used"
+          - "Source": "Complete source citation"
+          - "Script Location": "Which scene and approximate timing"
+          - "Attribution Style": "How it's cited in the script"
+          - "Context": "Why this fact supports the narrative"
+      - id: personal-content
+        title: Personal Experience Sections
+        type: bullet-list
+        instruction: Content clearly marked as personal opinion or experience
+        examples:
+          - "Personal anecdotes (no citation needed)"
+          - "Opinion sections (clearly marked as such)"
+          - "Creator experiences and insights"
+          - "Subjective recommendations"
+
+  - id: script-variations
+    title: Script Variations
+    instruction: |
+      Alternative script approaches for different durations or energy levels.
+    sections:
+      - id: duration-variants
+        title: Duration Variations
+        type: structured-list
+        instruction: How to adapt script for different video lengths
+        fields:
+          - "Shorter Version (3-4 minutes)": "Combine scenes, trim examples"
+          - "Standard Version (6-8 minutes)": "Full development of all points"
+          - "Longer Version (8-10 minutes)": "Expand with additional examples"
+          - "Series Format": "How to break into multiple episodes"
+      - id: energy-variants
+        title: Energy Variations
+        type: structured-list
+        instruction: Adapt script for different presentation styles
+        fields:
+          - "High-Energy Version": "Add pattern interrupts and dynamic transitions"
+          - "Educational Version": "More detailed explanations and examples"
+          - "Conversational Version": "More personal and intimate delivery"
+          - "Professional Version": "More formal tone and presentation"
+
+  - id: quality-checklist
+    title: Script Quality Checklist
+    instruction: |
+      Validation points to ensure script achieves video goals effectively.
+    sections:
+      - id: flow-checklist
+        title: Natural Flow Checklist
+        type: checklist
+        items:
+          - "Natural conversational flow when read aloud"
+          - "Smooth transitions between scenes"
+          - "Logical progression of ideas"
+          - "Appropriate pacing throughout"
+          - "Strong hook in first 5 seconds"
+      - id: content-checklist
+        title: Content Quality Checklist
+        type: checklist
+        items:
+          - "All facts properly attributed"
+          - "Core message reinforced throughout"
+          - "Clear value proposition delivered"
+          - "Practical application provided"
+          - "Effective call-to-action included"
+      - id: production-checklist
+        title: Production Readiness Checklist
+        type: checklist
+        items:
+          - "Visual notes clearly marked as optional"
+          - "Editor flexibility preserved"
+          - "Appropriate pacing markers included"
+          - "Technical requirements specified"
+          - "Brand voice consistency maintained"
+
+  - id: script-metadata-final
+    title: Final Script Metadata
+    instruction: |
+      Completion information and handoff details.
+    sections:
+      - id: completion-stats
+        title: Completion Statistics
+        type: structured-list
+        instruction: Final script specifications
+        fields:
+          - "Final Word Count": "Actual word count"
+          - "Estimated Read Time": "Based on reading speed"
+          - "Fact Count": "Number of researched facts integrated"
+          - "Attribution Count": "Number of source citations"
+          - "Scene Count": "Total number of scenes"
+
+  - id: main-video-integration
+    title: Main Video File Integration
+    instruction: Track how script changes integrate with the main video production
+    sections:
+      - id: integration-status
+        title: Integration Status
+        type: structured-list
+        instruction: Status of script integration with other video components
+        fields:
+          - "Scene Outline Sync": "Alignment with scene structure in chapters.md"
+          - "Research Integration": "Percentage of approved research incorporated"
+          - "Final Document Status": "Integration into {video-title}-final.md"
+          - "Description Alignment": "Consistency with video description requirements"
+      - id: script-evolution
+        title: Script Evolution Tracking
+        type: table
+        columns: [Date, Script Change, Source of Change, Integration Impact, Final Document Updated]
+        instruction: Track how script evolves based on other file updates
+      - id: component-dependencies
+        title: Component Dependencies
+        type: bullet-list
+        instruction: Other files that affect or are affected by script changes
+        examples:
+          - "chapters.md: Scene structure and timing dependencies"
+          - "research-tasks/: Fact integration and attribution requirements"
+          - "tasks.md: Production milestone impacts"
+          - "{video-title}-final.md: Complete integration requirements"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track script revisions and improvements throughout development

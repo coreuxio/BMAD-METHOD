@@ -1,0 +1,253 @@
+# Plan Video Script Workflow
+name: Plan Video Script
+description: Create comprehensive video script planning with research integration and scene development
+version: 1.0.0
+
+metadata:
+  category: script-planning
+  complexity: advanced
+  estimated_duration: 45-60 minutes
+  prerequisites:
+    - Research completed (from execute-research workflow)
+    - Video structure planned (chapters.md)
+    - Research compilation available
+
+phases:
+  # Phase 1: Research Integration Planning
+  - name: Research Integration Planning
+    description: Plan how research findings will be integrated into video script
+    duration: 10-15 minutes
+    steps:
+      - action: Analyze research compilation
+        details: |
+          - READ research-tasks/research-compiled-approved.md
+          - REVIEW video structure in chapters.md
+          - ASSESS fact integration opportunities
+          - PLAN natural attribution strategies
+        deliverable: Research integration assessment
+
+      - agent: script-writer
+        action: Plan fact integration strategy
+        deliverable: Research integration plan
+        dependencies: [research compilation, video structure]
+        details: |
+          - MAP research findings to video sections
+          - PLAN natural fact integration points
+          - **ENSURE all facts include complete website URL documentation**
+          - DESIGN attribution strategies for different fact types
+          - CONSIDER narrative flow and engagement
+          - PREPARE fact categorization for script writing
+        quality_criteria:
+          - All approved research mapped to video sections
+          - Attribution strategies natural and appropriate
+          - Fact integration maintains narrative flow
+          - Research enhances rather than interrupts story
+          - **CRITICAL: All research includes complete website URL documentation**
+
+  # Phase 2: Scene Script Development
+  - name: Scene Script Development
+    description: Develop detailed scripts for each video scene
+    duration: 20-30 minutes
+    steps:
+      - agent: scene-planner
+        action: Refine scene structure with research integration
+        deliverable: Updated chapters.md with research integration points
+        dependencies: [research integration plan, original scene structure]
+        details: |
+          - UPDATE scene structure with research integration points
+          - PLAN fact placement within each scene
+          - ADJUST timing for research integration
+          - OPTIMIZE scene flow with factual content
+          - COORDINATE visual suggestions with research facts
+        quality_criteria:
+          - Scene structure accommodates research integration
+          - Fact placement enhances scene objectives
+          - Timing adjustments maintain engagement
+          - Visual opportunities aligned with facts
+
+      - agent: script-writer
+        action: Write detailed scene scripts
+        deliverable: Complete scene scripts with integrated research
+        dependencies: [updated scene structure, research integration plan]
+        details: |
+          - WRITE natural, conversational script for each scene
+          - INTEGRATE research facts seamlessly into narrative
+          - **INCLUDE website URLs in research attribution documentation**
+          - INCLUDE appropriate source attributions
+          - ADD visual notes and editor suggestions
+          - MAINTAIN engaging tone while ensuring accuracy
+        quality_criteria:
+          - Script flows naturally and conversationally
+          - Research facts integrated seamlessly
+          - Source attributions feel natural
+          - Visual notes enhance content delivery
+          - Engagement maintained throughout
+          - **MANDATORY: All source attributions include complete website URLs**
+
+  # Phase 3: Script Refinement and Optimization
+  - name: Script Refinement and Optimization
+    description: Refine script for optimal flow, engagement, and fact integration
+    duration: 10-15 minutes
+    steps:
+      - agent: script-writer
+        action: Polish script flow and integration
+        deliverable: Refined complete video script
+        dependencies: [scene scripts, research integration]
+        details: |
+          - REVIEW script for natural flow and pacing
+          - OPTIMIZE fact integration and attribution
+          - ENHANCE engagement and retention elements
+          - REFINE visual notes and production guidance
+          - VALIDATE all research integration
+        quality_criteria:
+          - Script reads naturally when spoken aloud
+          - Fact integration enhances rather than interrupts
+          - Attribution methods vary appropriately
+          - Visual notes clear and actionable
+          - All research properly incorporated
+
+      - action: Create production-ready script package
+        details: |
+          - COMPILE complete script with all elements
+          - INCLUDE research attribution summary
+          - ADD production notes and guidance
+          - CREATE fact-checking reference
+          - PREPARE for final video compilation
+        deliverable: Production-ready script package
+
+# Script Planning Framework
+script_planning_framework:
+  research_integration_strategies:
+    natural_attribution:
+      - conversational_style: "'According to researchers at MIT...'"
+      - authority_building: "'The definitive study on this shows...'"
+      - storytelling_integration: "'When scientists first discovered...'"
+      - data_presentation: "'Government statistics reveal...'"
+
+    fact_placement_optimization:
+      - supporting_evidence: "Facts that reinforce main points"
+      - credibility_building: "Research that establishes authority"
+      - engagement_enhancement: "Surprising facts that maintain interest"
+      - conclusion_strengthening: "Data that supports video conclusions"
+
+  scene_script_elements:
+    core_components:
+      - scene_objective: "What this scene accomplishes"
+      - key_message: "Primary information conveyed"
+      - research_integration: "Facts and sources included"
+      - visual_opportunities: "Suggested visual elements"
+      - transition_planning: "How scene connects to next"
+
+    engagement_techniques:
+      - hook_strategies: "Attention capture methods"
+      - retention_elements: "Techniques to maintain viewer interest"
+      - pacing_variation: "Changes in tempo and intensity"
+      - interaction_opportunities: "Viewer engagement moments"
+
+# Quality Standards for Script Planning
+quality_standards:
+  research_integration:
+    - accuracy_preservation: "All facts accurately represented"
+    - natural_flow: "Research enhances rather than interrupts narrative"
+    - appropriate_attribution: "Sources credited naturally and effectively"
+    - context_provision: "Facts given appropriate context and explanation"
+
+  script_quality:
+    - conversational_tone: "Script sounds natural when spoken"
+    - engagement_maintenance: "Viewer interest sustained throughout"
+    - clear_messaging: "Core video message effectively communicated"
+    - production_readiness: "Script ready for filming/recording"
+
+# Production Integration
+production_integration:
+  visual_coordination:
+    - research_visualization: "How facts can be visually supported"
+    - source_display: "Visual attribution and citation methods"
+    - data_presentation: "Charts, graphs, and infographic opportunities"
+    - expert_integration: "Video quotes or interview segments"
+
+  timing_optimization:
+    - pacing_coordination: "Script timing with visual elements"
+    - attention_management: "Balancing information density"
+    - retention_strategies: "Maintaining engagement throughout"
+    - conclusion_effectiveness: "Strong ending with clear takeaways"
+
+# File Management and Tracking
+file_management:
+  script_documentation:
+    - scene_scripts: "Individual scene-by-scene scripts"
+    - complete_script: "Full video script compilation"
+    - research_integration_map: "Fact placement and attribution guide"
+    - production_notes: "Guidance for video production team"
+
+  tracking_updates:
+    - tasks_md_update: "Script planning completion noted"
+    - changelog_entry: "Script development documented"
+    - status_update: "Video status changed to 'script_planned'"
+    - registry_update: "Production progress updated"
+
+# Success Criteria
+success_criteria:
+  - All approved research seamlessly integrated into script
+  - Script maintains natural, conversational flow
+  - Source attributions feel organic and appropriate
+  - Visual opportunities identified and noted
+  - Production guidance clear and actionable
+  - Script ready for final video compilation
+  - All quality standards met
+
+# Integration Points
+integration_points:
+  previous_workflow: execute-research.yaml
+  next_workflow: finalize-video.yaml
+
+  handoff_requirements:
+    - Complete script with integrated research
+    - Research attribution documentation
+    - Visual and production notes
+    - Quality validation completed
+
+# Error Handling
+error_handling:
+  research_integration_issues:
+    - action: "Revise integration strategy or fact placement"
+    - escalation: "Consult video-researcher for alternative approaches"
+    - quality_gate: "Do not proceed with poor integration"
+
+  script_quality_concerns:
+    - assessment: "Review against quality standards"
+    - revision: "Refine problematic sections"
+    - validation: "Test script readability and flow"
+
+  timeline_management:
+    - monitoring: "Track script development progress"
+    - adjustment: "Modify scope if necessary to meet timeline"
+    - prioritization: "Focus on core script elements first"
+
+# Special Considerations
+special_considerations:
+  stem_content_handling:
+    - accuracy_paramount: "Scientific accuracy takes priority"
+    - simplification_strategy: "Complex concepts explained clearly"
+    - expert_validation: "Consider expert review for technical content"
+    - visual_support: "Technical concepts supported with visuals"
+
+  audience_optimization:
+    - knowledge_level_matching: "Content appropriate for target audience"
+    - engagement_techniques: "Methods suitable for audience preferences"
+    - attention_span_consideration: "Pacing appropriate for platform and audience"
+    - value_delivery: "Clear benefit and takeaway for viewers"
+
+outputs:
+  primary:
+    name: Complete Script Planning Package
+    format: Comprehensive script documentation
+    components:
+      - Complete video script with integrated research
+      - Research attribution and fact-checking guide
+      - Visual and production notes
+      - Script quality assessment
+  secondary:
+    - Research integration effectiveness analysis
+    - Script engagement optimization report
+    - Production readiness checklist

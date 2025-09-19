@@ -1,0 +1,189 @@
+# Plan Series Workflow
+name: Plan Series Videos
+description: Generate next 5 videos based on series theme and previously created videos
+version: 1.0.0
+
+metadata:
+  category: series-planning
+  complexity: advanced
+  estimated_duration: 45-60 minutes
+  prerequisites:
+    - Existing series structure (from start-series)
+    - Series planning document completed
+    - Knowledge of previously created videos
+
+phases:
+  # Phase 1: Series Analysis
+  - name: Series Context Analysis
+    description: Analyze existing series content and progression
+    duration: 10-15 minutes
+    steps:
+      - action: Analyze existing series content
+        details: |
+          - REVIEW /series/{series-title}/data/series-plan.md
+          - SCAN /series/{series-title}/videos/ for completed videos
+          - ASSESS current knowledge progression
+          - IDENTIFY gaps in content coverage
+        deliverable: Series context analysis
+
+      - action: Update series registry status
+        details: |
+          - CHANGE state from 'draft' to 'ready_for_research'
+          - UPDATE video count and progression status
+          - LOG state transition in ChangeLog.md
+        deliverable: Updated series status
+
+  # Phase 2: Strategic Video Planning
+  - name: Strategic Video Planning
+    description: Plan next 5 videos with knowledge building progression
+    duration: 25-35 minutes
+    steps:
+      - agent: video-planner
+        action: Generate next 5 video concepts with strategic progression
+        deliverable: /series/{series-title}/data/next-videos-plan.md
+        dependencies: [series-plan.md, existing videos analysis]
+        interaction_level: medium
+        requires_user_input: true
+        details: |
+          - ANALYZE completed videos for knowledge progression
+          - IDENTIFY next logical topics in learning sequence
+          - PLAN 5 videos that build on existing foundation
+          - ENSURE each video advances series educational goals
+          - MAP dependencies between new and existing videos
+        quality_criteria:
+          - Videos build logically on existing content
+          - Knowledge gaps filled strategically
+          - Each video has clear learning objectives
+          - Dependencies properly mapped
+          - Series coherence maintained
+
+  # Phase 3: Video Prioritization
+  - name: Video Prioritization and Sequencing
+    description: Determine optimal order and priority for the 5 planned videos
+    duration: 10-15 minutes
+    steps:
+      - agent: video-planner
+        action: Create production priority and sequence plan
+        deliverable: /series/{series-title}/data/production-sequence.md
+        dependencies: [next-videos-plan.md]
+        details: |
+          - RANK videos by knowledge building importance
+          - SEQUENCE videos for optimal learning progression
+          - IDENTIFY prerequisite relationships
+          - PLAN production timeline considerations
+          - MARK videos ready for individual planning
+        quality_criteria:
+          - Clear production priorities established
+          - Sequence optimizes learning progression
+          - Prerequisites clearly mapped
+          - Production timeline realistic
+
+  # Phase 4: Series Updates
+  - name: Series Documentation Updates
+    description: Update all series tracking and planning documents
+    duration: 5-10 minutes
+    steps:
+      - action: Update series tracking documents
+        details: |
+          - UPDATE /series/{series-title}/data/video-ideas.md with new concepts
+          - APPEND new videos to series progression plan
+          - UPDATE /series/registry.md with planned video count
+          - LOG planning session in ChangeLog.md
+        deliverable: Complete series documentation update
+
+      - action: Prepare for individual video planning
+        details: |
+          - CREATE placeholder folders for next 5 videos
+          - INITIALIZE basic structure for each video
+          - MARK videos as ready for plan-video workflow
+          - SET up production tracking
+        deliverable: Videos ready for individual planning
+
+# Video Analysis Framework
+video_analysis:
+  existing_content_review:
+    - knowledge_coverage: "What topics have been covered"
+    - progression_level: "Current complexity and depth level"
+    - audience_feedback: "Insights from completed videos"
+    - gap_identification: "Missing topics or knowledge gaps"
+
+  next_video_criteria:
+    - builds_on_existing: "Uses knowledge from previous videos"
+    - fills_knowledge_gap: "Addresses missing information"
+    - advances_progression: "Moves audience to next level"
+    - maintains_engagement: "Keeps series interesting"
+    - serves_series_goal: "Supports overall series objectives"
+
+# Planning Output Structure
+planning_outputs:
+  next_videos_plan:
+    format: "Structured list of 5 video concepts"
+    includes:
+      - video_title: "Working title for video"
+      - learning_objective: "What viewers will learn"
+      - prerequisites: "Required knowledge from previous videos"
+      - knowledge_advancement: "How this advances series progression"
+      - content_outline: "Basic content structure"
+      - estimated_complexity: "Production difficulty level"
+
+  production_sequence:
+    format: "Prioritized production order"
+    includes:
+      - priority_ranking: "1-5 priority order"
+      - production_rationale: "Why this order is optimal"
+      - dependency_notes: "What must be completed first"
+      - timeline_estimates: "Expected production duration"
+
+# Success Criteria
+success_criteria:
+  - 5 new videos planned with clear learning objectives
+  - Knowledge progression maintains series coherence
+  - Dependencies properly mapped to existing content
+  - Production sequence optimized for efficiency
+  - Series documentation fully updated
+  - Videos ready for individual plan-video workflow
+
+# Integration Points
+integration:
+  previous_workflow: start-series.yaml
+  next_workflow: plan-video.yaml
+  series_state_change: "draft → ready_for_research"
+
+preparation_for_next:
+  - Individual video folders created
+  - Basic structure initialized
+  - Knowledge dependencies documented
+  - Ready for detailed video planning
+
+# Quality Gates
+quality_gates:
+  knowledge_progression:
+    - videos_build_logically: "Each video builds on previous knowledge"
+    - gaps_addressed: "Knowledge gaps systematically filled"
+    - complexity_appropriate: "Difficulty progression is suitable"
+
+  series_coherence:
+    - theme_consistency: "Videos align with series theme"
+    - format_consistency: "Videos follow series format standards"
+    - audience_targeting: "Videos serve defined audience"
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-planner
+  fallback_workflow: revise-series-planning
+
+outputs:
+  primary:
+    name: Series Video Plan Package
+    format: Multiple planning documents
+    components:
+      - Next 5 videos detailed plan
+      - Production sequence and priorities
+      - Updated series documentation
+      - Individual video preparation
+  secondary:
+    - Knowledge progression validation
+    - Series coherence maintenance
+    - Production workflow optimization

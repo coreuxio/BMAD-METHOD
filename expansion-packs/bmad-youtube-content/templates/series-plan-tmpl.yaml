@@ -1,0 +1,238 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: series-plan-template-v1
+  name: Series Plan Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: series-plan.md
+    title: "Series Plan"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: series-foundation
+    title: Series Foundation
+    instruction: Core series concept and strategic planning
+    elicit: true
+    sections:
+      - id: series-concept
+        title: Series Concept
+        type: structured-list
+        elicit: true
+        fields:
+          - "Series Title": "Working title for the video series"
+          - "Core Theme": "Central topic or subject area"
+          - "Educational Goals": "What viewers will learn from complete series"
+          - "Unique Value Proposition": "What makes this series different"
+          - "Series Duration": "Expected total watch time"
+          - "Content Category": "Educational, Tutorial, Analysis, etc."
+
+      - id: target-audience
+        title: Target Audience
+        type: structured-list
+        elicit: true
+        fields:
+          - "Primary Audience": "Main target demographic"
+          - "Knowledge Level": "Beginner, Intermediate, Advanced, Mixed"
+          - "Prerequisites": "What viewers should know before starting"
+          - "Audience Goals": "What audience wants to achieve"
+          - "Engagement Style": "How audience prefers to learn"
+          - "Platform Behavior": "How they use YouTube/video content"
+
+  - id: knowledge-architecture
+    title: Knowledge Architecture
+    instruction: Structure how knowledge builds throughout the series
+    elicit: true
+    sections:
+      - id: learning-progression
+        title: Learning Progression
+        type: structured-list
+        elicit: true
+        fields:
+          - "Foundation Concepts": "Core ideas that must be established first"
+          - "Building Blocks": "Concepts that build on foundations"
+          - "Advanced Topics": "Complex ideas requiring prerequisites"
+          - "Integration Points": "Where concepts combine"
+          - "Mastery Indicators": "How to measure learning success"
+
+      - id: dependency-mapping
+        title: Knowledge Dependencies
+        type: structured-list
+        elicit: true
+        fields:
+          - "Sequential Dependencies": "A must come before B"
+          - "Circular References": "Advanced topics that reference multiple earlier ones"
+          - "Standalone Topics": "Content that doesn't require prerequisites"
+          - "Cross-References": "Opportunities to reference earlier videos"
+          - "Reinforcement Points": "Where to strengthen previous learning"
+
+  - id: series-structure
+    title: Series Structure
+    instruction: Organize the overall series framework
+    elicit: true
+    sections:
+      - id: format-consistency
+        title: Format Consistency
+        type: structured-list
+        elicit: true
+        fields:
+          - "Episode Length": "Target duration per video"
+          - "Opening Format": "Consistent intro structure"
+          - "Content Structure": "How each video is organized"
+          - "Closing Format": "Consistent outro and next episode preview"
+          - "Visual Style": "Consistent visual elements"
+          - "Tone and Voice": "Personality and communication style"
+
+      - id: progression-types
+        title: Progression Types
+        type: structured-list
+        elicit: true
+        fields:
+          - "Linear Path": "Sequential learning (A → B → C)"
+          - "Branching Paths": "Multiple routes from foundation"
+          - "Circular Learning": "Advanced videos referencing multiple earlier ones"
+          - "Skill Levels": "Beginner, intermediate, advanced tracks"
+          - "Topic Clusters": "Related videos grouped together"
+
+  - id: content-strategy
+    title: Content Strategy
+    instruction: Strategic approach to content creation and delivery
+    elicit: true
+    sections:
+      - id: engagement-strategy
+        title: Engagement Strategy
+        type: structured-list
+        elicit: true
+        fields:
+          - "Hook Strategies": "How to capture attention in each video"
+          - "Retention Techniques": "Keeping viewers throughout video"
+          - "Callback Mechanisms": "References to previous videos"
+          - "Forward Momentum": "Building anticipation for next videos"
+          - "Community Building": "Encouraging viewer interaction"
+
+      - id: educational-approach
+        title: Educational Approach
+        type: structured-list
+        elicit: true
+        fields:
+          - "Teaching Philosophy": "How you approach education"
+          - "Learning Reinforcement": "How concepts are reinforced"
+          - "Practical Applications": "Real-world examples and exercises"
+          - "Difficulty Progression": "How complexity increases"
+          - "Assessment Opportunities": "Ways viewers can test understanding"
+
+  - id: series-scalability
+    title: Series Scalability
+    instruction: Plan for infinite expandability and growth
+    elicit: true
+    sections:
+      - id: expansion-framework
+        title: Expansion Framework
+        type: structured-list
+        elicit: true
+        fields:
+          - "Core Series Scope": "Essential videos for complete series"
+          - "Extension Opportunities": "Areas where series can grow"
+          - "Depth Expansion": "Going deeper into existing topics"
+          - "Breadth Expansion": "Adding related topic areas"
+          - "Advanced Tracks": "Higher-level content for experienced viewers"
+          - "Specialization Paths": "Focused sub-series for specific interests"
+
+      - id: modular-design
+        title: Modular Design
+        type: structured-list
+        elicit: true
+        fields:
+          - "Self-Contained Units": "Videos that work independently"
+          - "Cluster Dependencies": "Groups of related videos"
+          - "Optional Deep Dives": "Videos that enhance but aren't required"
+          - "Multiple Entry Points": "Where new viewers can start"
+          - "Exit Points": "Natural stopping points for different goals"
+
+  - id: production-planning
+    title: Production Planning
+    instruction: Practical planning for series execution
+    elicit: true
+    sections:
+      - id: resource-requirements
+        title: Resource Requirements
+        type: structured-list
+        elicit: true
+        fields:
+          - "Research Intensity": "Level of research needed per video"
+          - "Production Complexity": "Visual and editing requirements"
+          - "Expertise Needed": "Subject matter expertise required"
+          - "Time Investment": "Expected production time per video"
+          - "Equipment Needs": "Special equipment or software"
+
+      - id: timeline-strategy
+        title: Timeline Strategy
+        type: structured-list
+        elicit: true
+        fields:
+          - "Production Schedule": "How frequently videos will be created"
+          - "Release Schedule": "How frequently videos will be published"
+          - "Milestone Planning": "Key checkpoints and goals"
+          - "Buffer Strategy": "How to handle production delays"
+          - "Quality Gates": "When to pause and review progress"
+
+  - id: success-metrics
+    title: Success Metrics
+    instruction: Define how series success will be measured
+    elicit: true
+    sections:
+      - id: educational-success
+        title: Educational Success Metrics
+        type: structured-list
+        elicit: true
+        fields:
+          - "Learning Outcomes": "Specific skills/knowledge gained"
+          - "Knowledge Retention": "How well concepts stick"
+          - "Skill Application": "Viewers applying what they learned"
+          - "Progression Tracking": "Movement through difficulty levels"
+          - "Completion Rates": "Percentage watching full series"
+
+      - id: engagement-metrics
+        title: Engagement Metrics
+        type: structured-list
+        elicit: true
+        fields:
+          - "Series Consistency": "Viewers watching multiple episodes"
+          - "Cross-Episode References": "Understanding of connections"
+          - "Community Building": "Comments, discussion, sharing"
+          - "Return Viewers": "Audience coming back for new episodes"
+          - "Recommendation Success": "Organic series discovery"
+
+  - id: risk-mitigation
+    title: Risk Mitigation
+    instruction: Plan for potential challenges and solutions
+    sections:
+      - id: content-risks
+        title: Content Risks
+        type: structured-list
+        fields:
+          - "Scope Creep": "Series becoming too large or complex"
+          - "Knowledge Gaps": "Missing prerequisite information"
+          - "Consistency Loss": "Format or quality drift over time"
+          - "Outdated Information": "Content becoming obsolete"
+          - "Audience Mismatch": "Content not meeting audience needs"
+
+      - id: production-risks
+        title: Production Risks
+        type: structured-list
+        fields:
+          - "Timeline Delays": "Production taking longer than expected"
+          - "Quality Decline": "Standards dropping under pressure"
+          - "Resource Constraints": "Limited time, budget, or expertise"
+          - "Technology Changes": "Platform or tool changes affecting series"
+          - "Creator Burnout": "Maintaining motivation through long series"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track series plan updates and revisions

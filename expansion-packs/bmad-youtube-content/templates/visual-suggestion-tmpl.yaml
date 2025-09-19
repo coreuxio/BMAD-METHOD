@@ -1,0 +1,111 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: visual-suggestion-template-v1
+  name: Visual Suggestion Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: visual-suggestions.md
+    title: "Visual Suggestion Template"
+
+workflow:
+  mode: reference
+
+sections:
+  - id: visual-note-system
+    title: Visual Note System
+    instruction: How to suggest visuals while preserving editor creativity
+    sections:
+      - id: notation-format
+        title: Notation Format
+        type: structured-list
+        fields:
+          - "Visual Notes": "[VISUAL NOTE: Suggestion description]"
+          - "Editor Notes": "[EDITOR NOTE: Creative guidance]"
+          - "Flexibility": "All suggestions are optional"
+      - id: suggestion-types
+        title: Types of Visual Suggestions
+        type: bullet-list
+        examples:
+          - "Primary visuals (main focus)"
+          - "B-roll footage (supporting)"
+          - "Graphics and animations"
+          - "Text overlays"
+          - "Transitions and effects"
+
+  - id: content-based-visuals
+    title: Content-Based Visual Ideas
+    instruction: Visual suggestions organized by content type
+    sections:
+      - id: educational-content
+        title: Educational Content
+        type: visual-category
+        suggestions:
+          - "Animated explanations of concepts"
+          - "Step-by-step screen recordings"
+          - "Infographics with data"
+          - "Diagrams and flowcharts"
+      - id: data-visualization
+        title: Data and Statistics
+        type: visual-category
+        suggestions:
+          - "Bar charts and graphs"
+          - "Animated number counters"
+          - "Comparison visuals"
+          - "Timeline graphics"
+      - id: storytelling-visuals
+        title: Storytelling Elements
+        type: visual-category
+        suggestions:
+          - "Relevant B-roll footage"
+          - "Historical images/video"
+          - "Personal photos/clips"
+          - "Metaphorical imagery"
+
+  - id: engagement-techniques
+    title: Visual Engagement Techniques
+    instruction: Visuals that maintain viewer attention
+    sections:
+      - id: attention-retention
+        title: Attention Retention Visuals
+        type: bullet-list
+        examples:
+          - "Pattern interrupts (sudden visual changes)"
+          - "Movement and animation"
+          - "Color contrast and highlights"
+          - "Visual variety every 30 seconds"
+      - id: information-clarity
+        title: Information Clarity
+        type: bullet-list
+        examples:
+          - "Key points highlighted on screen"
+          - "Complex concepts broken into visuals"
+          - "Progress indicators"
+          - "Visual summaries"
+
+  - id: production-considerations
+    title: Production Considerations
+    instruction: Practical guidance for visual implementation
+    sections:
+      - id: editor-flexibility
+        title: Editor Flexibility Guidelines
+        type: structured-list
+        fields:
+          - "Creative Freedom": "All suggestions are optional"
+          - "Alternative Options": "Editor can substitute better ideas"
+          - "Resource Constraints": "Adjust based on available assets"
+          - "Time Limitations": "Simplify if needed"
+      - id: visual-consistency
+        title: Visual Consistency
+        type: structured-list
+        fields:
+          - "Brand Colors": "Maintain channel consistency"
+          - "Typography": "Consistent font choices"
+          - "Animation Style": "Cohesive motion graphics"
+          - "Quality Standards": "Professional appearance"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track visual suggestion template updates

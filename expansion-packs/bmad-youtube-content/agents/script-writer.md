@@ -87,9 +87,9 @@ dependencies:
     - polish-script-flow.md
     - write-compelling-hooks.md
   templates:
-    - video-script-tmpl.md
-    - scene-script-tmpl.md
-    - attribution-patterns-tmpl.md
+    - video-script-tmpl.yaml
+    - scene-script-tmpl.yaml
+    - attribution-patterns-tmpl.yaml
   checklists:
     - video-script-checklist.md
     - fact-integration-checklist.md

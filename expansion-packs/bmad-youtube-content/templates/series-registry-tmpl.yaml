@@ -1,0 +1,155 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: series-registry-template-v1
+  name: Series Registry Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: series/registry.md
+    title: "Video Series Registry"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: series-overview
+    title: Video Series Registry
+    instruction: |
+      Central tracking system for all video series and their episodes.
+    sections:
+      - id: active-series
+        title: Active Series
+        type: table
+        columns: ["Series Title", "Start Date", "Episodes Count", "Planned Count", "Current State", "Last Updated"]
+        instruction: Series currently in production
+        elicit: true
+        validation:
+          required: [series_title, start_date, current_state]
+          states: [draft, ready_for_research, in_development, completed]
+      - id: completed-series
+        title: Completed Series
+        type: table
+        columns: ["Series Title", "Completion Date", "Episode Count", "Total Runtime", "Performance"]
+        instruction: Finished series with performance metrics
+
+  - id: state-tracking
+    title: State Tracking
+    instruction: Monitor series progression through development states
+    sections:
+      - id: state-definitions
+        title: State Definitions
+        type: structured-list
+        fields:
+          - "Draft": "Series created, concept being refined"
+          - "Ready for Research": "Video list approved, ready for detailed planning"
+          - "In Development": "Videos being actively produced"
+          - "Completed": "All planned videos finished and published"
+      - id: state-transitions
+        title: Recent State Transitions
+        type: table
+        columns: [Series, Previous State, New State, Transition Date, Trigger, Notes]
+        instruction: Track recent state changes for audit trail
+
+  - id: series-details
+    title: Series Details
+    instruction: |
+      Comprehensive information for each series project.
+    sections:
+      - id: series-entries
+        title: Series Project Entries
+        type: structured-entries
+        instruction: Detailed tracking for each series
+        template:
+          - "Series Title": "Full title of the series"
+          - "Description": "Series overview and purpose"
+          - "Target Audience": "Primary audience"
+          - "Episode Format": "Typical episode structure"
+          - "Planned Episodes": "Total planned count"
+          - "Release Schedule": "Timeline/frequency"
+          - "ChangeLog": "Link to series ChangeLog.md"
+          - "Current State": "draft/ready_for_research/in_development/completed"
+          - "Folder Location": "Path to series folder"
+
+  - id: episode-tracking
+    title: Episode Management
+    instruction: |
+      Track individual episodes within each series.
+    sections:
+      - id: episode-list
+        title: Episode List
+        type: table
+        columns: ["Episode #", "Title", "Status", "Production Level", "Length", "Release Date"]
+        instruction: Individual episode tracking
+      - id: series-continuity
+        title: Series Continuity
+        type: structured-list
+        instruction: Elements that maintain consistency across episodes
+        fields:
+          - "Recurring Themes": "Themes across episodes"
+          - "Character/Expert Continuity": "Recurring people"
+          - "Visual Style": "Consistent visual elements"
+          - "Cross-References": "Episode interconnections"
+
+  - id: series-resources
+    title: Series Resources
+    instruction: |
+      Shared resources and assets across the series.
+    sections:
+      - id: shared-assets
+        title: Series Resources
+        type: structured-list
+        instruction: Resources shared across episodes
+        fields:
+          - "Research Database": "Shared research across episodes"
+          - "Asset Library": "Shared visual assets"
+          - "Style Guide": "Series visual/narrative guidelines"
+          - "Music/Sound": "Consistent audio elements"
+
+  - id: production-pipeline
+    title: Production Pipeline
+    instruction: |
+      Track series through various production stages.
+    sections:
+      - id: planning-series
+        title: Series in Planning
+        type: bullet-list
+        instruction: Series being planned
+        examples:
+          - "Series 1: Brief status"
+          - "Series 2: Brief status"
+      - id: production-series
+        title: Series in Production
+        type: structured-list
+        instruction: Active production tracking
+        fields:
+          - "Series 1": "Episodes completed/total"
+          - "Series 2": "Episodes completed/total"
+      - id: upcoming-releases
+        title: Upcoming Releases
+        type: structured-list
+        instruction: Scheduled releases
+        fields:
+          - "Series/Episode": "Release date"
+
+  - id: series-statistics
+    title: Series Statistics
+    instruction: |
+      Overview metrics for series production.
+    sections:
+      - id: summary-stats
+        title: Summary Statistics
+        type: structured-list
+        fields:
+          - "Total Series": "Count"
+          - "Active Series": "Count"
+          - "Completed Series": "Count"
+          - "Total Episodes Produced": "Count"
+          - "Average Episodes per Series": "Number"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track series registry updates and modifications

@@ -1,0 +1,264 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: series-changelog-template-v1
+  name: Series ChangeLog Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: ChangeLog.md
+    title: "Series ChangeLog"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: changelog-header
+    title: ChangeLog Header
+    instruction: Basic information about the series changelog
+    elicit: true
+    sections:
+      - id: series-info
+        title: Series Information
+        type: structured-list
+        elicit: true
+        fields:
+          - "Series Title": "Full name of the video series"
+          - "Creation Date": "When series was first created"
+          - "Current State": "draft/ready_for_research/in_development/completed"
+          - "Last Updated": "Most recent changelog entry date"
+          - "Total Videos": "Current count of completed videos"
+          - "Planned Videos": "Target number of videos in series"
+
+  - id: recent-entries
+    title: Recent Changes
+    instruction: Most recent changelog entries (last 30 days)
+    sections:
+      - id: current-entry
+        title: Current Entry Template
+        type: changelog-entry
+        elicit: true
+        template: |
+          ## [Date] - [Agent/User Name]
+          ### Changed
+          - [Description of changes made]
+          ### Files Modified
+          - [List of files changed]
+          ### State Updates
+          - [Any state transitions or status changes]
+          ### Next Steps
+          - [What needs to happen next]
+
+      - id: state-transitions
+        title: State Transition Log
+        type: table
+        columns: [Date, Previous State, New State, Trigger, Agent/User, Notes]
+        instruction: Track all state changes for audit trail
+        elicit: true
+
+  - id: development-phases
+    title: Development Phase History
+    instruction: Track progress through each development phase
+    sections:
+      - id: draft-phase
+        title: Draft Phase
+        type: phase-tracker
+        instruction: Series creation and initial concept development
+        sections:
+          - id: draft-activities
+            title: Draft Phase Activities
+            type: bullet-list
+            examples:
+              - "Series concept defined"
+              - "Initial video brainstorming completed"
+              - "Target audience identified"
+              - "Series theme refined"
+
+      - id: research-ready-phase
+        title: Ready for Research Phase
+        type: phase-tracker
+        instruction: Video list development and approval
+        sections:
+          - id: research-activities
+            title: Research Ready Activities
+            type: bullet-list
+            examples:
+              - "Video ideas list generated"
+              - "User feedback incorporated"
+              - "Video list approved"
+              - "Knowledge dependencies mapped"
+
+      - id: development-phase
+        title: In Development Phase
+        type: phase-tracker
+        instruction: Active video production and series building
+        sections:
+          - id: development-activities
+            title: Development Activities
+            type: bullet-list
+            examples:
+              - "Execution plan created"
+              - "Video production started"
+              - "Knowledge building validated"
+              - "Series consistency maintained"
+
+      - id: completion-phase
+        title: Completion Phase
+        type: phase-tracker
+        instruction: Series finalization and archival
+        sections:
+          - id: completion-activities
+            title: Completion Activities
+            type: bullet-list
+            examples:
+              - "All planned videos completed"
+              - "Series review conducted"
+              - "Final documentation created"
+              - "Series archived"
+
+  - id: video-tracking
+    title: Individual Video Tracking
+    instruction: Track progress of individual videos within the series
+    sections:
+      - id: video-progress
+        title: Video Production Progress
+        type: table
+        columns: [Video Title, Planning Date, Research Complete, Script Complete, Production Complete, Status]
+        instruction: Track each video through production pipeline
+        elicit: true
+
+      - id: video-dependencies
+        title: Video Dependencies
+        type: structured-list
+        instruction: Track knowledge building dependencies between videos
+        elicit: true
+        fields:
+          - "Foundation Videos": "Videos that establish basic concepts"
+          - "Prerequisite Chains": "Videos that depend on previous ones"
+          - "Cross-References": "Videos that reference each other"
+          - "Standalone Videos": "Videos that can be watched independently"
+
+  - id: knowledge-building
+    title: Knowledge Building Tracking
+    instruction: Monitor how the series builds knowledge progressively
+    sections:
+      - id: concept-progression
+        title: Concept Progression
+        type: structured-list
+        elicit: true
+        fields:
+          - "Core Concepts": "Fundamental ideas established early"
+          - "Building Concepts": "Ideas that build on foundations"
+          - "Advanced Concepts": "Complex ideas requiring prerequisites"
+          - "Integration Points": "Where concepts come together"
+
+      - id: learning-validation
+        title: Learning Validation
+        type: bullet-list
+        instruction: Validate that knowledge building is effective
+        examples:
+          - "Prerequisites clearly established"
+          - "Concept progression logical"
+          - "Callbacks to previous videos effective"
+          - "Knowledge gaps identified and addressed"
+
+  - id: production-metrics
+    title: Production Metrics
+    instruction: Track production efficiency and quality metrics
+    sections:
+      - id: time-tracking
+        title: Time Tracking
+        type: structured-list
+        fields:
+          - "Average Planning Time": "Time per video planning"
+          - "Average Research Time": "Time per video research"
+          - "Average Script Time": "Time per video script"
+          - "Total Series Time": "Cumulative production time"
+
+      - id: quality-metrics
+        title: Quality Metrics
+        type: structured-list
+        fields:
+          - "Source Quality": "Average source credibility"
+          - "Fact Density": "Facts per video minute"
+          - "Knowledge Consistency": "Series coherence score"
+          - "User Satisfaction": "Feedback and approval rates"
+
+  - id: challenges-solutions
+    title: Challenges and Solutions
+    instruction: Document problems encountered and how they were resolved
+    sections:
+      - id: production-challenges
+        title: Production Challenges
+        type: challenge-tracker
+        elicit: true
+        template: |
+          ### Challenge: [Brief description]
+          - **Date Encountered**: [Date]
+          - **Impact**: [How it affected production]
+          - **Solution**: [How it was resolved]
+          - **Prevention**: [How to avoid in future]
+
+      - id: knowledge-challenges
+        title: Knowledge Building Challenges
+        type: challenge-tracker
+        elicit: true
+        template: |
+          ### Challenge: [Knowledge issue]
+          - **Videos Affected**: [Which videos]
+          - **Dependency Issue**: [What prerequisite was missing]
+          - **Resolution**: [How dependency was addressed]
+          - **Series Impact**: [Effect on overall series]
+
+  - id: series-evolution
+    title: Series Evolution
+    instruction: Track how the series concept and scope evolved over time
+    sections:
+      - id: scope-changes
+        title: Scope Changes
+        type: table
+        columns: [Date, Original Plan, New Plan, Reason, Impact]
+        instruction: Track changes to series scope and direction
+        elicit: true
+
+      - id: format-evolution
+        title: Format Evolution
+        type: structured-list
+        instruction: How video format and style evolved
+        elicit: true
+        fields:
+          - "Initial Format": "Original video format plan"
+          - "Format Changes": "How format evolved"
+          - "Consistency Maintenance": "How consistency was preserved"
+          - "Lessons Learned": "Insights from format evolution"
+
+  - id: completion-summary
+    title: Completion Summary
+    instruction: Final summary when series reaches completed state
+    sections:
+      - id: final-metrics
+        title: Final Series Metrics
+        type: structured-list
+        fields:
+          - "Total Videos Produced": "Final count"
+          - "Total Production Time": "Time from start to finish"
+          - "Knowledge Objectives Met": "Learning goals achieved"
+          - "Series Coherence": "Overall consistency rating"
+          - "User Satisfaction": "Final approval and feedback"
+
+      - id: lessons-learned
+        title: Lessons Learned
+        type: bullet-list
+        instruction: Key insights for future series
+        examples:
+          - "What worked well in this series"
+          - "What could be improved"
+          - "Best practices identified"
+          - "Recommendations for future series"
+
+  - id: changelog
+    title: Template Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track changelog template updates

@@ -1,0 +1,91 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: timestamp-guide-template-v1
+  name: YouTube Timestamp Guide Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: timestamp-guide.md
+    title: "Timestamp Guide Template"
+
+workflow:
+  mode: reference
+
+sections:
+  - id: platform-requirements
+    title: YouTube Chapter Fundamentals
+    instruction: Basic requirements for YouTube chapters
+    sections:
+      - id: requirements
+        title: Platform Requirements
+        type: structured-list
+        fields:
+          - "Minimum chapters": "3 chapters required"
+          - "First chapter": "Must start at 00:00"
+          - "Minimum duration": "Each chapter must be 10+ seconds"
+          - "Format": "00:00 or 0:00:00 for longer videos"
+          - "Description placement": "In video description"
+
+  - id: format-examples
+    title: Timestamp Format Examples
+    instruction: Examples for different video lengths
+    sections:
+      - id: short-videos
+        title: Short Videos (Under 10 minutes)
+        type: timestamp-example
+        example: |
+          0:00 Introduction
+          0:45 Main Topic Begins
+          2:30 Example Demonstration
+          4:15 Common Mistakes
+          6:00 Summary & Next Steps
+      - id: medium-videos
+        title: Medium Videos (10-30 minutes)
+        type: timestamp-example
+        example: |
+          00:00 Hook & Overview
+          01:30 Background Context
+          05:00 Method Explanation
+          08:45 First Example
+          12:30 Second Example
+          16:00 Advanced Techniques
+          20:00 Troubleshooting
+          24:00 Conclusion
+
+  - id: best-practices
+    title: Chapter Title Best Practices
+    instruction: How to create effective chapter titles
+    sections:
+      - id: seo-optimization
+        title: SEO-Optimized Titles
+        type: good-bad-examples
+        good:
+          - "00:00 How to Install Python"
+          - "02:30 Python Installation Errors Fixed"
+          - "05:00 Setting Up Virtual Environment"
+        bad:
+          - "00:00 Start"
+          - "02:30 Next Part"
+          - "05:00 More Stuff"
+
+  - id: strategic-placement
+    title: Strategic Chapter Placement
+    instruction: How to optimize chapter placement for retention
+    sections:
+      - id: retention-optimization
+        title: Retention Optimization
+        type: timestamp-strategy
+        strategy: |
+          00:00 Hook (Keep them watching)
+          00:30 Value Promise (What they'll gain)
+          02:00 First Value Delivery
+          04:00 Engagement Point
+          06:00 Second Value Delivery
+          08:00 Call to Action
+          09:30 Bonus Content
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track guide updates

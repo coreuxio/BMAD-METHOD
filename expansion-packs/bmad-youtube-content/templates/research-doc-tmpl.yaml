@@ -1,0 +1,387 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: research-doc-template-v1
+  name: YouTube Video Research Document Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: research-tasks/research-compiled-approved.md
+    title: "Research Document: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: executive-summary
+    title: Executive Summary
+    instruction: |
+      Provide a high-level overview of research completion and key findings. This section helps other team members quickly understand research scope and confidence.
+    sections:
+      - id: research-metadata
+        title: Research Metadata
+        type: structured-list
+        instruction: Basic information about research completion and scope
+        fields:
+          - "Research Completed": "Date of completion"
+          - "Total Sources Reviewed": "Number of sources examined"
+          - "Credible Sources Used": "Number of sources that met quality standards"
+          - "Research Hours": "Time invested in research"
+      - id: key-findings
+        title: Key Findings
+        type: numbered-list
+        instruction: 3-5 most important discoveries that support or reshape the video message
+        examples:
+          - "Most important finding that validates core message"
+          - "Surprising discovery that adds depth"
+          - "Critical limitation that affects approach"
+        required: true
+      - id: confidence-level
+        title: Research Confidence Level
+        type: structured-list
+        instruction: Overall assessment of research quality and completeness
+        fields:
+          - "Overall Confidence": "High/Medium/Low"
+          - "Reason": "Brief explanation of confidence level"
+          - "Research Limitations": "Any significant gaps or constraints"
+
+  - id: core-message-support
+    title: Core Message Support
+    instruction: |
+      Connect research findings directly to the video's core message. This ensures research serves the narrative purpose.
+    elicit: true
+    sections:
+      - id: message-restatement
+        title: Video's Core Message
+        type: text
+        instruction: Restate the core message from the video plan for reference
+        required: true
+      - id: research-support
+        title: How Research Supports the Message
+        type: paragraphs
+        instruction: Explain how findings reinforce, validate, or potentially modify the core message
+        required: true
+
+  - id: researched-facts
+    title: Researched Facts
+    instruction: |
+      Organize all verified facts by category. Each fact must include source, credibility assessment, and usage guidance.
+    elicit: true
+    sections:
+      - id: fact-categories
+        title: Fact Categories
+        type: category-sections
+        instruction: Group facts by topic area, with each category containing multiple verified facts
+        template:
+          category-title: "[Topic Area - e.g., Historical Context, Current Statistics, Expert Analysis]"
+          facts:
+            - id: "fact-statement"
+              title: "Fact Statement"
+              type: "text"
+              instruction: "The factual claim in clear, quotable language"
+              required: true
+            - id: "source-citation"
+              title: "Source"
+              type: "text"
+              instruction: "Author/Organization - Title (Year)"
+              required: true
+            - id: "source-link"
+              title: "Website URL"
+              type: "url"
+              instruction: "**CRITICAL: Complete website URL - mandatory for all sources**"
+              required: true
+              validation: "Must be complete web address starting with http:// or https://"
+            - id: "credibility-rating"
+              title: "Credibility"
+              type: "select"
+              options: ["High", "Medium", "Low"]
+              instruction: "Assessment based on source authority and evidence quality"
+              required: true
+            - id: "credibility-reasoning"
+              title: "Credibility Reasoning"
+              type: "text"
+              instruction: "Why this source is reliable/unreliable - basis for credibility rating"
+              required: true
+            - id: "usage-notes"
+              title: "Usage Notes"
+              type: "text"
+              instruction: "How this fact supports the video narrative and where it fits"
+              required: true
+            - id: "attribution-quote"
+              title: "Quote for Attribution"
+              type: "text"
+              instruction: "Exact quote if needed for script attribution (optional)"
+
+  - id: statistics-data
+    title: Statistics & Data
+    instruction: |
+      Compile quantitative data with full context and visual potential assessment.
+    sections:
+      - id: data-points
+        title: Statistical Data Points
+        type: structured-entries
+        instruction: Each statistic with full context and verification
+        template:
+          - "Statistic Description": "What it measures"
+          - "Figure": "The actual number/percentage"
+          - "Source": "Full citation"
+          - "Website URL": "**MANDATORY: Complete web address**"
+          - "Date of Data": "When was this data collected"
+          - "Credibility": "High/Medium/Low"
+          - "Context": "Important context for understanding this statistic"
+          - "Visual Potential": "Could this be shown graphically? How?"
+          - "Comparison Data": "Any relevant comparative figures"
+
+  - id: expert-opinions
+    title: Expert Opinions & Quotes
+    instruction: |
+      Document expert perspectives with full credentials and context for authority building.
+    sections:
+      - id: expert-sources
+        title: Expert Sources
+        type: structured-entries
+        instruction: Each expert with credentials, quotes, and usage guidance
+        template:
+          - "Expert Name": "Full name and title"
+          - "Credentials": "Why they're an authority on this topic"
+          - "Quote": "Relevant quote or paraphrase"
+          - "Source": "Where this appeared (interview, article, etc.)"
+          - "Website URL": "**CRITICAL: Complete website link required**"
+          - "Context": "When/why they said this"
+          - "Usage": "How this supports our narrative"
+          - "Contact Info": "If available for follow-up"
+
+  - id: controversial-info
+    title: Controversial or Disputed Information
+    instruction: |
+      Address any topics where expert opinion is divided or information is contested.
+    sections:
+      - id: controversial-topics
+        title: Controversial Topics
+        type: structured-entries
+        instruction: Each controversial area with balanced perspective
+        template:
+          - "Topic": "Controversial area"
+          - "The Controversy": "What's disputed"
+          - "Position A": "First viewpoint with source"
+          - "Position B": "Second viewpoint with source"
+          - "Additional Positions": "Other perspectives if relevant"
+          - "Our Approach": "How we'll handle this in the video"
+          - "Attribution Strategy": "How to present balanced view"
+
+  - id: content-categorization
+    title: Personal Experience vs. Factual Content
+    instruction: |
+      Clearly distinguish between content requiring sources and personal experience sections.
+    sections:
+      - id: requires-sources
+        title: Sections Requiring Sources
+        type: bullet-list
+        instruction: All claims that need citations for credibility
+        examples:
+          - "Scientific or technical assertions"
+          - "Statistical claims"
+          - "Historical facts"
+          - "Medical or health information"
+          - "Legal or regulatory statements"
+      - id: personal-experience
+        title: Sections That Are Personal Experience
+        type: bullet-list
+        instruction: Content clearly attributed to creator experience
+        examples:
+          - "Creator's personal stories - no source needed"
+          - "Opinion sections - clearly marked as opinion"
+          - "Anecdotal examples - identified as such"
+          - "Personal recommendations based on experience"
+
+  - id: research-gaps
+    title: Research Gaps & Limitations
+    instruction: |
+      Document what couldn't be found or verified, and how this affects the video.
+    sections:
+      - id: information-gaps
+        title: Information We Couldn't Find
+        type: structured-entries
+        instruction: Missing information and impact assessment
+        template:
+          - "Gap": "What we couldn't verify or find"
+          - "Impact": "How this affects the video"
+          - "Mitigation": "How we'll address this limitation"
+          - "Alternative Approaches": "Other ways to address the topic"
+      - id: research-limitations
+        title: Limitations of Available Research
+        type: bullet-list
+        instruction: Quality limitations in available sources
+        examples:
+          - "Outdated studies (specify timeframe)"
+          - "Limited sample sizes"
+          - "Geographic restrictions"
+          - "Industry or funding bias"
+          - "Language barriers"
+
+  - id: source-quality
+    title: Source Quality Assessment
+    instruction: |
+      Categorize sources by credibility tier for script attribution guidance.
+    sections:
+      - id: tier1-sources
+        title: Tier 1 Sources (Highest Credibility)
+        type: bullet-list
+        instruction: Most authoritative sources - use with confidence
+        examples:
+          - "Peer-reviewed journals"
+          - "Government statistics and reports"
+          - "Established research institutions"
+          - "Recognized academic experts"
+      - id: tier2-sources
+        title: Tier 2 Sources (Good Credibility)
+        type: bullet-list
+        instruction: Reliable sources - use with clear attribution
+        examples:
+          - "Reputable news outlets"
+          - "Industry reports from established organizations"
+          - "Expert interviews"
+          - "Professional association publications"
+      - id: tier3-sources
+        title: Tier 3 Sources (Use with Caution)
+        type: bullet-list
+        instruction: Sources requiring extra scrutiny and clear disclaimers
+        examples:
+          - "Blog posts from experts (clearly identify as opinion)"
+          - "Company press releases (note potential bias)"
+          - "Wikipedia for general context only"
+          - "Social media posts from experts"
+
+  - id: additional-resources
+    title: Additional Resources
+    instruction: |
+      Supplementary materials and resources for enhanced content creation.
+    sections:
+      - id: further-reading
+        title: For Further Reading
+        type: structured-list
+        instruction: Additional resources for audience who want to dive deeper
+        fields:
+          - "Resource": "Title and source"
+          - "Value": "Why it's valuable for deeper understanding"
+          - "Accessibility": "Free/Paid/Academic access required"
+      - id: visual-media
+        title: Visual/Media Resources
+        type: structured-list
+        instruction: Multimedia resources with usage rights information
+        fields:
+          - "Resource Type": "Infographic/Video/Image/Chart"
+          - "Source": "Origin and creator"
+          - "Usage Rights": "Copyright status and permissions needed"
+          - "Quality": "Resolution/format suitability"
+
+  - id: fact-checking
+    title: Fact-Checking Notes
+    instruction: |
+      Document verification process and confidence levels for different facts.
+    sections:
+      - id: cross-verified
+        title: Cross-Verified Facts
+        type: bullet-list
+        instruction: Facts confirmed by multiple independent sources
+      - id: single-source
+        title: Single-Source Facts
+        type: bullet-list
+        instruction: Facts only verified through one source - flag for careful use
+
+  - id: script-integration
+    title: Script Integration Recommendations
+    instruction: |
+      Guidance for how to incorporate research into natural, flowing script content.
+    sections:
+      - id: attribution-phrases
+        title: Natural Attribution Phrases
+        type: bullet-list
+        instruction: Conversational ways to cite sources in script
+        examples:
+          - "According to [Source]..."
+          - "Research from [Institution] shows..."
+          - "[Expert name], a [title], explains that..."
+          - "A recent study found..."
+          - "Data from [Organization] indicates..."
+      - id: visual-facts
+        title: Facts Best Suited for Visuals
+        type: numbered-list
+        instruction: Information that would work well with graphics or animations
+        examples:
+          - "Statistical comparisons"
+          - "Timeline or progression data"
+          - "Geographic or demographic data"
+          - "Process flows or step-by-step information"
+
+  - id: bibliography
+    title: Bibliography
+    instruction: |
+      Complete source listing in multiple organizational formats for easy reference.
+    sections:
+      - id: alphabetical-sources
+        title: All Sources (Alphabetical)
+        type: numbered-list
+        instruction: Complete citations in consistent academic format
+      - id: categorized-sources
+        title: Sources by Category
+        type: category-list
+        instruction: Sources organized by type for easy reference
+        categories:
+          - "Scientific Studies"
+          - "News Articles"
+          - "Expert Opinions"
+          - "Statistical Data"
+          - "Government Reports"
+          - "Industry Publications"
+
+  - id: methodology
+    title: Research Methodology
+    instruction: |
+      Document research approach for transparency and future reference.
+    sections:
+      - id: research-approach
+        title: Research Approach
+        type: structured-list
+        instruction: Methodology used for finding and verifying information
+        fields:
+          - "Search Terms Used": "Keywords and phrases"
+          - "Databases Consulted": "Academic databases, search engines"
+          - "Time Period Covered": "Date range of sources"
+          - "Geographic Scope": "Any geographic limitations"
+          - "Language Restrictions": "Languages searched"
+          - "Exclusion Criteria": "What sources were automatically excluded"
+
+  - id: main-video-integration
+    title: Main Video File Integration
+    instruction: Track how research findings integrate with the main video production
+    sections:
+      - id: integration-status
+        title: Integration Status
+        type: structured-list
+        instruction: Status of research integration into main video components
+        fields:
+          - "Script Integration": "Percentage of facts integrated into script"
+          - "Planning Updates": "Research impact on video planning (chapters.md)"
+          - "Description Integration": "Research findings in video description"
+          - "Final Document Status": "Integration into {video-title}-final.md"
+      - id: fact-usage-tracking
+        title: Fact Usage Tracking
+        type: table
+        columns: [Fact/Finding, Usage Status, Integration Location, Attribution Method, Notes]
+        instruction: Track how specific research findings are used in video production
+      - id: pending-integrations
+        title: Pending Research Integrations
+        type: bullet-list
+        instruction: Research findings awaiting integration into video production
+        examples:
+          - "New facts requiring script updates"
+          - "Source updates needing final document revision"
+          - "Research gaps requiring additional work"
+          - "Credibility updates affecting attribution"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track document versions and changes throughout research process

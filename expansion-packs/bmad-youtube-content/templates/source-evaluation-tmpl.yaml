@@ -1,0 +1,207 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: source-evaluation-template-v1
+  name: Source Evaluation Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: source-evaluation.md
+    title: "Source Evaluation Report"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: source-overview
+    title: Source Overview
+    instruction: Basic information about the source being evaluated
+    elicit: true
+    sections:
+      - id: source-identification
+        title: Source Identification
+        type: structured-list
+        elicit: true
+        fields:
+          - "Source Title": "Full title of the source material"
+          - "Author/Organization": "Who created or published this source"
+          - "Publication Date": "When was this published or last updated"
+          - "Source Type": "Academic paper, news article, government report, etc."
+          - "Website URL": "**CRITICAL: Complete website address - mandatory**"
+          - "Access Date": "When you accessed this source"
+
+  - id: credibility-assessment
+    title: Credibility Assessment
+    instruction: Evaluate the trustworthiness and reliability of the source
+    elicit: true
+    sections:
+      - id: author-credentials
+        title: Author/Organization Credentials
+        type: structured-list
+        elicit: true
+        fields:
+          - "Author Expertise": "Relevant qualifications and experience"
+          - "Institutional Affiliation": "University, organization, or publisher"
+          - "Previous Work": "Track record in this subject area"
+          - "Potential Bias": "Any conflicts of interest or bias indicators"
+          - "Reputation": "Standing in academic or professional community"
+
+      - id: publication-quality
+        title: Publication Quality
+        type: structured-list
+        elicit: true
+        fields:
+          - "Publication Type": "Peer-reviewed, editorial review, blog, etc."
+          - "Publisher Reputation": "Quality and credibility of publisher"
+          - "Editorial Process": "Level of review and fact-checking"
+          - "Citation Standards": "How well does it cite other sources"
+          - "Methodology": "Research methods used (if applicable)"
+
+  - id: content-analysis
+    title: Content Analysis
+    instruction: Evaluate the quality and reliability of the content
+    sections:
+      - id: information-quality
+        title: Information Quality
+        type: structured-list
+        fields:
+          - "Accuracy": "How accurate is the information presented"
+          - "Completeness": "Does it cover the topic thoroughly"
+          - "Currency": "How current and up-to-date is the information"
+          - "Evidence Base": "What evidence supports the claims"
+          - "Logical Consistency": "Are arguments logical and well-structured"
+
+      - id: fact-verification
+        title: Fact Verification
+        type: structured-list
+        fields:
+          - "Verifiable Claims": "Which facts can be independently verified"
+          - "Supporting Sources": "What sources does this material cite"
+          - "Cross-Reference Status": "Have claims been verified against other sources"
+          - "Data Quality": "Quality of statistics, studies, or data presented"
+          - "Primary vs Secondary": "Is this primary research or secondary reporting"
+
+  - id: relevance-assessment
+    title: Relevance Assessment
+    instruction: How well does this source serve your research needs
+    elicit: true
+    sections:
+      - id: topic-relevance
+        title: Topic Relevance
+        type: structured-list
+        elicit: true
+        fields:
+          - "Topic Match": "How well does this match your research topic"
+          - "Scope Coverage": "What aspects of your topic does it cover"
+          - "Detail Level": "Appropriate depth for your needs"
+          - "Audience Level": "Appropriate complexity for your audience"
+          - "Geographic Relevance": "Relevant to your geographic focus"
+
+      - id: use-case-fit
+        title: Use Case Fit
+        type: structured-list
+        elicit: true
+        fields:
+          - "Purpose Alignment": "How well does it serve your video's purpose"
+          - "Quote Potential": "Contains good quotable material"
+          - "Visual Support": "Includes charts, graphs, or visual elements"
+          - "Attribution Value": "Will citing this enhance credibility"
+          - "Audience Interest": "Will your audience find this compelling"
+
+  - id: reliability-scoring
+    title: Reliability Scoring
+    instruction: Quantitative assessment of source reliability
+    sections:
+      - id: credibility-score
+        title: Credibility Score (1-10)
+        type: structured-list
+        fields:
+          - "Author Expertise": "Score 1-10 for author qualifications"
+          - "Publication Quality": "Score 1-10 for publication standards"
+          - "Content Accuracy": "Score 1-10 for factual accuracy"
+          - "Evidence Base": "Score 1-10 for supporting evidence"
+          - "Currency": "Score 1-10 for how current the information is"
+          - "Overall Score": "Average of above scores"
+
+      - id: risk-assessment
+        title: Risk Assessment
+        type: structured-list
+        fields:
+          - "Misinformation Risk": "Low, Medium, High - risk of false information"
+          - "Bias Risk": "Low, Medium, High - risk of biased presentation"
+          - "Outdated Risk": "Low, Medium, High - risk information is outdated"
+          - "Misinterpretation Risk": "Low, Medium, High - risk of misunderstanding"
+          - "Attribution Risk": "Low, Medium, High - risk in citing this source"
+
+  - id: usage-recommendations
+    title: Usage Recommendations
+    instruction: How to best use this source in your video content
+    sections:
+      - id: citation-strategy
+        title: Citation Strategy
+        type: structured-list
+        fields:
+          - "Attribution Level": "Full citation, partial mention, or background only"
+          - "Quote Selection": "Which specific information to cite"
+          - "Context Needed": "What context to provide when citing"
+          - "Verification Status": "Independent verification completed/needed"
+          - "Confidence Level": "High, Medium, Low confidence in using this"
+
+      - id: presentation-notes
+        title: Presentation Notes
+        type: structured-list
+        fields:
+          - "Simplification Needed": "How to present complex information simply"
+          - "Visual Opportunities": "Charts, graphs, or images to include"
+          - "Audience Considerations": "How to frame for your specific audience"
+          - "Potential Objections": "Counterarguments or skepticism to address"
+          - "Follow-up Sources": "Additional sources that would complement this"
+
+  - id: comparison-analysis
+    title: Comparison with Other Sources
+    instruction: How this source compares to others on the same topic
+    sections:
+      - id: source-ranking
+        title: Source Ranking
+        type: structured-list
+        fields:
+          - "Compared to Other Sources": "Better, similar, or worse than alternatives"
+          - "Unique Value": "What unique information does this provide"
+          - "Consensus Position": "Does this agree with other credible sources"
+          - "Contradictions": "Any conflicts with other reliable sources"
+          - "Complementary Sources": "Sources that work well with this one"
+
+      - id: selection-rationale
+        title: Selection Rationale
+        type: text
+        instruction: "Explain why you would or wouldn't use this source, and how it fits into your overall research strategy."
+
+  - id: final-recommendation
+    title: Final Recommendation
+    instruction: Overall assessment and recommendation
+    sections:
+      - id: recommendation-summary
+        title: Recommendation Summary
+        type: structured-list
+        fields:
+          - "Use Recommendation": "Highly Recommended, Recommended, Use with Caution, Not Recommended"
+          - "Primary Strengths": "Key advantages of this source"
+          - "Main Limitations": "Key weaknesses or concerns"
+          - "Best Use Case": "Optimal way to use this source"
+          - "Verification Priority": "High, Medium, Low priority for additional verification"
+
+      - id: action-items
+        title: Action Items
+        type: bullet-list
+        examples:
+          - "Verify specific claims with additional sources"
+          - "Check for more recent information on this topic"
+          - "Find complementary sources for broader perspective"
+          - "Prepare context for potential audience skepticism"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track source evaluation updates

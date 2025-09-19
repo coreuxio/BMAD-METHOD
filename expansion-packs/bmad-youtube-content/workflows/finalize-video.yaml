@@ -1,0 +1,268 @@
+# Finalize Video Workflow
+name: Finalize Video Production
+description: Complete final video package with script, description, and all production deliverables
+version: 1.0.0
+
+metadata:
+  category: video-finalization
+  complexity: advanced
+  estimated_duration: 30-45 minutes
+  prerequisites:
+    - Video script completed (from plan-video-script workflow)
+    - Research integration completed
+    - Video structure and planning finalized
+
+phases:
+  # Phase 1: Script Finalization
+  - name: Script Finalization
+    description: Finalize video script with all research integration and production notes
+    duration: 10-15 minutes
+    steps:
+      - agent: script-writer
+        action: Create final video script using video-script-tmpl
+        deliverable: Complete final video script
+        dependencies: [scene scripts, research integration, production notes]
+        details: |
+          - COMPILE all scene scripts into cohesive final script
+          - FINALIZE all research integration and attribution
+          - COMPLETE visual notes and editor suggestions
+          - VALIDATE script timing and pacing
+          - ENSURE all quality standards are met
+        quality_criteria:
+          - Script flows seamlessly from opening to conclusion
+          - All research properly integrated and attributed
+          - Visual notes clear and actionable
+          - Timing appropriate for target video length
+          - Production guidance comprehensive
+
+      - action: Script quality validation
+        details: |
+          - REVIEW script against video objectives
+          - VALIDATE all research integration
+          - CHECK attribution completeness and accuracy
+          - VERIFY visual notes clarity
+          - CONFIRM production readiness
+        deliverable: Script quality assessment report
+
+  # Phase 2: Video Description Creation
+  - name: Video Description Creation
+    description: Create comprehensive YouTube-optimized video description
+    duration: 10-15 minutes
+    steps:
+      - agent: video-description-writer
+        action: Create optimized video description using video-description-tmpl
+        deliverable: Complete SEO-optimized video description
+        dependencies: [final script, research compilation, video objectives]
+        details: |
+          - CREATE compelling hook for first 125 characters
+          - DEVELOP comprehensive video description
+          - INCLUDE all research sources with proper formatting
+          - ADD strategic keywords for SEO optimization
+          - CREATE chapter timestamps based on script structure
+          - INCLUDE relevant hashtags and engagement elements
+        quality_criteria:
+          - Hook captures attention within character limit
+          - Description accurately represents video content
+          - All sources properly formatted and linked
+          - SEO optimization effective but natural
+          - Timestamps accurate to script structure
+
+  # Phase 3: Final Document Assembly
+  - name: Final Document Assembly
+    description: Compile complete final video document with all components
+    duration: 8-12 minutes
+    steps:
+      - action: Assemble final video document
+        deliverable: {video-title}-final.md with all components
+        dependencies: [final script, video description, research compilation, production notes]
+        details: |
+          - COMPILE complete video package using final-document-tmpl
+          - INCLUDE final script with all visual notes
+          - ADD optimized video description and SEO elements
+          - INCORPORATE research documentation and source bibliography
+          - INCLUDE production notes and technical guidance
+          - ADD video metadata and tracking information
+        quality_criteria:
+          - All required components included and complete
+          - Document well-organized and production-ready
+          - Research properly documented and attributed
+          - Production guidance clear and actionable
+          - Video metadata accurate and comprehensive
+
+      - action: Create production asset package
+        details: |
+          - EXTRACT key visual suggestions for production team
+          - COMPILE source links and attribution requirements
+          - CREATE production timeline and milestone checklist
+          - PREPARE thumbnail suggestions and visual guidance
+          - ORGANIZE supporting materials and resources
+        deliverable: Complete production asset package
+
+  # Phase 4: Quality Assurance and Delivery
+  - name: Quality Assurance and Delivery
+    description: Final quality checks and delivery preparation
+    duration: 8-12 minutes
+    steps:
+      - action: Comprehensive quality review
+        details: |
+          - REVIEW final document against all quality standards
+          - VALIDATE research accuracy and attribution
+          - CHECK SEO optimization and description quality
+          - VERIFY production notes completeness
+          - CONFIRM all deliverables present and correct
+        deliverable: Final quality assessment report
+
+      - action: Update tracking and status systems
+        details: |
+          - UPDATE tasks.md with video completion status
+          - LOG final video completion in ChangeLog.md
+          - SET video status to 'production_ready'
+          - UPDATE registry with completion information
+          - MARK video ready for production phase
+        deliverable: Updated tracking and status systems
+
+      - action: Prepare delivery package
+        details: |
+          - ORGANIZE all final deliverables
+          - CREATE delivery checklist and handoff notes
+          - PREPARE production team briefing materials
+          - FINALIZE timeline and milestone documentation
+          - COMPLETE video production package
+        deliverable: Complete video production delivery package
+
+# Final Document Structure
+final_document_structure:
+  video_information:
+    - production_level: "Quick/Standard/Premium/Series"
+    - target_length: "Expected video duration"
+    - target_audience: "Primary audience definition"
+    - series_context: "Series integration information (if applicable)"
+
+  complete_script:
+    - opening_hook: "Attention-capturing introduction"
+    - main_content: "Core video content with research integration"
+    - visual_notes: "Production guidance and visual suggestions"
+    - source_attribution: "Natural research integration and citations"
+    - conclusion: "Strong ending with clear takeaways"
+
+  video_description:
+    - optimized_description: "SEO-optimized YouTube description"
+    - source_bibliography: "Complete source list with proper formatting"
+    - chapter_timestamps: "Video navigation timestamps"
+    - engagement_elements: "Hashtags, calls-to-action, links"
+
+  production_guidance:
+    - technical_notes: "Production team guidance"
+    - visual_suggestions: "Recommended visuals and graphics"
+    - timing_guidance: "Pacing and timing recommendations"
+    - quality_standards: "Production quality requirements"
+
+# Quality Assurance Framework
+quality_assurance:
+  content_quality:
+    - accuracy_validation: "All facts verified and properly attributed"
+    - narrative_coherence: "Story flows logically and engagingly"
+    - objective_achievement: "Video accomplishes stated objectives"
+    - audience_appropriateness: "Content suitable for target audience"
+
+  production_readiness:
+    - script_completeness: "All script elements present and clear"
+    - visual_guidance_clarity: "Production notes actionable and specific"
+    - technical_feasibility: "Production requirements realistic and achievable"
+    - timeline_coordination: "Production schedule realistic and coordinated"
+
+  seo_optimization:
+    - keyword_integration: "Strategic keywords naturally incorporated"
+    - description_effectiveness: "Description optimized for discovery and engagement"
+    - metadata_completeness: "All SEO elements properly included"
+    - engagement_optimization: "Elements designed to encourage interaction"
+
+# Delivery Package Components
+delivery_package:
+  core_deliverables:
+    - final_script: "Complete production-ready video script"
+    - video_description: "Optimized YouTube description with all elements"
+    - research_documentation: "Source bibliography and fact verification"
+    - production_notes: "Technical and creative guidance for production team"
+
+  supporting_materials:
+    - visual_suggestions: "Recommended graphics, charts, and visual elements"
+    - source_materials: "Research files and reference materials"
+    - timeline_guidance: "Production schedule and milestone recommendations"
+    - quality_standards: "Production quality requirements and standards"
+
+# Success Criteria
+success_criteria:
+  - Complete final video document assembled with all required components
+  - Video script production-ready with comprehensive guidance
+  - YouTube description optimized for SEO and engagement
+  - All research properly documented and attributed
+  - Production guidance clear, actionable, and comprehensive
+  - Quality standards met across all deliverable components
+  - Video ready for production phase
+  - All tracking and documentation systems updated
+
+# Integration Points
+integration_points:
+  previous_workflow: plan-video-script.yaml
+  series_integration: |
+    If part of series:
+    - Update series registry with video completion
+    - Document video in series progression tracking
+    - Prepare cross-references for series integration
+    - Update series ChangeLog with video completion
+
+  production_handoff:
+    - Complete deliverable package ready for production team
+    - Clear handoff documentation and briefing materials
+    - Production timeline and milestone tracking prepared
+    - Quality standards and requirements documented
+
+# Error Handling
+error_handling:
+  quality_issues:
+    - assessment: "Identify specific quality concerns"
+    - remediation: "Address issues before final delivery"
+    - validation: "Re-check quality standards compliance"
+    - escalation: "Consult appropriate specialists if needed"
+
+  completeness_concerns:
+    - inventory: "Check all required deliverables present"
+    - gap_analysis: "Identify missing components"
+    - completion: "Develop plan to address gaps"
+    - timeline_impact: "Assess impact on delivery schedule"
+
+  integration_problems:
+    - diagnosis: "Identify integration or consistency issues"
+    - resolution: "Develop solution approach"
+    - coordination: "Ensure all team members aligned"
+    - validation: "Verify resolution effectiveness"
+
+# Performance Metrics
+performance_metrics:
+  production_efficiency:
+    - timeline_adherence: "Delivery on schedule"
+    - quality_achievement: "Standards met on first delivery"
+    - completeness_score: "All deliverables included and complete"
+    - team_satisfaction: "Production team feedback on deliverable quality"
+
+  content_effectiveness:
+    - objective_achievement: "Video accomplishes stated goals"
+    - research_integration: "Facts seamlessly incorporated"
+    - engagement_optimization: "Content designed for viewer retention"
+    - seo_performance: "Description optimization effectiveness"
+
+outputs:
+  primary:
+    name: Complete Video Production Package
+    format: Comprehensive final deliverable
+    components:
+      - Production-ready final video script
+      - SEO-optimized YouTube description
+      - Complete research documentation
+      - Production guidance and technical notes
+  secondary:
+    - Quality assurance documentation
+    - Production timeline and milestones
+    - Supporting materials and resources
+    - Handoff and briefing materials

@@ -1,0 +1,245 @@
+# YouTube Video Series Creation Workflow
+name: Create YouTube Video Series
+description: End-to-end video series creation with structured planning, knowledge building, and state management
+version: 1.0.0
+
+# Metadata
+metadata:
+  category: content-series
+  complexity: advanced
+  estimated_duration: 2-4 hours initial setup + ongoing
+  prerequisites:
+    - Clear series concept or theme
+    - Target audience definition
+    - Content expertise area
+    - Long-term content strategy
+
+# Series State Management
+series_states:
+  - name: draft
+    description: Series created with basic concept, awaiting video list development
+    next_states: [ready_for_research]
+    requirements: []
+  - name: ready_for_research
+    description: Video list approved by user, ready for detailed research planning
+    next_states: [in_development]
+    requirements: [approved_video_list, series_registry_entry, changelog_initialized]
+  - name: in_development
+    description: Videos being actively researched, scripted, and produced
+    next_states: [completed, ready_for_research]
+    requirements: [execution_plan, knowledge_building_map]
+  - name: completed
+    description: All planned videos in series completed and published
+    next_states: []
+    requirements: [all_videos_completed, final_series_review]
+
+# Phases - Structured series development
+phases:
+  # Phase 1: Series Foundation
+  - name: Series Foundation
+    description: Create series structure, registry, and initial planning
+    duration: 30-45 minutes
+    steps:
+      - action: Initialize series folder structure
+        details: |
+          - Create /series/{series-title}/ directory
+          - Create /series/{series-title}/videos/ subdirectory
+          - Create /series/{series-title}/data/ subdirectory for series-specific data
+        deliverable: Series folder structure
+
+      - action: Create series registry entry
+        details: |
+          - Add series to /series/registry.md
+          - Include series metadata, target count, audience
+          - Set initial state to 'draft'
+        deliverable: Updated series registry
+
+      - action: Initialize series changelog
+        details: |
+          - Create /series/{series-title}/ChangeLog.md
+          - Document series creation and initial concept
+          - Set up tracking structure for ongoing updates
+        deliverable: Series changelog initialized
+
+  # Phase 2: Concept Development
+  - name: Concept Development
+    description: Interactive planning to establish series vision and scope
+    duration: 45-60 minutes
+    steps:
+      - agent: video-planner
+        action: Conduct interactive series planning session
+        deliverable: /series/{series-title}/data/series-plan.md
+        dependencies: []
+        interaction_level: high
+        requires_user_input: true
+        details: |
+          - Define series core theme and educational goals
+          - Identify target audience and knowledge level
+          - Establish series tone and format consistency
+          - Plan knowledge progression and dependencies
+        quality_criteria:
+          - Clear series theme defined
+          - Target audience identified
+          - Knowledge progression mapped
+          - Content format established
+
+  # Phase 3: Video Ideation
+  - name: Video Ideation
+    description: Generate comprehensive list of potential videos with knowledge building
+    duration: 60-90 minutes
+    steps:
+      - agent: video-planner
+        action: Generate extensive video ideas list with knowledge dependencies
+        deliverable: /series/{series-title}/data/video-ideas.md
+        dependencies: [series-plan.md]
+        iteration_support: true
+        details: |
+          - Generate 5-10+ video ideas based on series theme
+          - Map knowledge dependencies between videos
+          - Suggest optimal sequencing for learning progression
+          - Include brief descriptions and learning objectives
+          - Plan for infinite expandability of series
+        quality_criteria:
+          - Comprehensive video list (15+ ideas)
+          - Knowledge dependencies mapped
+          - Learning progression logical
+          - Ideas build on each other
+          - Expandable framework created
+
+  # Phase 4: User Validation
+  - name: User Validation
+    description: Review and refine video list with user input
+    duration: 30-45 minutes
+    steps:
+      - action: Present video ideas for user review
+        interaction_level: high
+        requires_user_input: true
+        details: |
+          - Present organized video list with dependencies
+          - Gather user feedback on priorities and additions
+          - Refine list based on user preferences
+          - Confirm knowledge building sequence
+        deliverable: /series/{series-title}/data/approved-video-list.md
+
+      - action: Update series state to ready_for_research
+        details: |
+          - Update series registry with approved video count
+          - Change series state from 'draft' to 'ready_for_research'
+          - Log state change in changelog
+        deliverable: Updated registry and changelog
+
+  # Phase 5: Execution Planning
+  - name: Execution Planning
+    description: Create detailed production plan with knowledge sequencing
+    duration: 45-60 minutes
+    steps:
+      - agent: video-planner
+        action: Create comprehensive execution plan
+        deliverable: /series/{series-title}/data/execution-plan.md
+        dependencies: [approved-video-list.md]
+        details: |
+          - Sequence videos for optimal knowledge building
+          - Identify prerequisite videos for each episode
+          - Plan knowledge callbacks and cross-references
+          - Estimate production timeline and resources
+          - Create milestone checkpoints
+        quality_criteria:
+          - Logical video sequencing
+          - Prerequisites clearly mapped
+          - Knowledge building optimized
+          - Production timeline realistic
+          - Milestone tracking enabled
+
+      - action: Update series state to in_development
+        details: |
+          - Change series state to 'in_development'
+          - Initialize video tracking system
+          - Create production dashboard in data folder
+        deliverable: Series ready for video production
+
+# Data Management Structure
+data_structure:
+  series_folder: "/series/{series-title}/"
+  required_files:
+    - "data/series-plan.md"
+    - "data/video-ideas.md"
+    - "data/approved-video-list.md"
+    - "data/execution-plan.md"
+    - "data/knowledge-map.md"
+    - "videos/" # Folder for individual video production
+    - "ChangeLog.md"
+  registry_location: "/series/registry.md"
+
+# Knowledge Building Framework
+knowledge_building:
+  dependency_tracking:
+    - prerequisite_videos: Videos that must be completed first
+    - concept_building: How each video builds on previous content
+    - callback_opportunities: Places to reference earlier videos
+    - cross_references: Related videos in series
+
+  progression_types:
+    - linear: Sequential learning path (A → B → C)
+    - branching: Multiple paths from foundation videos
+    - circular: Advanced videos that reference multiple earlier ones
+    - standalone: Videos that can be watched independently
+
+# Success Criteria
+success_criteria:
+  - Series folder structure created and organized
+  - Registry entry complete with metadata
+  - Changelog initialized and tracking enabled
+  - Comprehensive video list with 15+ ideas
+  - Knowledge dependencies mapped and optimized
+  - User approval on video priorities
+  - Execution plan with realistic timeline
+  - Series state properly managed
+  - Framework for infinite series expansion
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-planner
+  fallback_workflow: revise-series-concept
+
+# Integration Points
+integration:
+  individual_video_workflow: create-video.yaml
+  series_video_enhancement: |
+    When creating individual videos within series:
+    - Reference series knowledge map
+    - Include callbacks to previous videos
+    - Plan forward references to upcoming content
+    - Maintain series tone and format consistency
+
+# Resources Required
+resources:
+  agents:
+    - video-planner: Series concept and video ideation
+  tools:
+    - File system management
+    - Registry and changelog systems
+    - Template processing
+    - State management tracking
+  data:
+    - Series planning templates
+    - Knowledge mapping frameworks
+    - Video ideation strategies
+
+# Outputs
+outputs:
+  primary:
+    name: Complete Series Foundation
+    format: Structured folder system
+    components:
+      - Series folder with data subfolder
+      - Registry entry with metadata
+      - Comprehensive video ideas list
+      - Execution plan with sequencing
+      - Knowledge building map
+      - State tracking system
+  secondary:
+    - Series changelog for ongoing tracking
+    - Framework for infinite series expansion
+    - Integration points for individual video creation

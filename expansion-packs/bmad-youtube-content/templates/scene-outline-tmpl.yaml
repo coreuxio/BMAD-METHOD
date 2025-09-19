@@ -1,0 +1,328 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: scene-outline-template-v1
+  name: YouTube Video Scene Outline Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: chapters.md
+    title: "Scene Outline: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: video-overview
+    title: Video Overview
+    instruction: |
+      Define overall video structure and pacing approach based on the video plan and research findings.
+    sections:
+      - id: runtime-specs
+        title: Runtime Specifications
+        type: structured-list
+        instruction: Overall video timing and pacing characteristics
+        fields:
+          - "Total Estimated Runtime": "X:XX - X:XX (range based on content depth)"
+          - "Number of Scenes": "Typically 5-8 scenes for optimal flow"
+          - "Pacing": "Fast/Moderate/Slow (based on topic and audience)"
+          - "Energy Level": "High/Medium/Calm (matches tone from video plan)"
+          - "Content Density": "How much information per minute"
+
+  - id: scene-breakdown
+    title: Scene Breakdown
+    instruction: |
+      Create detailed scene-by-scene structure with timing, purpose, content, and visual guidance. Each scene should advance the narrative toward the core message.
+    elicit: true
+    sections:
+      - id: scene-sequence
+        title: Scene Sequence
+        type: scene-structure
+        instruction: Define each scene with specific timing, purpose, and content
+        template:
+          scene-header: "Scene [Number]: [Scene Title] ([Start Time]-[End Time])"
+          scene-duration: "Duration in seconds/minutes"
+          scene-purpose:
+            type: "bullet-list"
+            instruction: "What this scene accomplishes (3-4 specific goals)"
+            examples:
+              - "Grab immediate attention"
+              - "Establish credibility"
+              - "Deliver key information"
+              - "Build emotional connection"
+          information-to-present:
+            type: "numbered-list"
+            instruction: "Specific information to convey in this scene"
+            examples:
+              - "Main concept or argument"
+              - "Supporting evidence from research"
+              - "Examples or demonstrations"
+          key-facts:
+            type: "bullet-list"
+            instruction: "Facts from research with attribution style"
+            examples:
+              - "[Fact from research]: 'According to [Source]...'"
+              - "[Supporting statistic]: 'Studies show...'"
+              - "[Expert quote]: '[Name] explains that...'"
+          visual-suggestions:
+            title: "[VISUAL SUGGESTIONS]"
+            type: "bullet-list"
+            instruction: "Flexible visual ideas for editor creativity"
+            examples:
+              - "Animated explanation of concept"
+              - "B-roll footage supporting narrative"
+              - "Graphics or infographics"
+              - "Screen recordings or demonstrations"
+          editor-notes:
+            title: "[EDITOR NOTE]"
+            type: "text"
+            instruction: "Optional guidance for video editor flexibility"
+          engagement-techniques:
+            type: "text"
+            instruction: "Specific technique to maintain viewer attention"
+            examples: "Pattern interrupt / Visual change / Direct question"
+          transition:
+            type: "text"
+            instruction: "How this scene connects to the next"
+            required: true
+
+      - id: standard-scenes
+        title: Standard Scene Templates
+        instruction: Provide typical scene structure for common video types
+        scenes:
+          - id: hook-scene
+            title: "Hook/Cold Open (0:00-0:10)"
+            duration: "5-10 seconds"
+            purpose:
+              - "Grab immediate attention"
+              - "Tease the value proposition"
+              - "Create curiosity"
+            content_examples:
+              - "Shocking statistic or provocative question"
+              - "Visual demonstration or reveal"
+              - "Promise of transformation or solution"
+
+          - id: intro-scene
+            title: "Introduction & Context (0:10-0:30)"
+            duration: "20 seconds"
+            purpose:
+              - "Introduce the topic properly"
+              - "Establish credibility"
+              - "Set clear expectations"
+            content_examples:
+              - "What this video will cover"
+              - "Why it matters to the viewer"
+              - "Personal connection or credibility builder"
+
+          - id: main-content-scenes
+            title: "Main Content Blocks (Variable timing)"
+            duration: "60-90 seconds each"
+            purpose:
+              - "Deliver core information"
+              - "Build understanding progressively"
+              - "Maintain engagement throughout"
+            content_examples:
+              - "Major concept with supporting evidence"
+              - "Real-world applications"
+              - "Expert insights and data"
+
+          - id: practical-application
+            title: "Practical Application (Near end)"
+            duration: "30-60 seconds"
+            purpose:
+              - "Make content actionable"
+              - "Provide immediate value"
+              - "Ensure retention"
+            content_examples:
+              - "Step-by-step instructions"
+              - "Implementation tips"
+              - "Common mistakes to avoid"
+
+          - id: conclusion-cta
+            title: "Conclusion & CTA (Final 30 seconds)"
+            duration: "20-30 seconds"
+            purpose:
+              - "Reinforce key message"
+              - "Drive specific action"
+              - "Encourage engagement"
+            content_examples:
+              - "Quick recap of main points"
+              - "Final thought or challenge"
+              - "Clear call-to-action"
+
+  - id: pacing-rhythm
+    title: Pacing & Rhythm Notes
+    instruction: |
+      Define energy flow and attention retention strategies throughout the video.
+    sections:
+      - id: energy-flow
+        title: Energy Flow
+        type: structured-list
+        instruction: Map energy levels throughout video progression
+        fields:
+          - "Opening": "High energy hook to capture attention"
+          - "Introduction": "Moderate, building anticipation"
+          - "Main Content": "Varied pacing with strategic peaks and valleys"
+          - "Climax": "Highest energy/engagement point"
+          - "Conclusion": "Satisfied resolution tone"
+      - id: attention-retention
+        title: Attention Retention Techniques
+        type: structured-list
+        instruction: Specific timestamps for re-engagement techniques
+        fields:
+          - "0:15": "First pattern interrupt or hook payoff"
+          - "1:30": "Visual change or new element introduction"
+          - "3:00": "Mid-video re-engagement technique"
+          - "4:30": "Build toward climax or key revelation"
+          - "Throughout": "Regular visual variety and pacing changes"
+
+  - id: visual-style
+    title: Visual Style Consistency
+    instruction: |
+      Define visual approach and style guidelines for consistent production quality.
+    sections:
+      - id: style-guidelines
+        title: Style Guidelines
+        type: structured-list
+        instruction: Visual consistency parameters for editor guidance
+        fields:
+          - "Color Palette": "Primary and accent colors if applicable"
+          - "Typography": "Font families for text overlays and graphics"
+          - "Transition Style": "Preferred cuts/fades/wipes approach"
+          - "B-Roll Style": "Documentary/Stylized/Mixed approach"
+          - "Graphics Style": "Clean/Dynamic/Minimal aesthetic"
+          - "Branding Elements": "Logo placement and brand consistency"
+
+  - id: audio-notes
+    title: Music & Audio Notes
+    instruction: |
+      Audio design guidance to support narrative flow and emotional impact.
+    sections:
+      - id: music-energy
+        title: Music Energy Progression
+        type: structured-list
+        instruction: Musical energy mapping for emotional support
+        fields:
+          - "Intro": "Energetic/Moderate/Calm (match opening energy)"
+          - "Main Content": "Background presence level"
+          - "Climax": "Build/Drop/Maintain for emphasis"
+          - "Outro": "Resolved/Upbeat/Thoughtful conclusion"
+      - id: sound-effects
+        title: Sound Effects Strategy
+        type: bullet-list
+        instruction: Strategic audio enhancement points
+        examples:
+          - "Transition sound effects"
+          - "Emphasis effects for key points"
+          - "Notification sounds for CTAs"
+          - "Ambient audio for context"
+
+  - id: editor-flexibility
+    title: Flexibility Guidelines for Editor
+    instruction: |
+      Clear boundaries between creative flexibility and content requirements.
+    sections:
+      - id: adjustable-elements
+        title: Can Be Adjusted
+        type: bullet-list
+        instruction: Elements where editor has creative freedom
+        examples:
+          - "Exact timing of scenes (within reasonable bounds)"
+          - "Visual style and effects selection"
+          - "B-roll footage selection and editing"
+          - "Music choices within genre guidelines"
+          - "Transition types and effects"
+          - "Graphics design and animation style"
+      - id: fixed-elements
+        title: Must Be Maintained
+        type: bullet-list
+        instruction: Elements that cannot be changed without approval
+        examples:
+          - "Information sequence and logical flow"
+          - "Core facts and their attribution"
+          - "Key message points and emphasis"
+          - "CTA placement and wording"
+          - "Research-backed claims accuracy"
+
+  - id: alternative-structures
+    title: Alternative Structure Options
+    instruction: |
+      Backup structural approaches if the main outline needs adjustment.
+    sections:
+      - id: structure-alternatives
+        title: Alternative Formats
+        type: structured-list
+        instruction: Different narrative structures to consider
+        fields:
+          - "Problem-Solution Format": "Start with problem identification, build to solution"
+          - "Chronological": "Tell story in time sequence or historical progression"
+          - "Comparison": "Side-by-side analysis throughout"
+          - "Case Study": "Deep dive into specific example or story"
+          - "Tutorial": "Step-by-step instructional format"
+      - id: timing-flexibility
+        title: Scene Timing Flexibility
+        type: structured-list
+        instruction: Acceptable duration ranges for different content depths
+        fields:
+          - "Minimum viable duration": "4:00 (for essential content only)"
+          - "Optimal duration": "6:00-8:00 (ideal for platform and attention)"
+          - "Maximum recommended": "10:00 (without losing engagement)"
+          - "Extension criteria": "High engagement topic needing more depth"
+
+  - id: quality-checkpoints
+    title: Quality Checkpoints
+    instruction: |
+      Key validation points to ensure outline serves the video's purpose.
+    sections:
+      - id: narrative-flow
+        title: Narrative Flow Validation
+        type: checklist
+        items:
+          - "Each scene advances toward core message"
+          - "Information builds logically"
+          - "Transitions feel natural and purposeful"
+          - "Pacing maintains engagement throughout"
+          - "Climax delivers on opening promise"
+      - id: research-integration
+        title: Research Integration Check
+        type: checklist
+        items:
+          - "All key facts from research included"
+          - "Attribution style specified for each fact"
+          - "Expert quotes properly contextualized"
+          - "Statistics presented with proper context"
+          - "Sources distributed throughout narrative"
+
+  - id: main-video-integration
+    title: Main Video File Integration
+    instruction: Track how scene planning affects the main video production
+    sections:
+      - id: integration-impact
+        title: Integration Impact Assessment
+        type: structured-list
+        instruction: How scene changes affect video production components
+        fields:
+          - "Script Writing": "Impact on script structure and flow"
+          - "Visual Production": "Effect on visual planning and requirements"
+          - "Timing Estimates": "Changes to overall video duration"
+          - "Final Document": "Updates needed in {video-title}-final.md"
+      - id: scene-change-tracking
+        title: Scene Change Tracking
+        type: table
+        columns: [Date, Scene Changed, Type of Change, Reason, Production Impact, Integration Status]
+        instruction: Track scene modifications and their downstream effects
+      - id: production-notifications
+        title: Production Notifications
+        type: bullet-list
+        instruction: Other components that need updates when scenes change
+        examples:
+          - "Script writer: Scene structure or timing changes"
+          - "Visual team: Updated visual requirements or suggestions"
+          - "Final document: Scene structure integration"
+          - "Description writer: Updated timestamp requirements"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track outline revisions and rationale for changes

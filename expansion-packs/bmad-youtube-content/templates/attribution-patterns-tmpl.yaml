@@ -1,0 +1,121 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: attribution-patterns-template-v1
+  name: Attribution Patterns Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: attribution-patterns.md
+    title: "Attribution Patterns Template"
+
+workflow:
+  mode: reference
+
+sections:
+  - id: natural-attribution
+    title: Natural Attribution Methods
+    instruction: Conversational ways to cite sources in video scripts
+    sections:
+      - id: conversational-style
+        title: Conversational Style
+        type: attribution-examples
+        best_for: "Casual/educational content"
+        examples:
+          - "I was reading this Harvard study that found..."
+          - "So I came across this fascinating research..."
+          - "There's this expert who explains it perfectly..."
+          - "I found this data that blew my mind..."
+      - id: authority-building
+        title: Authority Building
+        type: attribution-examples
+        best_for: "Professional/expert content"
+        examples:
+          - "According to leading researchers at MIT..."
+          - "The definitive study on this shows..."
+          - "Nobel laureate Dr. Smith demonstrated..."
+          - "Industry data confirms..."
+      - id: storytelling-integration
+        title: Storytelling Integration
+        type: attribution-examples
+        best_for: "Narrative-driven content"
+        examples:
+          - "When scientists first discovered..."
+          - "The team at NASA was surprised to find..."
+          - "This reminded me of what [Expert] said..."
+          - "The story behind this research is fascinating..."
+
+  - id: attribution-timing
+    title: Attribution Timing
+    instruction: When to introduce source information
+    sections:
+      - id: pre-attribution
+        title: Pre-Attribution
+        type: text
+        pattern: "Research shows that... [then fact]"
+        purpose: "Sets up credibility before claim"
+      - id: post-attribution
+        title: Post-Attribution
+        type: text
+        pattern: "[Fact] ...according to MIT research"
+        purpose: "Natural flow, attribution follows"
+      - id: integrated-attribution
+        title: Integrated Attribution
+        type: text
+        pattern: "MIT's study found [fact] which means..."
+        purpose: "Seamless integration"
+
+  - id: common-phrases
+    title: Common Attribution Phrases
+    instruction: Ready-to-use phrases for different source types
+    sections:
+      - id: academic-sources
+        title: Academic Sources
+        type: bullet-list
+        examples:
+          - "According to research from..."
+          - "A study published in..."
+          - "Scientists at [Institution] found..."
+          - "Peer-reviewed research shows..."
+      - id: expert-sources
+        title: Expert Sources
+        type: bullet-list
+        examples:
+          - "[Name], who literally wrote the book on..."
+          - "Leading expert [Name] explains..."
+          - "As [Expert] points out..."
+          - "[Title] [Name] discovered..."
+      - id: data-sources
+        title: Data Sources
+        type: bullet-list
+        examples:
+          - "Government statistics show..."
+          - "Industry data reveals..."
+          - "Survey results indicate..."
+          - "The numbers from [Source] tell us..."
+
+  - id: best-practices
+    title: Attribution Best Practices
+    instruction: Guidelines for effective and natural attribution
+    sections:
+      - id: build-trust
+        title: Build Trust
+        type: bullet-list
+        practices:
+          - "Be transparent about sources"
+          - "Acknowledge limitations"
+          - "Note conflicts of interest"
+          - "Admit uncertainty"
+      - id: maintain-flow
+        title: Maintain Flow
+        type: bullet-list
+        practices:
+          - "Weave naturally into narrative"
+          - "Vary attribution style"
+          - "Don't interrupt key moments"
+          - "Group when possible"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track attribution pattern updates

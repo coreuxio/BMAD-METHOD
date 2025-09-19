@@ -86,9 +86,9 @@ dependencies:
     - estimate-scene-timing.md
     - create-visual-suggestions.md
   templates:
-    - scene-outline-tmpl.md
-    - visual-suggestion-tmpl.md
-    - transition-guide-tmpl.md
+    - scene-outline-tmpl.yaml
+    - visual-suggestion-tmpl.yaml
+    - transition-guide-tmpl.yaml
   checklists:
     - scene-structure-checklist.md
     - pacing-validation-checklist.md

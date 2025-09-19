@@ -1,0 +1,277 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: execution-plan-template-v1
+  name: Execution Plan Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: execution-plan.md
+    title: "Series Execution Plan"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: execution-overview
+    title: Execution Plan Overview
+    instruction: Strategic approach to series production and delivery
+    elicit: true
+    sections:
+      - id: series-summary
+        title: Series Summary
+        type: structured-list
+        elicit: true
+        fields:
+          - "Series Title": "Name of the video series"
+          - "Total Approved Videos": "Number of videos in approved list"
+          - "Production Timeline": "Expected time to complete series"
+          - "Release Strategy": "How and when videos will be published"
+          - "Quality Standards": "Production quality requirements"
+          - "Success Metrics": "How success will be measured"
+
+  - id: video-sequencing
+    title: Video Production Sequencing
+    instruction: Optimal order for creating videos based on knowledge building
+    elicit: true
+    sections:
+      - id: production-phases
+        title: Production Phases
+        type: structured-list
+        elicit: true
+        fields:
+          - "Phase 1 - Foundations": "Core concept videos that establish series base"
+          - "Phase 2 - Building Blocks": "Videos that expand on foundations"
+          - "Phase 3 - Applications": "Practical application and combination videos"
+          - "Phase 4 - Advanced Content": "Complex videos requiring multiple prerequisites"
+          - "Phase 5 - Specializations": "Optional tracks and deep dives"
+
+      - id: dependency-scheduling
+        title: Dependency-Based Scheduling
+        type: table
+        columns: [Video Title, Prerequisites, Earliest Start, Dependencies Met, Production Priority]
+        instruction: Schedule based on knowledge dependencies
+        elicit: true
+
+  - id: knowledge-validation
+    title: Knowledge Building Validation
+    instruction: Ensure effective knowledge progression throughout series
+    sections:
+      - id: prerequisite-mapping
+        title: Prerequisite Mapping
+        type: structured-list
+        fields:
+          - "Foundation Videos": "Videos with no prerequisites"
+          - "Single Prerequisites": "Videos requiring one foundation video"
+          - "Multiple Prerequisites": "Videos requiring several previous videos"
+          - "Circular References": "Advanced videos referencing multiple paths"
+
+      - id: callback-strategy
+        title: Callback Strategy
+        type: structured-list
+        fields:
+          - "Concept Reinforcement": "How earlier concepts are reinforced"
+          - "Cross-Reference Points": "Natural places to reference earlier videos"
+          - "Knowledge Validation": "How to check understanding carries forward"
+          - "Gap Prevention": "Avoiding knowledge gaps between videos"
+
+  - id: production-timeline
+    title: Production Timeline
+    instruction: Detailed timeline for video creation and release
+    elicit: true
+    sections:
+      - id: milestone-planning
+        title: Milestone Planning
+        type: table
+        columns: [Milestone, Target Date, Videos Included, Dependencies, Success Criteria]
+        instruction: Key checkpoints throughout production
+        elicit: true
+
+      - id: resource-allocation
+        title: Resource Allocation
+        type: structured-list
+        elicit: true
+        fields:
+          - "Research Time": "Time allocated for research per video type"
+          - "Production Time": "Expected creation time per video complexity"
+          - "Review Cycles": "Quality review and iteration time"
+          - "Buffer Time": "Extra time for unexpected challenges"
+          - "Total Timeline": "Complete series production estimate"
+
+  - id: quality-management
+    title: Quality Management
+    instruction: Maintain consistent quality throughout series production
+    sections:
+      - id: quality-standards
+        title: Quality Standards
+        type: structured-list
+        fields:
+          - "Research Standards": "Source credibility and fact-checking requirements"
+          - "Script Quality": "Writing standards and review processes"
+          - "Visual Consistency": "Maintaining series visual identity"
+          - "Knowledge Accuracy": "Ensuring correct and current information"
+          - "Series Coherence": "Maintaining consistent tone and approach"
+
+      - id: review-checkpoints
+        title: Review Checkpoints
+        type: structured-list
+        fields:
+          - "Pre-Production Review": "Concept and research validation"
+          - "Script Review": "Content and knowledge flow validation"
+          - "Series Consistency Check": "Alignment with series standards"
+          - "Knowledge Building Validation": "Prerequisite and progression check"
+          - "Final Quality Review": "Complete video package assessment"
+
+  - id: risk-management
+    title: Risk Management
+    instruction: Identify and plan for potential production challenges
+    sections:
+      - id: production-risks
+        title: Production Risks
+        type: structured-list
+        fields:
+          - "Timeline Delays": "Schedule slippage and mitigation strategies"
+          - "Quality Drift": "Maintaining standards under pressure"
+          - "Knowledge Gaps": "Missing prerequisites or logical gaps"
+          - "Resource Constraints": "Limited time, expertise, or tools"
+          - "Scope Creep": "Series expanding beyond manageable size"
+
+      - id: mitigation-strategies
+        title: Mitigation Strategies
+        type: structured-list
+        fields:
+          - "Buffer Planning": "Extra time built into schedule"
+          - "Quality Gates": "Checkpoints that must be passed"
+          - "Fallback Options": "Simplified approaches when needed"
+          - "Resource Backup": "Alternative approaches when resources limited"
+          - "Scope Control": "Mechanisms to prevent uncontrolled expansion"
+
+  - id: progress-tracking
+    title: Progress Tracking
+    instruction: Monitor production progress and series development
+    sections:
+      - id: tracking-metrics
+        title: Tracking Metrics
+        type: structured-list
+        fields:
+          - "Videos Completed": "Count and percentage of total"
+          - "Timeline Adherence": "On-time vs. delayed production"
+          - "Quality Consistency": "Maintaining standards across videos"
+          - "Knowledge Building Success": "Effective prerequisite flow"
+          - "User Feedback Integration": "Incorporating user input"
+
+      - id: reporting-schedule
+        title: Reporting Schedule
+        type: structured-list
+        fields:
+          - "Weekly Progress": "Short-term production updates"
+          - "Monthly Reviews": "Comprehensive progress assessment"
+          - "Milestone Reports": "Detailed checkpoint evaluations"
+          - "Phase Completions": "End-of-phase comprehensive reviews"
+          - "Series Completion": "Final series evaluation and lessons learned"
+
+  - id: knowledge-optimization
+    title: Knowledge Building Optimization
+    instruction: Continuously improve knowledge progression effectiveness
+    sections:
+      - id: learning-validation
+        title: Learning Validation
+        type: structured-list
+        fields:
+          - "Concept Clarity": "Ensuring clear explanation of ideas"
+          - "Progression Logic": "Logical flow between difficulty levels"
+          - "Retention Support": "Helping viewers remember key concepts"
+          - "Application Opportunities": "Practical use of learned concepts"
+          - "Mastery Indicators": "Signs that learning objectives are met"
+
+      - id: iterative-improvement
+        title: Iterative Improvement
+        type: structured-list
+        fields:
+          - "Feedback Integration": "Using user feedback to improve approach"
+          - "Knowledge Gap Identification": "Finding and filling learning gaps"
+          - "Prerequisite Optimization": "Refining dependency requirements"
+          - "Sequence Refinement": "Improving video order for better learning"
+          - "Format Evolution": "Adapting format based on what works best"
+
+  - id: series-integration
+    title: Series Integration
+    instruction: Ensure cohesive series experience
+    sections:
+      - id: narrative-consistency
+        title: Narrative Consistency
+        type: structured-list
+        fields:
+          - "Voice and Tone": "Consistent personality throughout series"
+          - "Format Standards": "Structural consistency across videos"
+          - "Visual Identity": "Consistent visual elements and branding"
+          - "Terminology": "Consistent use of terms and concepts"
+          - "Reference Style": "Consistent way of referencing other videos"
+
+      - id: viewer-experience
+        title: Viewer Experience Optimization
+        type: structured-list
+        fields:
+          - "Entry Points": "Clear places for new viewers to start"
+          - "Navigation Aids": "Helping viewers find what they need"
+          - "Progress Indicators": "Showing learning progression"
+          - "Completion Rewards": "Sense of achievement for milestones"
+          - "Community Building": "Encouraging viewer interaction and discussion"
+
+  - id: success-measurement
+    title: Success Measurement
+    instruction: Define and track series success metrics
+    elicit: true
+    sections:
+      - id: educational-metrics
+        title: Educational Success Metrics
+        type: structured-list
+        elicit: true
+        fields:
+          - "Learning Objective Achievement": "Percentage of objectives met"
+          - "Knowledge Retention": "Evidence of lasting learning"
+          - "Skill Application": "Viewers applying learned concepts"
+          - "Progression Completion": "Viewers completing logical sequences"
+          - "Mastery Demonstration": "Evidence of achieved competency"
+
+      - id: production-metrics
+        title: Production Success Metrics
+        type: structured-list
+        elicit: true
+        fields:
+          - "Timeline Performance": "On-time delivery percentage"
+          - "Quality Consistency": "Maintaining standards across all videos"
+          - "Resource Efficiency": "Effective use of time and resources"
+          - "User Satisfaction": "Positive feedback and approval ratings"
+          - "Series Coherence": "Successful knowledge building throughout"
+
+  - id: adaptation-strategy
+    title: Adaptation Strategy
+    instruction: How to modify plan based on learning and feedback
+    sections:
+      - id: feedback-loops
+        title: Feedback Integration Loops
+        type: structured-list
+        fields:
+          - "User Feedback": "How viewer input shapes ongoing production"
+          - "Production Learning": "Adjustments based on creation experience"
+          - "Quality Insights": "Improvements from quality review processes"
+          - "Timeline Adjustments": "Schedule modifications based on reality"
+          - "Scope Refinements": "Content adjustments for better series flow"
+
+      - id: pivot-protocols
+        title: Pivot Protocols
+        type: structured-list
+        fields:
+          - "Minor Adjustments": "Small changes that don't affect overall plan"
+          - "Sequence Modifications": "Changes to video order or dependencies"
+          - "Content Revisions": "Significant changes to planned content"
+          - "Timeline Extensions": "Schedule adjustments for quality or scope"
+          - "Scope Reductions": "Strategic reduction to ensure completion"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track execution plan updates and revisions

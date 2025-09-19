@@ -1,0 +1,262 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: fact-compilation-template-v1
+  name: Fact Compilation Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: fact-compilation.md
+    title: "Fact Compilation Report"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: compilation-overview
+    title: Fact Compilation Overview
+    instruction: Summary of the research compilation process
+    elicit: true
+    sections:
+      - id: research-scope
+        title: Research Scope
+        type: structured-list
+        elicit: true
+        fields:
+          - "Topic Focus": "Main topic or question being researched"
+          - "Research Questions": "Specific questions this compilation answers"
+          - "Scope Boundaries": "What is included and excluded from this research"
+          - "Target Audience": "Who will consume this information"
+          - "Compilation Date": "When this compilation was completed"
+          - "Researcher": "Who compiled this information"
+
+  - id: source-summary
+    title: Source Summary
+    instruction: Overview of all sources used in this compilation
+    sections:
+      - id: source-inventory
+        title: Source Inventory
+        type: table
+        columns: [Source Title, Type, Credibility Score, Publication Date, Key Facts Used]
+        instruction: Complete list of sources with basic information
+
+      - id: source-quality-overview
+        title: Source Quality Overview
+        type: structured-list
+        fields:
+          - "Total Sources": "Number of sources consulted"
+          - "Primary Sources": "Number of primary/original sources"
+          - "Secondary Sources": "Number of secondary/reporting sources"
+          - "Academic Sources": "Number of peer-reviewed or academic sources"
+          - "Average Credibility": "Average credibility score across all sources"
+          - "Source Date Range": "From oldest to newest source"
+
+  - id: fact-categories
+    title: Fact Categories
+    instruction: Facts organized by topic or type
+    elicit: true
+    sections:
+      - id: core-facts
+        title: Core Facts
+        type: fact-category
+        elicit: true
+        instruction: Essential facts that directly answer your main research questions
+        template: |
+          ### Fact: [Statement]
+          - **Source**: [Author, Publication, Date]
+          - **Website URL**: **CRITICAL: Complete web address required**
+          - **Credibility**: [Score/Rating]
+          - **Verification**: [Verified by additional sources? Y/N]
+          - **Context**: [Important context or limitations]
+          - **Quote**: "[Exact quote if applicable]"
+          - **Use Case**: [How this will be used in the video]
+
+      - id: supporting-facts
+        title: Supporting Facts
+        type: fact-category
+        elicit: true
+        instruction: Facts that provide context or support for core facts
+        template: |
+          ### Fact: [Statement]
+          - **Source**: [Author, Publication, Date]
+          - **Website URL**: **MANDATORY: Complete web address**
+          - **Credibility**: [Score/Rating]
+          - **Relation**: [How this supports or relates to core facts]
+          - **Context**: [Important background information]
+          - **Use Case**: [How this will be used in the video]
+
+      - id: statistical-data
+        title: Statistical Data
+        type: fact-category
+        elicit: true
+        instruction: Numbers, percentages, and quantitative information
+        template: |
+          ### Statistic: [Data Point]
+          - **Source**: [Author, Publication, Date]
+          - **Website URL**: **CRITICAL: Complete web address required**
+          - **Sample Size**: [If applicable]
+          - **Date of Data**: [When data was collected]
+          - **Methodology**: [How data was gathered]
+          - **Margin of Error**: [If applicable]
+          - **Context**: [What this number means]
+          - **Visualization**: [Chart/graph potential]
+
+      - id: expert-opinions
+        title: Expert Opinions
+        type: fact-category
+        elicit: true
+        instruction: Quotes and perspectives from qualified experts
+        template: |
+          ### Expert Opinion: [Summary]
+          - **Expert**: [Name, Credentials, Affiliation]
+          - **Quote**: "[Exact quote]"
+          - **Source**: [Where this quote appeared]
+          - **Website URL**: **MANDATORY: Complete web address**
+          - **Context**: [What prompted this statement]
+          - **Expertise Area**: [Expert's specific area of knowledge]
+          - **Potential Use**: [How to incorporate in video]
+
+  - id: fact-verification
+    title: Fact Verification Status
+    instruction: Verification status of compiled facts
+    sections:
+      - id: verification-summary
+        title: Verification Summary
+        type: structured-list
+        fields:
+          - "Fully Verified": "Number of facts verified by multiple sources"
+          - "Partially Verified": "Number of facts with some verification"
+          - "Single Source": "Number of facts from only one source"
+          - "Conflicting Information": "Number of facts with conflicting reports"
+          - "Unverified Claims": "Number of unverified statements"
+
+      - id: verification-details
+        title: Verification Details
+        type: table
+        columns: [Fact, Primary Source, Verification Sources, Status, Notes]
+        instruction: Detailed verification status for each major fact
+
+  - id: credibility-analysis
+    title: Credibility Analysis
+    instruction: Analysis of source credibility and fact reliability
+    sections:
+      - id: source-credibility-breakdown
+        title: Source Credibility Breakdown
+        type: structured-list
+        fields:
+          - "High Credibility (8-10)": "Count and percentage of high-credibility sources"
+          - "Medium Credibility (5-7)": "Count and percentage of medium-credibility sources"
+          - "Low Credibility (1-4)": "Count and percentage of low-credibility sources"
+          - "Overall Reliability": "Assessment of overall compilation reliability"
+
+      - id: potential-concerns
+        title: Potential Concerns
+        type: bullet-list
+        instruction: Issues that might affect fact reliability
+        examples:
+          - "Outdated information (specify which facts)"
+          - "Single-source facts that need verification"
+          - "Potential bias in sources"
+          - "Conflicting information between sources"
+          - "Gaps in available information"
+
+  - id: usage-guidelines
+    title: Usage Guidelines
+    instruction: How to properly use these compiled facts
+    sections:
+      - id: attribution-requirements
+        title: Attribution Requirements
+        type: structured-list
+        fields:
+          - "Must Cite": "Facts requiring specific source attribution"
+          - "General Attribution": "Facts that can use general attribution"
+          - "Background Only": "Facts for background understanding only"
+          - "Quote Requirements": "Which facts need exact quotes"
+          - "Context Requirements": "Facts needing additional context"
+
+      - id: presentation-recommendations
+        title: Presentation Recommendations
+        type: structured-list
+        fields:
+          - "High Confidence": "Facts to present with full confidence"
+          - "Medium Confidence": "Facts to present with caveats"
+          - "Low Confidence": "Facts to use cautiously or skip"
+          - "Visual Opportunities": "Facts that work well with visuals"
+          - "Simplification Needed": "Complex facts requiring explanation"
+
+  - id: content-integration
+    title: Content Integration Strategy
+    instruction: How facts fit into your video narrative
+    elicit: true
+    sections:
+      - id: narrative-mapping
+        title: Narrative Mapping
+        type: structured-list
+        elicit: true
+        fields:
+          - "Opening Facts": "Facts that work well for video introduction"
+          - "Supporting Evidence": "Facts that support your main arguments"
+          - "Surprising Information": "Facts that will surprise or engage audience"
+          - "Conclusion Support": "Facts that support your video's conclusion"
+          - "Optional Deep Dives": "Additional facts for extended explanations"
+
+      - id: fact-flow
+        title: Fact Flow
+        type: ordered-list
+        elicit: true
+        instruction: "Logical order for presenting facts in your video"
+        template: |
+          1. [Fact/Topic]: [How this fits in narrative flow]
+          2. [Fact/Topic]: [How this builds on previous facts]
+          3. [Fact/Topic]: [Why this comes at this point]
+
+  - id: gaps-and-limitations
+    title: Research Gaps and Limitations
+    instruction: Acknowledge limitations in the compiled research
+    sections:
+      - id: information-gaps
+        title: Information Gaps
+        type: bullet-list
+        examples:
+          - "Areas where insufficient information was found"
+          - "Questions that remain unanswered"
+          - "Topics that need additional research"
+          - "Conflicting information that couldn't be resolved"
+
+      - id: methodological-limitations
+        title: Methodological Limitations
+        type: bullet-list
+        examples:
+          - "Time constraints that limited research depth"
+          - "Access limitations to certain sources"
+          - "Language or geographic limitations"
+          - "Technical complexity that limited understanding"
+
+  - id: follow-up-research
+    title: Follow-up Research Recommendations
+    instruction: Suggestions for additional research
+    sections:
+      - id: priority-research
+        title: Priority Research Areas
+        type: bullet-list
+        examples:
+          - "High-priority gaps that should be filled"
+          - "Verification tasks for important claims"
+          - "Expert interviews that would add value"
+          - "Primary sources to locate"
+
+      - id: optional-research
+        title: Optional Research Areas
+        type: bullet-list
+        examples:
+          - "Additional context that would enhance content"
+          - "Interesting tangents worth exploring"
+          - "Updated information to check periodically"
+          - "Alternative perspectives to consider"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track fact compilation updates and revisions

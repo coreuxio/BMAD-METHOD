@@ -1,0 +1,101 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-registry-template-v1
+  name: Video Registry Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: videos/registry.md
+    title: "Video Registry"
+
+workflow:
+  mode: interactive
+  elicitation: basic
+
+sections:
+  - id: registry-overview
+    title: Video Registry
+    instruction: |
+      Central tracking system for all video projects and their current status.
+    sections:
+      - id: active-videos
+        title: Active Videos
+        type: table
+        columns: ["Video Title", "Start Date", "Status", "Production Level", "Last Updated"]
+        instruction: Videos currently in production
+      - id: completed-videos
+        title: Completed Videos
+        type: table
+        columns: ["Video Title", "Completion Date", "Production Level", "Final Length", "Performance"]
+        instruction: Finished videos with basic metrics
+
+  - id: video-details
+    title: Video Details
+    instruction: |
+      Detailed information for each video project.
+    sections:
+      - id: video-entries
+        title: Video Project Entries
+        type: structured-entries
+        instruction: Detailed tracking for each video
+        template:
+          - "Video Title": "Full title of the video"
+          - "Description": "Brief video description"
+          - "Target Audience": "Primary audience"
+          - "Production Level": "Quick/Standard/Premium"
+          - "Planned Length": "Target duration"
+          - "ChangeLog": "Link to video ChangeLog.md"
+          - "Status": "Current production status"
+          - "Folder Location": "Path to video folder"
+
+  - id: production-tracking
+    title: Production Status Tracking
+    instruction: |
+      Track progress through the production pipeline.
+    sections:
+      - id: research-status
+        title: Research Status
+        type: structured-list
+        instruction: Research completion tracking
+        fields:
+          - "Research Tasks": "Completed/Total"
+          - "Source Count": "Number of sources"
+          - "Fact Verification": "Complete/In Progress"
+      - id: production-status
+        title: Production Status
+        type: checklist
+        instruction: Production milestone tracking
+        items:
+          - "Chapter Planning"
+          - "Script Draft"
+          - "Script Final"
+          - "Description"
+          - "Review"
+
+  - id: registry-statistics
+    title: Registry Statistics
+    instruction: |
+      Overview metrics for video production pipeline.
+    sections:
+      - id: summary-stats
+        title: Summary Statistics
+        type: structured-list
+        fields:
+          - "Total Videos": "Count"
+          - "Active Projects": "Count"
+          - "Completed Videos": "Count"
+          - "Average Production Time": "Hours"
+      - id: next-actions
+        title: Next Actions
+        type: bullet-list
+        instruction: Upcoming tasks and deadlines
+        examples:
+          - "Next scheduled video"
+          - "Pending tasks"
+          - "Upcoming deadlines"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track registry updates and modifications

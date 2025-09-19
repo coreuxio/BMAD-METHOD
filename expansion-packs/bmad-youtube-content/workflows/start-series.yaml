@@ -1,0 +1,132 @@
+# Start Series Workflow
+name: Start Video Series
+description: Create complete series structure with initial files and foundation setup
+version: 1.0.0
+
+metadata:
+  category: series-management
+  complexity: standard
+  estimated_duration: 30-45 minutes
+  prerequisites:
+    - Clear series concept or theme
+    - Target audience understanding
+    - Series scope definition
+
+phases:
+  # Phase 1: Series Foundation Setup
+  - name: Series Foundation Setup
+    description: Create directory structure and initialize core files
+    duration: 10-15 minutes
+    steps:
+      - action: Create series directory structure
+        details: |
+          - CREATE /series/{series-title}/ directory
+          - CREATE /series/{series-title}/videos/ subdirectory
+          - CREATE /series/{series-title}/data/ subdirectory
+        deliverable: Complete folder structure
+
+      - action: Initialize series registry
+        details: |
+          - ADD series entry to /series/registry.md
+          - SET initial state to 'draft'
+          - INCLUDE series metadata and target information
+        deliverable: Updated series registry
+
+      - action: Create series changelog
+        details: |
+          - CREATE /series/{series-title}/ChangeLog.md
+          - DOCUMENT series creation event
+          - ESTABLISH tracking structure for ongoing updates
+        deliverable: Series changelog initialized
+
+  # Phase 2: Series Planning
+  - name: Series Concept Development
+    description: Define series vision, scope, and strategic approach
+    duration: 15-20 minutes
+    steps:
+      - agent: video-planner
+        action: Conduct series planning session using series-plan-tmpl
+        deliverable: /series/{series-title}/data/series-plan.md
+        dependencies: []
+        interaction_level: high
+        requires_user_input: true
+        details: |
+          - DEFINE series core theme and educational goals
+          - IDENTIFY target audience and knowledge level
+          - ESTABLISH series tone and format consistency
+          - PLAN knowledge progression framework
+        quality_criteria:
+          - Clear series theme established
+          - Target audience precisely defined
+          - Knowledge progression framework outlined
+          - Content format standards set
+
+  # Phase 3: Initial Video Planning
+  - name: Initial Video Ideation
+    description: Generate starter video concepts for the series
+    duration: 10-15 minutes
+    steps:
+      - agent: video-planner
+        action: Generate initial video concepts using video-ideas-tmpl
+        deliverable: /series/{series-title}/data/video-ideas.md
+        dependencies: [series-plan.md]
+        details: |
+          - GENERATE 5-10 initial video concepts
+          - ESTABLISH foundation video requirements
+          - PLAN knowledge building progression
+          - CREATE framework for future expansion
+        quality_criteria:
+          - Foundation videos identified
+          - Knowledge dependencies mapped
+          - Series expandability planned
+          - Initial content roadmap created
+
+# File Structure Output
+file_structure:
+  series_root: "/series/{series-title}/"
+  required_files:
+    - "data/series-plan.md"
+    - "data/video-ideas.md"
+    - "videos/" # Empty folder ready for video creation
+    - "ChangeLog.md"
+  registry_updates:
+    - "/series/registry.md" # Updated with new series entry
+
+# Success Criteria
+success_criteria:
+  - Complete series folder structure created
+  - Series registry entry established
+  - Series planning document completed
+  - Initial video concepts generated
+  - Knowledge building framework defined
+  - Change tracking initialized
+  - Ready for plan-series workflow
+
+# Next Steps Integration
+next_workflow: plan-series.yaml
+integration_notes: |
+  After start-series completion:
+  1. Series state should be 'draft'
+  2. Foundation planning documents should be complete
+  3. Ready for plan-series workflow to generate detailed video plans
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-planner
+  fallback_workflow: revise-series-concept
+
+outputs:
+  primary:
+    name: Series Foundation Package
+    format: Structured folder system
+    components:
+      - Complete series directory structure
+      - Series planning documentation
+      - Initial video concept list
+      - Registry and tracking systems
+  secondary:
+    - Series expansion framework
+    - Knowledge building foundation
+    - Production workflow readiness

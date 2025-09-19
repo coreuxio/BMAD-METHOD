@@ -1,0 +1,289 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-plan-template-v1
+  name: YouTube Video Plan Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: chapters.md
+    title: "Video Plan: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: core-message
+    title: Core Message
+    instruction: |
+      Define the single, clear message this video will communicate. This is the foundation - everything else should support this core message. Be specific and focused.
+    elicit: true
+    sections:
+      - id: primary-message
+        title: Primary Message
+        type: text
+        instruction: Single, clear sentence that captures what viewers should understand or believe after watching
+        required: true
+      - id: supporting-points
+        title: Supporting Points
+        type: numbered-list
+        instruction: 3-5 key points that reinforce and support the primary message
+        examples:
+          - "Key point that supports the message"
+          - "Another supporting point with evidence"
+          - "Additional supporting element"
+
+  - id: target-audience
+    title: Target Audience
+    instruction: |
+      Clearly define who will watch this video. Understanding your audience drives content decisions, tone, and research depth.
+    elicit: true
+    sections:
+      - id: demographics
+        title: Demographics
+        type: structured-list
+        instruction: Define the primary audience characteristics
+        fields:
+          - "Age Range": "e.g., 18-35, 25-45"
+          - "Interests": "e.g., technology, education, entertainment"
+          - "Knowledge Level": "Beginner/Intermediate/Advanced"
+          - "Platform Habits": "Where they typically consume content"
+      - id: viewer-intent
+        title: Viewer Intent
+        type: structured-list
+        instruction: What motivates this audience to seek out this content
+        fields:
+          - "What they're looking for": "Information/Entertainment/Solution/Inspiration"
+          - "Problem we're solving": "Specific pain point or curiosity"
+          - "Desired outcome": "What they want to achieve"
+
+  - id: supporting-facts
+    title: Supporting Facts Needed
+    instruction: |
+      Identify what research and facts are needed to support your core message. This guides the researcher's work.
+    elicit: true
+    sections:
+      - id: essential-facts
+        title: Essential Facts
+        type: numbered-list
+        instruction: Critical information needed to support the core message - video cannot succeed without these
+        examples:
+          - "**Statistics on [Topic]**: Specific data needed and why it's important"
+          - "**Expert Opinion on [Area]**: What authority figure input is required"
+          - "**Research Study on [Subject]**: What studies validate our points"
+      - id: nice-to-have-facts
+        title: Nice-to-Have Facts
+        type: bullet-list
+        instruction: Additional supporting information that would enhance the video but isn't critical
+        examples:
+          - "Interesting historical context"
+          - "Related case studies or examples"
+          - "Additional expert perspectives"
+
+  - id: tone-style
+    title: Tone & Style
+    instruction: |
+      Define how the video should feel and sound. This guides script writing and presentation style.
+    sections:
+      - id: overall-tone
+        title: Overall Tone
+        type: select
+        options: ["Professional", "Casual", "Humorous", "Serious", "Educational", "Conversational", "Authoritative"]
+        instruction: Primary tone that matches your brand and audience expectations
+      - id: personality-notes
+        title: Personality Notes
+        type: bullet-list
+        instruction: How should the presenter come across to viewers
+        examples:
+          - "Approachable expert who simplifies complex topics"
+          - "Energetic educator who makes learning fun"
+          - "Trustworthy guide sharing valuable insights"
+      - id: genre-format
+        title: Genre/Format
+        type: select
+        options: ["Tutorial", "Documentary", "Essay", "Review", "Explainer", "Case Study", "Interview", "Reaction"]
+        instruction: Primary video format that best serves the message and audience
+
+  - id: video-structure
+    title: Video Structure Overview
+    instruction: |
+      Plan the high-level flow of your video. This becomes the foundation for detailed scene planning.
+    elicit: true
+    sections:
+      - id: opening-hook
+        title: Opening Hook
+        type: text
+        instruction: How will you grab attention in the first 5-10 seconds? Be specific about the hook strategy
+        required: true
+      - id: main-sections
+        title: Main Sections
+        type: numbered-list
+        instruction: 3-5 main sections that logically progress through your message
+        examples:
+          - "Section 1: Problem introduction and why it matters"
+          - "Section 2: Core solution or explanation"
+          - "Section 3: Evidence and examples"
+          - "Section 4: Implications and takeaways"
+      - id: closing
+        title: Closing
+        type: text
+        instruction: How do you wrap up? What final thought or action do you want viewers to have?
+        required: true
+
+  - id: success-metrics
+    title: Success Metrics
+    instruction: |
+      Define what success looks like for this video. This helps evaluate effectiveness later.
+    sections:
+      - id: quantitative-goals
+        title: Quantitative Goals
+        type: structured-list
+        instruction: Measurable targets for video performance
+        fields:
+          - "Watch Time": "Target retention percentage (e.g., 60%+)"
+          - "Engagement": "Comments/Likes target ratio"
+          - "CTR": "Thumbnail/Title click-through rate goal"
+          - "Views": "Target view count in first week/month"
+      - id: qualitative-goals
+        title: Qualitative Goals
+        type: bullet-list
+        instruction: Desired viewer outcomes that are harder to measure directly
+        examples:
+          - "Viewer understanding of core concept"
+          - "Emotional connection or inspiration"
+          - "Behavior change or action taken"
+          - "Trust building with audience"
+
+  - id: research-requirements
+    title: Research Requirements
+    instruction: |
+      Specify exactly what the researcher needs to find. Be detailed to ensure efficient research.
+    elicit: true
+    sections:
+      - id: primary-research-needs
+        title: Primary Research Needs
+        type: numbered-list
+        instruction: Specific information areas that require research, ranked by importance
+        examples:
+          - "**Recent statistics on [topic]**: Need current data from 2023-2024"
+          - "**Expert opinions on [area]**: Quotes from recognized authorities"
+          - "**Case studies of [examples]**: Real-world applications or failures"
+      - id: source-preferences
+        title: Source Preferences
+        type: structured-list
+        instruction: Guide the researcher on source quality and types
+        fields:
+          - "Preferred Sources": "Academic journals, industry reports, expert interviews, government data"
+          - "Avoid": "Unreliable or heavily biased sources, outdated information"
+          - "Credibility Level": "High (peer-reviewed), Medium (reputable publications), Low (blogs/opinions)"
+
+  - id: production-considerations
+    title: Production Considerations
+    instruction: |
+      Technical and creative constraints that affect planning and execution.
+    sections:
+      - id: visual-style-notes
+        title: Visual Style Notes
+        type: paragraphs
+        instruction: Any specific visual preferences, brand requirements, or creative direction
+      - id: length-target
+        title: Length Target
+        type: structured-list
+        fields:
+          - "Ideal Duration": "X-Y minutes based on topic complexity"
+          - "Maximum Duration": "Hard limit based on audience attention"
+          - "Minimum Duration": "Shortest viable version"
+      - id: special-requirements
+        title: Special Requirements
+        type: bullet-list
+        instruction: Constraints, needs, or considerations that affect production
+        examples:
+          - "Platform-specific optimizations (YouTube, TikTok, LinkedIn)"
+          - "Accessibility requirements (captions, audio descriptions)"
+          - "Budget or resource constraints"
+          - "Timeline restrictions"
+
+  - id: competitive-landscape
+    title: Competitive Landscape
+    instruction: |
+      Understanding existing content helps differentiate your approach and avoid duplication.
+    sections:
+      - id: similar-videos
+        title: Similar Videos
+        type: bullet-list
+        instruction: Existing videos on similar topics - what worked well and what didn't
+        examples:
+          - "[Video Title by Creator] - Strong visuals but weak conclusion"
+          - "[Competitor Video] - Good research but poor engagement"
+      - id: unique-angle
+        title: Our Unique Angle
+        type: text
+        instruction: What makes your take special, different, or better than existing content
+        required: true
+
+  - id: call-to-action
+    title: Call-to-Action
+    instruction: |
+      Plan how you'll guide viewers to take specific actions after watching.
+    sections:
+      - id: primary-cta
+        title: Primary CTA
+        type: text
+        instruction: Main action you want viewers to take (subscribe, visit website, try method, etc.)
+        required: true
+      - id: secondary-cta
+        title: Secondary CTA
+        type: text
+        instruction: Alternative action if the primary doesn't resonate with all viewers
+
+  - id: notes
+    title: Notes
+    instruction: |
+      Additional context and flexibility notes for the production team.
+    sections:
+      - id: creator-intent
+        title: Creator Intent
+        type: paragraphs
+        instruction: Personal investment, passion, or motivation behind creating this video
+      - id: flexibility-areas
+        title: Flexibility Areas
+        type: bullet-list
+        instruction: Where you can adapt based on research findings or production realities
+        examples:
+          - "Can adjust tone based on audience research"
+          - "Message examples flexible pending fact verification"
+          - "Structure can be reordered for better flow"
+
+  - id: main-video-integration
+    title: Main Video File Integration
+    instruction: Track how planning changes affect the main video production
+    sections:
+      - id: integration-impact
+        title: Integration Impact Assessment
+        type: structured-list
+        instruction: How planning changes affect downstream video production
+        fields:
+          - "Research Requirements": "Impact on research scope and priorities"
+          - "Script Structure": "Effect on script organization and flow"
+          - "Scene Planning": "Changes needed in scene breakdown"
+          - "Final Document": "Updates required in {video-title}-final.md"
+      - id: planning-evolution
+        title: Planning Evolution Tracking
+        type: table
+        columns: [Date, Planning Change, Reason, Impact On Production, Integration Status]
+        instruction: Track how video concept evolves and affects production
+      - id: downstream-notifications
+        title: Downstream Notifications
+        type: bullet-list
+        instruction: Other files/agents that need to be notified of planning changes
+        examples:
+          - "Research team: Updated fact requirements"
+          - "Scene planner: New structure considerations"
+          - "Script writer: Message or tone adjustments"
+          - "Final document: Planning evolution summary"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track document versions and changes throughout the planning process

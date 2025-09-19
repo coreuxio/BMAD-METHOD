@@ -87,9 +87,9 @@ dependencies:
     - generate-timestamps.md
     - craft-cta.md
   templates:
-    - video-description-tmpl.md
-    - source-formatting-tmpl.md
-    - timestamp-guide-tmpl.md
+    - video-description-tmpl.yaml
+    - source-formatting-tmpl.yaml
+    - timestamp-guide-tmpl.yaml
   checklists:
     - description-optimization-checklist.md
     - seo-checklist.md

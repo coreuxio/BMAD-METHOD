@@ -1,0 +1,256 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: message-framework-template-v1
+  name: YouTube Message Framework Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: message-framework.md
+    title: "Message Framework: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: core-message
+    title: Core Message Statement
+    instruction: |
+      Define the single, clear message your video will communicate. This drives all content decisions.
+    elicit: true
+    sections:
+      - id: primary-message
+        title: Primary Message
+        type: text
+        instruction: One clear sentence (15 words max) that captures your core message
+        character_limit: 15
+        required: true
+        examples:
+          - "Small daily habits create massive long-term results"
+          - "Most productivity advice ignores the neuroscience of motivation"
+          - "Remote work success depends on intentional communication systems"
+      - id: supporting-messages
+        title: Supporting Messages
+        type: numbered-list
+        instruction: 2-3 secondary points that reinforce your main message
+        examples:
+          - "Consistency beats intensity for lasting change"
+          - "Environment design eliminates willpower dependence"
+          - "Progress tracking amplifies motivation naturally"
+
+  - id: message-architecture
+    title: Message Architecture
+    instruction: |
+      Structure your message using the problem-solution-proof framework for maximum impact.
+    elicit: true
+    sections:
+      - id: the-problem
+        title: The Problem
+        instruction: What issue does your message address?
+        sections:
+          - id: pain-point
+            title: Pain Point
+            type: text
+            instruction: Specific problem your audience faces
+            required: true
+          - id: current-state
+            title: Current State
+            type: text
+            instruction: How things are now (status quo)
+            required: true
+          - id: consequences
+            title: Consequences
+            type: text
+            instruction: What happens if this problem goes unsolved
+            required: true
+      - id: the-solution
+        title: The Solution
+        instruction: What transformation do you offer?
+        sections:
+          - id: new-approach
+            title: New Approach
+            type: text
+            instruction: Your unique angle or method
+            required: true
+          - id: key-insight
+            title: Key Insight
+            type: text
+            instruction: The 'aha' moment or breakthrough understanding
+            required: true
+          - id: outcome
+            title: Outcome
+            type: text
+            instruction: Result viewers will achieve
+            required: true
+      - id: the-proof
+        title: The Proof
+        instruction: Why should they believe you?
+        sections:
+          - id: credibility
+            title: Credibility
+            type: text
+            instruction: Your authority, experience, or credentials
+            required: true
+          - id: evidence
+            title: Evidence
+            type: text
+            instruction: Data, research, or examples supporting your claim
+            required: true
+          - id: social-proof
+            title: Social Proof
+            type: text
+            instruction: Others who've succeeded with this approach
+
+  - id: message-variations
+    title: Message Variations
+    instruction: |
+      Create different length versions of your message for various uses throughout the video.
+    sections:
+      - id: hook-version
+        title: Hook Version (5-7 words)
+        type: text
+        instruction: Ultra-condensed version for thumbnail/title
+        word_limit: 7
+        examples:
+          - "Why habits fail (and solutions)"
+          - "Productivity myths debunked completely"
+          - "Remote work communication secrets"
+      - id: elevator-pitch
+        title: Elevator Pitch (30 seconds)
+        type: text
+        instruction: 2-3 sentence expansion for video introduction
+        examples:
+          - "Most people try to change everything at once and fail. Research shows that tiny, consistent habits create lasting transformation better than dramatic overhauls."
+      - id: detailed-explanation
+        title: Detailed Explanation (2-3 minutes)
+        type: paragraphs
+        instruction: Full explanation for main content sections
+      - id: conclusion-version
+        title: Conclusion Version
+        type: text
+        instruction: Memorable summary for video ending
+
+  - id: message-testing
+    title: Message Testing
+    instruction: |
+      Validate your message resonates with your target audience.
+    sections:
+      - id: clarity-test
+        title: Clarity Test
+        type: checklist
+        instruction: Ensure your message is easily understood
+        items:
+          - "A 12-year-old could understand the core message"
+          - "No jargon or technical terms without explanation"
+          - "Benefit is immediately clear"
+          - "Action or change is specific"
+      - id: relevance-test
+        title: Relevance Test
+        type: checklist
+        instruction: Confirm message matters to your audience
+        items:
+          - "Addresses a real problem your audience faces"
+          - "Timing is appropriate (not too early/late)"
+          - "Solution is achievable for your audience"
+          - "Connects to their values and goals"
+      - id: uniqueness-test
+        title: Uniqueness Test
+        type: checklist
+        instruction: Verify your message stands out
+        items:
+          - "Offers a fresh perspective or approach"
+          - "Different from common advice in your niche"
+          - "Backed by evidence or experience"
+          - "Memorable and quotable"
+
+  - id: message-integration
+    title: Message Integration Strategy
+    instruction: |
+      Plan how to weave your message throughout the entire video experience.
+    sections:
+      - id: title-thumbnail
+        title: Title & Thumbnail Integration
+        type: structured-list
+        instruction: How your message appears in discovery
+        fields:
+          - "Title Keywords": "Key terms that capture the message"
+          - "Thumbnail Elements": "Visual representation of the message"
+          - "Curiosity Gap": "What makes people want to click"
+      - id: script-integration
+        title: Script Integration Points
+        type: structured-list
+        instruction: Where to reinforce the message in your script
+        fields:
+          - "Opening Hook": "How to introduce the message"
+          - "Midpoint Reminder": "Reinforcement without repetition"
+          - "Conclusion Emphasis": "Final message delivery"
+          - "Call-to-Action": "How message connects to action"
+      - id: visual-reinforcement
+        title: Visual Reinforcement
+        type: bullet-list
+        instruction: Visual elements that support your message
+        examples:
+          - "Graphics that illustrate key concepts"
+          - "B-roll that demonstrates the problem/solution"
+          - "Text overlays with key message points"
+
+  - id: audience-alignment
+    title: Audience Alignment
+    instruction: |
+      Ensure your message resonates with your specific audience characteristics.
+    sections:
+      - id: language-adaptation
+        title: Language Adaptation
+        type: structured-list
+        instruction: Tailor language to your audience
+        fields:
+          - "Technical Level": "Beginner/Intermediate/Advanced terminology"
+          - "Cultural References": "Examples that resonate"
+          - "Communication Style": "Formal/Casual/Conversational"
+      - id: value-alignment
+        title: Value Alignment
+        type: checklist
+        instruction: Confirm message aligns with audience values
+        items:
+          - "Respects their current level of knowledge"
+          - "Acknowledges their constraints and challenges"
+          - "Offers realistic and achievable solutions"
+          - "Connects to their broader goals and aspirations"
+
+  - id: message-metrics
+    title: Message Success Metrics
+    instruction: |
+      Define how to measure if your message is effective.
+    sections:
+      - id: engagement-indicators
+        title: Engagement Indicators
+        type: bullet-list
+        instruction: Signs that your message resonates
+        examples:
+          - "High retention rate during message delivery"
+          - "Comments discussing the core concept"
+          - "Social shares with message quotes"
+          - "Repeat viewers and subscribers"
+      - id: comprehension-signals
+        title: Comprehension Signals
+        type: bullet-list
+        instruction: Evidence viewers understand your message
+        examples:
+          - "Questions that show deeper thinking"
+          - "Examples from viewers applying the concept"
+          - "Requests for related content"
+          - "Accurate paraphrasing in comments"
+      - id: action-outcomes
+        title: Action Outcomes
+        type: bullet-list
+        instruction: Behavioral changes indicating message impact
+        examples:
+          - "Viewers implementing suggested changes"
+          - "Follow-up questions about application"
+          - "Success stories and results sharing"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track message refinements and testing results

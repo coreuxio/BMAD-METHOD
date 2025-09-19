@@ -1,0 +1,203 @@
+# Plan Video Workflow
+name: Plan Individual Video
+description: Create detailed structure and planning for a specific video within series or standalone
+version: 1.0.0
+
+metadata:
+  category: video-planning
+  complexity: standard
+  estimated_duration: 30-45 minutes
+  prerequisites:
+    - Video concept defined (from plan-series or standalone idea)
+    - Series context established (if part of series)
+    - Target audience identified
+
+phases:
+  # Phase 1: Video Foundation Setup
+  - name: Video Foundation Setup
+    description: Create video folder structure and initialize core files
+    duration: 5-10 minutes
+    steps:
+      - action: Create video directory structure
+        details: |
+          - CREATE video folder: /series/{series-title}/videos/{video-title}/ OR /videos/{video-title}/
+          - CREATE research-tasks/ subdirectory
+          - INITIALIZE placeholder files (chapters.md, tasks.md, {video-title}-final.md)
+        deliverable: Complete video folder structure
+
+      - action: Initialize video tracking
+        details: |
+          - CREATE tasks.md using video-tasks-tmpl
+          - SET initial status to 'planning'
+          - LOG video creation in appropriate ChangeLog.md
+          - UPDATE registry with new video entry
+        deliverable: Video tracking initialized
+
+  # Phase 2: Concept Development
+  - name: Video Concept Development
+    description: Develop detailed video concept with clear messaging and structure
+    duration: 15-20 minutes
+    steps:
+      - agent: video-planner
+        action: Develop comprehensive video concept using video-plan-tmpl
+        deliverable: chapters.md (video plan document)
+        dependencies: [series context, video concept]
+        interaction_level: high
+        requires_user_input: true
+        details: |
+          - DEFINE core message and learning objectives
+          - ESTABLISH video structure and flow
+          - IDENTIFY target audience and prerequisites
+          - PLAN content outline and key points
+          - CONSIDER series integration points (if applicable)
+        quality_criteria:
+          - Clear core message defined
+          - Video structure logical and engaging
+          - Prerequisites identified
+          - Learning objectives specific and measurable
+          - Series integration planned (if applicable)
+
+  # Phase 3: Content Structure Planning
+  - name: Content Structure Planning
+    description: Plan detailed content structure, scenes, and information flow
+    duration: 10-15 minutes
+    steps:
+      - agent: scene-planner
+        action: Create detailed scene structure using scene-outline-tmpl
+        deliverable: Updated chapters.md with scene breakdown
+        dependencies: [video-plan.md/chapters.md]
+        details: |
+          - BREAK DOWN video into logical scenes
+          - PLAN information flow and pacing
+          - IDENTIFY visual opportunities and requirements
+          - ESTIMATE scene timing and transitions
+          - CONSIDER audience retention strategies
+        quality_criteria:
+          - Logical scene progression
+          - Appropriate pacing and timing
+          - Visual opportunities identified
+          - Retention strategies incorporated
+          - Scene transitions planned
+
+  # Phase 4: Research Requirements Identification
+  - name: Research Requirements Identification
+    description: Identify all research and fact-checking requirements for the video
+    duration: 5-10 minutes
+    steps:
+      - agent: video-researcher
+        action: Extract research requirements using extract-research-steps task
+        deliverable: Research task list in research-tasks/ folder
+        dependencies: [chapters.md with content structure]
+        details: |
+          - ANALYZE video content for factual claims
+          - IDENTIFY STEM, historical, and expert opinion requirements
+          - CATEGORIZE research by priority and complexity
+          - CREATE specific research tasks in research-tasks/ folder
+          - PLAN research approach and timeline
+        quality_criteria:
+          - All factual claims identified
+          - Research tasks specific and actionable
+          - Priorities assigned appropriately
+          - Research approach planned
+          - Timeline realistic
+
+# Video Structure Framework
+video_structure:
+  planning_elements:
+    - core_message: "Single clear message video communicates"
+    - learning_objectives: "Specific skills/knowledge gained"
+    - target_audience: "Primary audience and knowledge level"
+    - prerequisites: "Required knowledge for understanding"
+    - success_metrics: "How to measure video success"
+
+  content_organization:
+    - opening_hook: "First 15 seconds attention capture"
+    - introduction: "Context and value proposition"
+    - main_content: "Core information delivery"
+    - conclusion: "Summary and call-to-action"
+    - series_integration: "Links to other series videos (if applicable)"
+
+# File Management
+file_outputs:
+  primary_files:
+    - "chapters.md": "Complete video plan and scene structure"
+    - "tasks.md": "Production tracking and milestones"
+    - "research-tasks/": "Folder with specific research requirements"
+    - "{video-title}-final.md": "Placeholder for final deliverable"
+
+  tracking_updates:
+    - registry_entry: "Video added to appropriate registry"
+    - changelog_entry: "Planning session documented"
+    - series_integration: "Series documentation updated (if applicable)"
+
+# Quality Gates
+quality_gates:
+  concept_clarity:
+    - message_focus: "Single clear core message"
+    - audience_targeting: "Specific audience identified"
+    - value_proposition: "Clear viewer benefit"
+    - success_criteria: "Measurable outcomes defined"
+
+  structural_soundness:
+    - logical_flow: "Information flows logically"
+    - appropriate_pacing: "Timing suitable for content"
+    - engagement_strategy: "Retention techniques planned"
+    - visual_integration: "Visual opportunities identified"
+
+  research_readiness:
+    - claims_identified: "All factual claims cataloged"
+    - research_prioritized: "Tasks ranked by importance"
+    - approach_planned: "Research strategy defined"
+    - timeline_realistic: "Achievable research schedule"
+
+# Integration Points
+integration:
+  series_context:
+    - knowledge_dependencies: "Prerequisites from previous videos"
+    - progression_advancement: "How this advances series learning"
+    - cross_references: "Opportunities to reference other videos"
+    - format_consistency: "Alignment with series standards"
+
+  production_workflow:
+    - next_phase: "Ready for extract-research workflow"
+    - research_handoff: "Clear research requirements defined"
+    - timeline_coordination: "Production schedule integration"
+
+# Success Criteria
+success_criteria:
+  - Complete video folder structure created
+  - Comprehensive video plan document completed
+  - Detailed scene structure planned
+  - All research requirements identified and prioritized
+  - Video tracking systems initialized
+  - Ready for extract-research workflow
+  - Series integration planned (if applicable)
+
+# Next Steps
+next_workflow: extract-research.yaml
+preparation_for_next:
+  - Research requirements clearly documented
+  - Research tasks created in research-tasks/ folder
+  - Video structure provides context for research
+  - Timeline established for research completion
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-planner
+  fallback_workflow: revise-video-concept
+
+outputs:
+  primary:
+    name: Complete Video Plan Package
+    format: Structured video documentation
+    components:
+      - Comprehensive video plan (chapters.md)
+      - Scene structure and timing
+      - Research requirements list
+      - Production tracking setup
+  secondary:
+    - Series integration planning
+    - Research workflow preparation
+    - Production timeline framework

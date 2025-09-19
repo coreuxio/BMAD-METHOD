@@ -1,0 +1,162 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: scene-script-template-v1
+  name: YouTube Scene Script Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: scene-{{scene_number}}-script.md
+    title: "Scene {{scene_number}}: {{scene_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: scene-metadata
+    title: Scene Metadata
+    instruction: |
+      Define basic scene parameters and purpose within the overall video narrative.
+    sections:
+      - id: scene-info
+        title: Scene Information
+        type: structured-list
+        instruction: Basic scene identification and timing
+        fields:
+          - "Scene Number": "Position in video sequence"
+          - "Scene Title": "Descriptive name for this scene"
+          - "Duration": "Estimated time (e.g., 90 seconds)"
+          - "Energy Level": "High/Medium/Low"
+      - id: scene-purpose
+        title: Scene Purpose
+        type: text
+        instruction: What this scene accomplishes in the overall narrative
+        required: true
+
+  - id: content-planning
+    title: Content Planning
+    instruction: |
+      Define what information and emotional impact this scene should deliver.
+    elicit: true
+    sections:
+      - id: information-to-convey
+        title: Information to Convey
+        type: structured-list
+        instruction: Key information this scene must communicate
+        fields:
+          - "Primary Point": "Main message or concept"
+          - "Supporting Facts": "Key facts from research"
+          - "Emotional Beat": "Feeling to create in viewer"
+
+  - id: script-content
+    title: Script Content
+    instruction: |
+      Write natural, conversational script with proper fact integration and attribution.
+    elicit: true
+    sections:
+      - id: opening-line
+        title: Opening Line
+        type: text
+        instruction: Hook or transition from previous scene
+        required: true
+      - id: main-content
+        title: Main Content
+        type: script-text
+        instruction: Natural, conversational script text. Write as you would speak it. Include pauses, emphasis, and natural rhythm.
+        required: true
+        examples:
+          - "Natural conversational flow with..."
+          - "According to [Source], [integrate fact with attribution]..."
+          - "[Build to scene conclusion...]"
+      - id: closing-transition
+        title: Closing/Transition
+        type: text
+        instruction: Bridge to next scene or section conclusion
+        required: true
+
+  - id: visual-elements
+    title: Visual Elements
+    instruction: |
+      Suggest visual approaches while preserving editor creativity and flexibility.
+    sections:
+      - id: visual-suggestions
+        title: Visual Suggestions
+        type: structured-list
+        instruction: Optional suggestions for visuals - editor has creative freedom
+        prefix: "[VISUAL NOTE: Optional suggestion for visuals]"
+        fields:
+          - "Primary Visual": "Main visual concept"
+          - "Supporting B-roll": "Additional footage ideas"
+          - "Graphics/Text": "Any overlays or animations"
+      - id: editor-notes
+        title: Editor Notes
+        type: text
+        instruction: Creative guidance that preserves editor flexibility
+        prefix: "[EDITOR NOTE:"
+        suffix: "]"
+        example: "These are suggestions only - use your creative judgment"
+
+  - id: timing-delivery
+    title: Timing & Delivery Notes
+    instruction: |
+      Pacing and delivery guidance for natural script performance.
+    sections:
+      - id: timing-breakdown
+        title: Timing Notes
+        type: structured-list
+        instruction: Time allocation for different parts of the scene
+        fields:
+          - "Introduction": "X seconds"
+          - "Main Point Delivery": "X seconds"
+          - "Example/Demonstration": "X seconds"
+          - "Transition": "X seconds"
+      - id: delivery-guidance
+        title: Delivery Notes
+        type: structured-list
+        instruction: How to deliver this scene effectively
+        fields:
+          - "Pace": "Fast/Moderate/Slow"
+          - "Tone": "Serious/Light/Energetic"
+          - "Emphasis Points": "Key words to stress"
+
+  - id: fact-integration
+    title: Fact Integration
+    instruction: |
+      Document how research facts are integrated with proper attribution.
+    sections:
+      - id: fact-attribution-table
+        title: Fact Attribution
+        type: table
+        columns: ["Fact", "Source", "Attribution Style"]
+        instruction: Track how each fact is attributed in the script
+
+  - id: alternative-options
+    title: Alternative Options
+    instruction: |
+      Backup approaches if the primary script needs adjustment.
+    sections:
+      - id: alternatives
+        title: Alternative Approaches
+        type: structured-list
+        instruction: Different ways to approach this scene if needed
+        fields:
+          - "Alternative Angle": "Different approach to same content"
+          - "Shorter Version": "Quick version if time is tight"
+          - "Extended Version": "Expanded version if more time available"
+
+  - id: quality-notes
+    title: Quality Notes
+    instruction: |
+      Reminders about maintaining natural delivery and script quality.
+    sections:
+      - id: adaptation-reminder
+        title: Adaptation Reminder
+        type: text
+        instruction: Note about template flexibility
+        default: "Remember: This template is a guide. Adapt as needed for natural delivery."
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track scene script revisions and improvements

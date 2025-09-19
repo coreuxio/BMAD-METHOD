@@ -1,0 +1,356 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-description-template-v1
+  name: YouTube Video Description Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: "{{video_title}}-description.md"
+    title: "YouTube Video Description: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: description-text
+    title: Description Text
+    instruction: |
+      Create SEO-optimized description that captures attention, provides value, and encourages engagement. The first 125 characters are critical for search visibility.
+    elicit: true
+    sections:
+      - id: hook-text
+        title: Hook (First 125 Characters - CRITICAL)
+        type: text
+        instruction: Text that appears in search results and suggestions. Must be compelling and include key terms
+        character_limit: 125
+        required: true
+        validation: "Character count must be 125 or under"
+        examples:
+          - "Discover the surprising truth about [topic] that 90% of people don't know - including the [benefit]..."
+          - "Learn how [method] can [result] in just [timeframe]. Plus: the common mistake everyone makes..."
+      - id: full-description
+        title: Full Description
+        type: structured-paragraphs
+        instruction: Expand on hook with clear value proposition and learning outcomes
+        sections:
+          - id: opening-paragraph
+            title: Opening Paragraph
+            type: paragraphs
+            instruction: Expand on hook, provide context about what viewers will learn/experience
+            examples:
+              - "Context about topic importance"
+              - "What viewers will gain"
+              - "Why this matters now"
+          - id: learning-outcomes
+            title: Learning Outcomes
+            type: bullet-list
+            instruction: Clear benefits viewers will receive
+            prefix: "In this video, you'll learn:"
+            examples:
+              - "How to [specific skill or knowledge]"
+              - "The truth about [misconception]"
+              - "A simple method to [achieve result]"
+          - id: additional-context
+            title: Additional Context
+            type: paragraphs
+            instruction: Why this matters, personal connection, or additional value
+          - id: disclaimers
+            title: Disclaimers (Optional)
+            type: paragraphs
+            instruction: Important notes, corrections, or disclaimers if needed
+
+  - id: timestamps
+    title: Timestamps / Chapters
+    instruction: |
+      Create searchable chapters that help viewers navigate and improve watch time. YouTube requires minimum 3 chapters, each 10+ seconds.
+    elicit: true
+    sections:
+      - id: chapter-list
+        title: Chapter Timestamps
+        type: structured-list
+        instruction: Create descriptive chapters with keywords for SEO
+        format: "MM:SS - [Chapter Title with Keywords]"
+        examples:
+          - "00:00 - Hook & Introduction"
+          - "00:30 - Why [Topic] Matters: The Science Behind [Concept]"
+          - "02:00 - The [Method] Technique: Step-by-Step"
+          - "05:00 - Common Mistakes and How to Avoid Them"
+          - "07:45 - Conclusion & Next Steps"
+        validation: "Minimum 3 chapters required, each must be 10+ seconds"
+
+  - id: sources-references
+    title: Sources & References
+    instruction: |
+      Professional source documentation builds credibility and provides additional value. Organize by source type for easy navigation.
+    sections:
+      - id: academic-sources
+        title: Academic & Research Sources
+        type: numbered-list
+        instruction: Peer-reviewed studies, research papers, and academic sources
+        format: "[Author Last Name, First Name] ([Year]). [Title]. [Publication]. Link: [URL]"
+      - id: expert-sources
+        title: Expert Sources & Interviews
+        type: numbered-list
+        instruction: Expert quotes, interviews, or professional opinions
+        format: "[Expert Name], [Title/Credentials]. [Source]. Link: [URL if available]"
+      - id: data-sources
+        title: Statistics & Data Sources
+        type: numbered-list
+        instruction: Government data, surveys, statistical reports
+        format: "[Organization] ([Year]). [Data Set/Report Name]. Link: [URL]"
+      - id: media-sources
+        title: News & Media Sources
+        type: numbered-list
+        instruction: News articles, media reports, journalism
+        format: "[Publication] ([Date]). [Article Title]. Link: [URL]"
+      - id: additional-reading
+        title: Additional Reading
+        type: numbered-list
+        instruction: Recommended resources for deeper learning
+        format: "[Resource with brief description]. Link: [URL]"
+
+  - id: resources-mentioned
+    title: Resources Mentioned
+    instruction: |
+      List all tools, software, and resources mentioned in the video for easy access.
+    sections:
+      - id: tools-software
+        title: Tools & Software
+        type: structured-list
+        instruction: Tools and software mentioned with descriptions
+        format: "- [Tool Name]: [Brief description] - [URL]"
+      - id: related-videos
+        title: Related Videos
+        type: structured-list
+        instruction: Links to related content on your channel
+        format: "- [Video title with context]: [URL]"
+      - id: downloads-freebies
+        title: Downloads & Freebies
+        type: structured-list
+        instruction: Any free resources offered to viewers
+        format: "- [Resource description]: [URL]"
+
+  - id: connect-section
+    title: Connect With Me
+    instruction: |
+      Social proof and community building section to grow your audience across platforms.
+    sections:
+      - id: subscribe-cta
+        title: Subscribe Call-to-Action
+        type: text
+        instruction: Clear subscription request with value proposition
+        examples:
+          - "🔔 SUBSCRIBE for weekly [content type]: [Channel URL]"
+          - "👍 If this helped you, please LIKE and SHARE!"
+      - id: social-links
+        title: Social Media Links
+        type: structured-list
+        instruction: All social media platforms with handles
+        format: "[Platform Emoji] [Platform]: [Handle/URL]"
+        examples:
+          - "📸 Instagram: @username"
+          - "🐦 Twitter/X: @username"
+          - "💼 LinkedIn: [Profile URL]"
+          - "🌐 Website: [URL]"
+      - id: support-options
+        title: Support The Channel
+        type: structured-list
+        instruction: Monetization and support options
+        examples:
+          - "☕ Buy me a coffee: [Link]"
+          - "🎁 Patreon: [Link]"
+          - "💰 Channel Memberships: [Join button]"
+
+  - id: community-section
+    title: Community
+    instruction: |
+      Community building and engagement opportunities beyond YouTube.
+    sections:
+      - id: community-links
+        title: Community Platforms
+        type: structured-list
+        instruction: Discord, Facebook groups, or other communities
+        format: "[Platform Emoji] [Platform Name]: [Invite/Link]"
+        examples:
+          - "💬 Discord Server: [Invite link]"
+          - "👥 Facebook Group: [Group link]"
+          - "📱 Telegram: [Channel link]"
+
+  - id: faq-section
+    title: FAQ / Common Questions
+    instruction: |
+      Address common questions to reduce repetitive comments and provide additional value.
+    sections:
+      - id: common-questions
+        title: Frequently Asked Questions
+        type: qa-pairs
+        instruction: Anticipate and answer common viewer questions
+        format: |
+          **Q: [Question]**
+          A: [Answer or link to detailed response]
+
+  - id: technical-info
+    title: Video Equipment & Software Used
+    instruction: |
+      Technical information for viewers interested in production details.
+    sections:
+      - id: recording-setup
+        title: Recording Setup
+        type: structured-list
+        instruction: Camera, audio, and lighting equipment
+        fields:
+          - "Camera": "[Model and specifications]"
+          - "Microphone": "[Model and type]"
+          - "Lighting": "[Setup description]"
+      - id: editing-software
+        title: Editing Software
+        type: structured-list
+        instruction: Software used for production
+        fields:
+          - "Video Editor": "[Software name and version]"
+          - "Graphics": "[Design software used]"
+          - "Screen Recording": "[Software for screen capture]"
+
+  - id: seo-optimization
+    title: SEO Optimization
+    instruction: |
+      YouTube-specific optimization elements including hashtags and keyword strategy.
+    sections:
+      - id: hashtag-strategy
+        title: Hashtags
+        type: hashtag-structure
+        instruction: Strategic hashtag selection for discoverability
+        sections:
+          - id: primary-hashtags
+            title: Primary Hashtags (First 3 appear above title)
+            type: hashtag-list
+            max_count: 3
+            instruction: Most important hashtags for topic relevance
+            format: "#[PrimaryHashtag1] #[PrimaryHashtag2] #[PrimaryHashtag3]"
+          - id: additional-hashtags
+            title: Additional Hashtags
+            type: hashtag-list
+            max_count: 12
+            instruction: Supporting hashtags for broader reach
+            total_limit: 15
+            validation: "Total hashtags cannot exceed 15 or all will be ignored"
+      - id: seo-keywords
+        title: SEO Keywords (Creator Reference Only)
+        type: structured-list
+        instruction: Keyword research for optimization (not visible to viewers)
+        fields:
+          - "Target Keywords": "Primary search terms"
+          - "Long-tail Keywords": "Longer phrases with good search volume"
+          - "Related Terms": "Semantic keywords and variations"
+
+  - id: platform-settings
+    title: Platform Settings Notes
+    instruction: |
+      YouTube upload settings and configuration notes.
+    sections:
+      - id: upload-settings
+        title: Upload Configuration
+        type: structured-list
+        instruction: Platform-specific settings for upload
+        fields:
+          - "Category": "[YouTube category selection]"
+          - "Language": "[Primary language]"
+          - "Captions": "[CC availability and language]"
+          - "Comment Moderation": "[Moderation settings]"
+          - "Age Restriction": "[Yes/No with rationale]"
+
+  - id: legal-disclosures
+    title: Legal Disclosures & Credits
+    instruction: |
+      Required disclosures and attribution for transparency and legal compliance.
+    sections:
+      - id: affiliate-disclosure
+        title: Affiliate Disclosure
+        type: text
+        instruction: Required disclosure for affiliate links
+        template: "Some links in this description may be affiliate links, meaning I earn a small commission if you make a purchase at no extra cost to you. This helps support the channel!"
+      - id: credits-thanks
+        title: Credits & Thanks
+        type: structured-list
+        instruction: Attribution and acknowledgments
+        fields:
+          - "Special Thanks": "Contributors, supporters, collaborators"
+          - "Music Credits": "Track, artist, license information"
+          - "Stock Footage": "Source and license details"
+      - id: corrections-updates
+        title: Corrections & Updates
+        type: text
+        instruction: Space for post-publication corrections or updates
+
+  - id: analytics-tracking
+    title: Analytics & Tracking
+    instruction: |
+      Analytics setup for measuring description effectiveness and conversions.
+    sections:
+      - id: utm-parameters
+        title: UTM Parameters for Links
+        type: structured-list
+        instruction: Tracking parameters for link analytics
+        fields:
+          - "Campaign": "video-title-date format"
+          - "Source": "youtube"
+          - "Medium": "video-description"
+      - id: conversion-goals
+        title: Conversion Goals
+        type: numbered-list
+        instruction: Specific measurable goals for this video description
+        examples:
+          - "Newsletter signups from description links"
+          - "Course enrollment or product sales"
+          - "Social media follows and engagement"
+
+  - id: metadata
+    title: Description Metadata
+    instruction: |
+      Creation and version tracking information.
+    sections:
+      - id: creation-info
+        title: Creation Information
+        type: structured-list
+        instruction: Description creation and publishing details
+        fields:
+          - "Created by": "Video Description Writer"
+          - "Creation Date": "[Date]"
+          - "Video Upload Date": "[Scheduled date]"
+          - "Description Version": "[Version number]"
+          - "Last Updated": "[If revised after publication]"
+
+  - id: main-video-integration
+    title: Main Video File Integration
+    instruction: Track how description integrates with the main video production
+    sections:
+      - id: integration-status
+        title: Integration Status
+        type: structured-list
+        instruction: Status of description integration with other video components
+        fields:
+          - "Script Alignment": "Consistency with video script content"
+          - "Research Sources": "Integration of research documentation sources"
+          - "Timestamp Accuracy": "Alignment with actual video timing"
+          - "Final Document Status": "Integration into {video-title}-final.md"
+      - id: content-synchronization
+        title: Content Synchronization
+        type: table
+        columns: [Content Element, Source File, Sync Status, Last Updated, Notes]
+        instruction: Track synchronization between description and video components
+      - id: update-dependencies
+        title: Update Dependencies
+        type: bullet-list
+        instruction: Other files that require description updates when changed
+        examples:
+          - "Video script: Content changes affecting description"
+          - "Research findings: New sources requiring citation updates"
+          - "Final timing: Timestamp adjustments needed"
+          - "Publication schedule: Release timing modifications"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track description updates and optimizations over time

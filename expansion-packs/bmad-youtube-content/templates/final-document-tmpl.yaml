@@ -1,0 +1,301 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: final-document-template-v1
+  name: Final Video Document Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: "{{video_title}}-final.md"
+    title: "{{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: basic
+
+sections:
+  - id: video-information
+    title: Video Information
+    instruction: |
+      Basic video metadata and production details.
+    sections:
+      - id: basic-info
+        title: Basic Information
+        type: structured-list
+        instruction: Core video specifications
+        fields:
+          - "Production Level": "Quick/Standard/Premium/Series"
+          - "Target Length": "MM:SS"
+          - "Target Audience": "Audience description"
+          - "Production Date": "YYYY-MM-DD"
+          - "Series": "Series name if applicable"
+          - "Episode Number": "If part of series"
+
+  - id: video-script
+    title: Video Script
+    instruction: |
+      Complete script with scene structure and visual guidance.
+    elicit: true
+    sections:
+      - id: opening-hook
+        title: Opening Hook
+        type: script-text
+        instruction: Compelling opening that captures attention within first 15 seconds
+      - id: introduction
+        title: Introduction
+        type: script-text
+        instruction: Brief introduction that sets expectations and provides value proposition
+      - id: main-content
+        title: Main Content
+        type: scene-structure
+        instruction: Scene-by-scene script with visual notes
+        template:
+          scene-header: "Scene [Number]: [Scene Title]"
+          duration: "Estimated time"
+          purpose: "What this scene accomplishes"
+          script-content: "Natural flowing script content"
+          visual-notes: "[VISUAL NOTE: Suggested visual elements]"
+          editor-notes: "[EDITOR NOTE: Production guidance]"
+      - id: conclusion
+        title: Conclusion
+        type: script-text
+        instruction: Strong conclusion that reinforces main message and includes call-to-action
+      - id: end-screen
+        title: End Screen Content
+        type: text
+        instruction: Suggested end screen elements and calls-to-action
+
+  - id: youtube-description
+    title: YouTube Description
+    instruction: |
+      Complete SEO-optimized description for platform upload.
+    sections:
+      - id: primary-description
+        title: Primary Description (First 125 characters)
+        type: text
+        character_limit: 125
+        instruction: Hook that appears in search results - must be compelling and keyword-rich
+      - id: full-description
+        title: Full Description
+        type: markdown-text
+        instruction: Complete SEO-optimized description with keywords, value proposition, and engagement hooks
+      - id: timestamps
+        title: Timestamps
+        type: structured-list
+        instruction: Chapter markers for video navigation
+        format: "MM:SS - Chapter Title"
+      - id: sources-references
+        title: Sources & References
+        type: category-list
+        instruction: Organized source documentation
+        categories:
+          - "Research Studies"
+          - "Expert Insights"
+          - "Additional Resources"
+      - id: community-links
+        title: Community & Links
+        type: structured-list
+        instruction: Social and engagement links
+        fields:
+          - "Subscribe": "Channel URL"
+          - "Discord": "Community link"
+          - "Social Media": "Platform links"
+          - "Website": "Main site"
+      - id: hashtags
+        title: Hashtags
+        type: hashtag-list
+        instruction: Strategic hashtags for discoverability
+        max_count: 15
+
+  - id: production-notes
+    title: Production Notes
+    instruction: |
+      Technical and creative guidance for video production team.
+    sections:
+      - id: visual-style
+        title: Visual Style Guidelines
+        type: structured-list
+        instruction: Consistent visual approach
+        fields:
+          - "Color Scheme": "Consistent colors for series/brand"
+          - "Typography": "Font choices for on-screen text"
+          - "Pacing": "Overall rhythm and energy level"
+          - "Transitions": "Suggested transition styles"
+      - id: audio-considerations
+        title: Audio Considerations
+        type: structured-list
+        instruction: Audio design and music guidance
+        fields:
+          - "Music": "Background music style/mood"
+          - "Sound Effects": "Key sound effect moments"
+          - "Voice": "Tone, pace, emphasis points"
+      - id: technical-specs
+        title: Technical Specifications
+        type: structured-list
+        instruction: Platform and quality requirements
+        fields:
+          - "Resolution": "Video resolution requirements"
+          - "Aspect Ratio": "16:9, 9:16, etc."
+          - "Frame Rate": "fps requirements"
+          - "Audio Quality": "Audio specifications"
+      - id: thumbnail-suggestions
+        title: Thumbnail Suggestions
+        type: structured-list
+        instruction: Thumbnail design guidance
+        fields:
+          - "Primary Elements": "Key visual elements"
+          - "Text Overlay": "Suggested thumbnail text"
+          - "Color Palette": "Thumbnail color scheme"
+          - "A/B Test Options": "Alternative concepts"
+
+  - id: research-documentation
+    title: Research Documentation
+    instruction: |
+      Summary of research used and fact verification status.
+    sections:
+      - id: research-summary
+        title: Research Summary
+        type: structured-list
+        instruction: Overview of research quality and scope
+        fields:
+          - "Total Sources": "Number"
+          - "Primary Sources": "Count"
+          - "Expert Sources": "Count"
+          - "Credibility Rating": "Overall rating"
+      - id: key-facts
+        title: Key Facts Used
+        type: table
+        columns: ["Fact", "Source", "Credibility", "Attribution Style", "Timestamp"]
+        instruction: Track facts integrated into script
+      - id: research-files
+        title: Research Files Reference
+        type: bullet-list
+        instruction: Links to detailed research documentation
+        examples:
+          - "Research tasks completed: Count"
+          - "Approved research files: List"
+          - "Source verification: Status"
+
+  - id: quality-assurance
+    title: Quality Assurance
+    instruction: |
+      Validation and quality control checkpoints.
+    sections:
+      - id: pre-production-checklist
+        title: Pre-Production Checklist
+        type: checklist
+        items:
+          - "Script reviewed for accuracy"
+          - "All facts properly attributed"
+          - "Visual notes clear and actionable"
+          - "Audio pacing appropriate"
+          - "SEO optimization complete"
+      - id: source-verification
+        title: Source Verification
+        type: checklist
+        items:
+          - "All links tested and working"
+          - "Source credibility confirmed"
+          - "Attribution style consistent"
+          - "No missing citations"
+          - "Fair use compliance verified"
+      - id: technical-review
+        title: Technical Review
+        type: checklist
+        items:
+          - "Timestamp accuracy confirmed"
+          - "Description character limits met"
+          - "Hashtag count within limits"
+          - "All required elements included"
+          - "File organization complete"
+
+  - id: metrics-goals
+    title: Metrics and Goals
+    instruction: |
+      Performance expectations and success measurement.
+    sections:
+      - id: performance-targets
+        title: Performance Targets
+        type: structured-list
+        instruction: Quantifiable goals for video performance
+        fields:
+          - "Target Views": "Goal number"
+          - "Expected CTR": "Percentage"
+          - "Audience Retention Goal": "Percentage"
+          - "Engagement Rate": "Target percentage"
+      - id: success-metrics
+        title: Success Metrics
+        type: structured-list
+        instruction: How to measure success
+        fields:
+          - "View Count Tracking": "Timeline"
+          - "Engagement Monitoring": "Comments, likes, shares"
+          - "Audience Retention Analysis": "Drop-off points"
+          - "SEO Performance": "Search ranking goals"
+
+  - id: file-history
+    title: File History
+    instruction: |
+      Document creation and modification tracking.
+    sections:
+      - id: document-metadata
+        title: Document Metadata
+        type: structured-list
+        instruction: File creation and version information
+        fields:
+          - "Created": "Date by bmad-orchestrator"
+          - "Last Modified": "Date by Agent name"
+          - "Version": "Version number"
+          - "Status": "Draft/Review/Final/Published"
+      - id: related-files
+        title: Related Files
+        type: structured-list
+        instruction: Links to supporting documentation
+        fields:
+          - "Planning Document": "chapters.md"
+          - "Research Documentation": "research-tasks/ folder"
+          - "Progress Tracking": "tasks.md"
+          - "Change History": "ChangeLog.md"
+
+  - id: file-integration-tracking
+    title: File Integration Tracking
+    instruction: Track how changes from component files are integrated into this final document
+    sections:
+      - id: integration-log
+        title: Integration Log
+        type: table
+        columns: [Date, Source File, Changes Integrated, Integrated By, Impact Level]
+        instruction: Track when and how changes from other files are incorporated
+      - id: component-status
+        title: Component File Status
+        type: structured-list
+        instruction: Current status of all component files
+        fields:
+          - "chapters.md": "Last updated date and integration status"
+          - "research-tasks/": "Research completion status and last integration"
+          - "tasks.md": "Task completion status and progress updates"
+          - "ChangeLog.md": "Change tracking status and last review"
+      - id: pending-integrations
+        title: Pending Integrations
+        type: bullet-list
+        instruction: Changes in component files that haven't been integrated yet
+        examples:
+          - "New research findings in research-tasks/[file-name]"
+          - "Updated planning information in chapters.md"
+          - "Task completion updates in tasks.md"
+          - "Change log entries needing reflection in final document"
+      - id: integration-quality
+        title: Integration Quality Checks
+        type: checklist
+        items:
+          - "All approved research integrated into script"
+          - "Planning changes reflected in content structure"
+          - "Task completions updated in final status"
+          - "Change log entries explain all document evolution"
+          - "No conflicting information between files"
+          - "All source files synchronized with final document"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track final document revisions and updates

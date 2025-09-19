@@ -1,0 +1,145 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: changelog-template-v1
+  name: Video ChangeLog Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: ChangeLog.md
+    title: "ChangeLog - {{video_or_series_title}}"
+
+workflow:
+  mode: basic
+
+sections:
+  - id: current-entry
+    title: Current Change Entry
+    instruction: |
+      Add new entry for each agent session or significant modification.
+    sections:
+      - id: entry-header
+        title: Entry Information
+        type: structured-list
+        instruction: Basic entry identification
+        fields:
+          - "Date": "YYYY-MM-DD HH:MM"
+          - "Agent Name": "Which agent made changes"
+      - id: changes-made
+        title: Changes Made
+        instruction: Document specific modifications
+        sections:
+          - id: added
+            title: Added
+            type: bullet-list
+            instruction: New files created or content sections added
+            examples:
+              - "New files created"
+              - "New content sections"
+              - "New research tasks"
+          - id: changed
+            title: Changed
+            type: bullet-list
+            instruction: Modified files and content
+            examples:
+              - "Modified files and sections"
+              - "Updated content"
+              - "Revised research findings"
+          - id: files-modified
+            title: Files Modified
+            type: bullet-list
+            instruction: Specific files changed with descriptions
+            examples:
+              - "chapters.md - Description of changes"
+              - "research-tasks/[task-name]-[status].md - Description"
+              - "tasks.md - Progress updates"
+              - "[video-title]-final.md - Content additions"
+
+  - id: progress-tracking
+    title: Progress Tracking
+    instruction: |
+      Track research and production progress through the pipeline.
+    sections:
+      - id: research-progress
+        title: Research Progress
+        type: bullet-list
+        instruction: Research task lifecycle progress
+        examples:
+          - "Research task moved from todo to draft"
+          - "Number of sources verified and approved"
+          - "Fact added with credibility level rating"
+      - id: next-steps
+        title: Next Steps
+        type: bullet-list
+        instruction: What should happen next
+        examples:
+          - "What agent should work on next"
+          - "Pending dependencies"
+          - "Required follow-up actions"
+
+  - id: quality-notes
+    title: Quality Notes
+    instruction: |
+      Document quality considerations and review requirements.
+    sections:
+      - id: quality-concerns
+        title: Quality Notes
+        type: bullet-list
+        instruction: Any quality concerns or review needs
+        examples:
+          - "Quality concerns identified"
+          - "Review requirements"
+          - "Validation needs"
+
+  - id: session-summary
+    title: Session Summary
+    instruction: |
+      Overall session tracking and status overview.
+    sections:
+      - id: summary-stats
+        title: Session Summary
+        type: structured-list
+        instruction: High-level session information
+        fields:
+          - "Total Sessions": "Count of change entries"
+          - "Total Agents Involved": "List of agents"
+          - "Production Level": "Quick/Standard/Premium/Series"
+          - "Current Status": "Planning/Research/Production/Review/Complete"
+          - "Estimated Completion": "Date/Time remaining"
+
+  - id: file-status
+    title: File Status Overview
+    instruction: |
+      Track completion status of all project files.
+    sections:
+      - id: file-completion
+        title: File Status Overview
+        type: structured-list
+        instruction: Status of all project files
+        fields:
+          - "chapters.md": "Complete/In Progress/Not Started"
+          - "research-tasks/": "X approved / Y total tasks"
+          - "tasks.md": "X% complete"
+          - "[video-title]-final.md": "Complete/In Progress/Not Started"
+
+  - id: research-status
+    title: Research Status
+    instruction: |
+      Detailed research task tracking.
+    sections:
+      - id: research-table
+        title: Research Task Status
+        type: table
+        columns: ["Task Name", "Status", "Source Count", "Credibility", "Assigned Agent"]
+        instruction: Track research tasks through lifecycle
+
+  - id: changelog-metadata
+    title: ChangeLog Metadata
+    instruction: |
+      Track changelog itself for audit purposes.
+    sections:
+      - id: metadata
+        title: Metadata
+        type: structured-list
+        fields:
+          - "ChangeLog initiated": "Initial date"
+          - "Last updated": "Current date and agent"

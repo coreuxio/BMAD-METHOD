@@ -1,0 +1,128 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: transition-guide-template-v1
+  name: Transition Guide Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: transition-guide.md
+    title: "Transition Guide Template"
+
+workflow:
+  mode: reference
+
+sections:
+  - id: transition-types
+    title: Transition Types
+    instruction: Different ways to move between video sections
+    sections:
+      - id: verbal-transitions
+        title: Verbal Transitions
+        type: transition-category
+        examples:
+          - "Now, here's where it gets interesting..."
+          - "But wait, there's more to this story..."
+          - "This brings us to our next point..."
+          - "Speaking of [topic]..."
+      - id: visual-transitions
+        title: Visual Transitions
+        type: transition-category
+        examples:
+          - "Cut to new scene"
+          - "Fade to black"
+          - "Zoom transition"
+          - "Graphic overlay bridge"
+      - id: music-transitions
+        title: Music and Audio Transitions
+        type: transition-category
+        examples:
+          - "Musical bridge"
+          - "Sound effect transition"
+          - "Audio fade"
+          - "Natural pause"
+
+  - id: scene-transitions
+    title: Scene-to-Scene Transitions
+    instruction: How to smoothly move between major sections
+    sections:
+      - id: content-bridges
+        title: Content Bridges
+        type: bullet-list
+        examples:
+          - "Summarize previous point before moving on"
+          - "Preview what's coming next"
+          - "Ask a question that leads to next section"
+          - "Use a connecting example"
+      - id: energy-management
+        title: Energy Management
+        type: structured-list
+        fields:
+          - "High to Low": "Gentle wind-down phrases"
+          - "Low to High": "Building excitement language"
+          - "Maintain Level": "Consistent pacing"
+          - "Reset Energy": "Pattern interrupt or pause"
+
+  - id: timing-considerations
+    title: Timing and Pacing
+    instruction: When and how long transitions should be
+    sections:
+      - id: transition-length
+        title: Transition Length Guidelines
+        type: structured-list
+        fields:
+          - "Quick Transitions": "1-2 seconds for fast-paced content"
+          - "Standard Transitions": "3-5 seconds for normal flow"
+          - "Dramatic Transitions": "5-10 seconds for emphasis"
+          - "Chapter Transitions": "10-15 seconds for major sections"
+      - id: timing-markers
+        title: Natural Timing Markers
+        type: bullet-list
+        examples:
+          - "End of explanation"
+          - "After example completion"
+          - "Before new concept introduction"
+          - "At natural pause points"
+
+  - id: retention-optimization
+    title: Retention Optimization
+    instruction: Using transitions to maintain viewer engagement
+    sections:
+      - id: curiosity-gaps
+        title: Curiosity Gap Transitions
+        type: bullet-list
+        examples:
+          - "But first, let me show you something surprising..."
+          - "We'll get to that in just a moment..."
+          - "The answer might shock you..."
+          - "Hold that thought - there's a twist..."
+      - id: value-previews
+        title: Value Preview Transitions
+        type: bullet-list
+        examples:
+          - "Coming up, I'll show you exactly how to..."
+          - "In the next section, you'll discover..."
+          - "Wait until you see what happens when..."
+          - "The best part is still coming..."
+
+  - id: editor-guidance
+    title: Editor Implementation
+    instruction: How editors can enhance scripted transitions
+    sections:
+      - id: visual-enhancement
+        title: Visual Enhancement Options
+        type: bullet-list
+        examples:
+          - "Add motion graphics during transition"
+          - "Change background or lighting"
+          - "Insert relevant B-roll"
+          - "Use text overlays for emphasis"
+      - id: flexibility-notes
+        title: Editor Flexibility
+        type: text
+        instruction: "All transition suggestions are guidelines. Editors should feel free to adjust timing, add visual elements, or create smoother flows based on the actual footage and pacing needs."
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track transition guide updates

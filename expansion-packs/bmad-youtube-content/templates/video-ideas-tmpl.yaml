@@ -1,0 +1,271 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: video-ideas-template-v1
+  name: Video Ideas Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: video-ideas.md
+    title: "Video Ideas List"
+
+workflow:
+  mode: elicitation
+  elicit: true
+  elicitation: advanced-elicitation
+
+sections:
+  - id: ideas-overview
+    title: Video Ideas Overview
+    instruction: Comprehensive list of video concepts for the series
+    elicit: true
+    sections:
+      - id: series-context
+        title: Series Context
+        type: structured-list
+        elicit: true
+        fields:
+          - "Series Title": "Name of the video series"
+          - "Core Theme": "Central topic or subject area"
+          - "Target Video Count": "Initial target number of videos"
+          - "Expandability": "How series can grow beyond initial scope"
+          - "Knowledge Level": "Target audience expertise level"
+
+  - id: foundation-videos
+    title: Foundation Videos
+    instruction: Essential videos that establish core concepts
+    elicit: true
+    sections:
+      - id: core-concepts
+        title: Core Concept Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos that establish fundamental knowledge
+        template: |
+          ### Video [#]: [Title]
+          - **Learning Objective**: What viewers will learn
+          - **Key Concepts**: Main ideas covered
+          - **Prerequisites**: What viewers need to know first
+          - **Dependencies**: Videos that must come before this one
+          - **Duration Estimate**: Expected video length
+          - **Complexity Level**: Beginner/Intermediate/Advanced
+          - **Research Requirements**: What research is needed
+          - **Visual Opportunities**: Key visual elements or demonstrations
+
+      - id: foundational-skills
+        title: Foundational Skills Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos that teach essential skills
+        template: |
+          ### Video [#]: [Title]
+          - **Skill Focus**: Primary skill being taught
+          - **Practical Application**: How skill is used
+          - **Prerequisites**: Required knowledge or skills
+          - **Practice Opportunities**: How viewers can practice
+          - **Common Mistakes**: What to watch out for
+          - **Success Indicators**: How to know you've mastered it
+
+  - id: building-videos
+    title: Building Block Videos
+    instruction: Videos that expand on foundations and build complexity
+    elicit: true
+    sections:
+      - id: intermediate-concepts
+        title: Intermediate Concept Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos that build on foundation concepts
+        template: |
+          ### Video [#]: [Title]
+          - **Builds On**: Which foundation videos this references
+          - **New Concepts**: What new ideas are introduced
+          - **Integration Points**: How it connects to previous learning
+          - **Real-World Examples**: Practical applications
+          - **Complexity Level**: How difficult compared to foundations
+          - **Callback Opportunities**: References to earlier videos
+
+      - id: skill-combinations
+        title: Skill Combination Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos that combine multiple learned skills
+        template: |
+          ### Video [#]: [Title]
+          - **Combined Skills**: Which skills are brought together
+          - **Prerequisites**: All required foundation videos
+          - **Synergy Points**: How skills work better together
+          - **Project Focus**: Practical project or application
+          - **Challenge Level**: Difficulty compared to individual skills
+
+  - id: advanced-videos
+    title: Advanced Videos
+    instruction: Complex videos requiring multiple prerequisites
+    elicit: true
+    sections:
+      - id: advanced-applications
+        title: Advanced Application Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos showing complex applications
+        template: |
+          ### Video [#]: [Title]
+          - **All Prerequisites**: Complete list of required videos
+          - **Advanced Concepts**: New high-level ideas
+          - **Expert Insights**: Professional or expert perspectives
+          - **Case Studies**: Real-world complex examples
+          - **Mastery Indicators**: Signs of advanced understanding
+
+      - id: specialization-tracks
+        title: Specialization Track Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos for specialized interests or career paths
+        template: |
+          ### Video [#]: [Title]
+          - **Specialization Area**: Specific field or application
+          - **Target Audience**: Who needs this specialization
+          - **Foundation Prerequisites**: Required general knowledge
+          - **Career Relevance**: Professional applications
+          - **Deep Dive Topics**: Specialized concepts covered
+
+  - id: standalone-videos
+    title: Standalone Videos
+    instruction: Videos that can be watched independently
+    elicit: true
+    sections:
+      - id: overview-videos
+        title: Overview and Summary Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Videos that summarize or overview concepts
+        template: |
+          ### Video [#]: [Title]
+          - **Coverage Scope**: What topics are summarized
+          - **Entry Point**: Can new viewers start here?
+          - **Reference Value**: Useful for review or quick lookup
+          - **Integration Purpose**: How it fits in series flow
+
+      - id: bonus-content
+        title: Bonus Content Videos
+        type: video-ideas-list
+        elicit: true
+        instruction: Optional videos that enhance but aren't required
+        template: |
+          ### Video [#]: [Title]
+          - **Enhancement Type**: How it adds value (history, context, fun facts)
+          - **Related Videos**: Connects to which main series videos
+          - **Optional Nature**: Why it's not required viewing
+          - **Interest Factor**: What makes it engaging
+
+  - id: knowledge-mapping
+    title: Knowledge Dependency Mapping
+    instruction: Visual and structural representation of video relationships
+    sections:
+      - id: dependency-chains
+        title: Dependency Chains
+        type: structured-list
+        fields:
+          - "Linear Sequences": "Videos that must be watched in order"
+          - "Branching Points": "Where viewers can choose different paths"
+          - "Convergence Points": "Where different paths come together"
+          - "Optional Branches": "Side tracks that enhance but aren't required"
+
+      - id: knowledge-levels
+        title: Knowledge Level Progression
+        type: structured-list
+        fields:
+          - "Beginner Level": "Videos for complete newcomers"
+          - "Intermediate Level": "Videos requiring some foundation knowledge"
+          - "Advanced Level": "Videos for experienced learners"
+          - "Expert Level": "Videos for mastery and specialization"
+
+  - id: expansion-opportunities
+    title: Series Expansion Opportunities
+    instruction: Plan for infinite series growth
+    elicit: true
+    sections:
+      - id: future-topics
+        title: Future Topic Areas
+        type: bullet-list
+        elicit: true
+        instruction: Topics that could be added to expand the series
+        examples:
+          - "Related subject areas that connect to main theme"
+          - "Deeper dives into specific concepts"
+          - "Practical applications in different contexts"
+          - "Advanced techniques and expert-level content"
+
+      - id: audience-growth
+        title: Audience Growth Opportunities
+        type: structured-list
+        elicit: true
+        fields:
+          - "Beginner Onboarding": "More foundational content for newcomers"
+          - "Advanced Mastery": "Expert-level content for experienced viewers"
+          - "Different Learning Styles": "Visual, auditory, hands-on approaches"
+          - "Industry Applications": "Specific use cases or career paths"
+
+  - id: production-prioritization
+    title: Production Prioritization
+    instruction: Strategic order for creating videos
+    sections:
+      - id: phase-one-priority
+        title: Phase One Priority (Core Series)
+        type: bullet-list
+        instruction: Videos essential for minimum viable series
+        examples:
+          - "Foundation videos that establish core concepts"
+          - "Key building block videos"
+          - "Essential practical applications"
+          - "Basic skill demonstrations"
+
+      - id: phase-two-expansion
+        title: Phase Two Expansion
+        type: bullet-list
+        instruction: Videos that significantly enhance the series
+        examples:
+          - "Intermediate concept development"
+          - "Skill combination demonstrations"
+          - "Real-world case studies"
+          - "Common problem solving"
+
+      - id: ongoing-development
+        title: Ongoing Development
+        type: bullet-list
+        instruction: Videos for continuous series growth
+        examples:
+          - "Advanced applications and techniques"
+          - "Specialization tracks"
+          - "Bonus and enhancement content"
+          - "Community-requested topics"
+
+  - id: user-feedback-integration
+    title: User Feedback Integration
+    instruction: How user input shapes video development
+    elicit: true
+    sections:
+      - id: feedback-categories
+        title: Feedback Categories
+        type: structured-list
+        elicit: true
+        fields:
+          - "Priority Adjustments": "Changes to video order based on user needs"
+          - "Content Additions": "New video ideas from user requests"
+          - "Clarity Improvements": "Videos to address confusion or gaps"
+          - "Practical Applications": "Real-world examples users want to see"
+
+      - id: iteration-plan
+        title: Iteration Plan
+        type: structured-list
+        elicit: true
+        fields:
+          - "Regular Review Cycles": "When to reassess video priorities"
+          - "User Input Mechanisms": "How to collect ongoing feedback"
+          - "Adaptation Strategies": "How to modify plans based on learning"
+          - "Quality Validation": "Ensuring changes maintain series coherence"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track video ideas updates and modifications

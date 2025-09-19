@@ -1,0 +1,261 @@
+# Execute Research Workflow
+name: Execute Research Tasks
+description: Complete all research tasks in research-tasks folder, moving from todo to draft to done status
+version: 1.0.0
+
+metadata:
+  category: research-execution
+  complexity: advanced
+  estimated_duration: 60-120 minutes (varies by research scope)
+  prerequisites:
+    - Research tasks created (from extract-research workflow)
+    - Research strategy documented
+    - Video status set to 'research_required'
+
+phases:
+  # Phase 1: Research Preparation
+  - name: Research Preparation
+    description: Assess research tasks and plan execution approach
+    duration: 10-15 minutes
+    steps:
+      - action: Inventory research tasks
+        details: |
+          - SCAN research-tasks/ folder for all -todo.md files
+          - READ research-strategy.md for execution plan
+          - ASSESS task priorities and dependencies
+          - PLAN research execution sequence
+        deliverable: Research execution plan
+
+      - action: Initialize research tracking
+        details: |
+          - UPDATE tasks.md with research execution start
+          - LOG research phase beginning in ChangeLog.md
+          - SET video status to 'research_in_progress'
+          - PREPARE research documentation templates
+        deliverable: Research tracking initialized
+
+  # Phase 2: Primary Research Execution
+  - name: Primary Research Execution
+    description: Execute critical and high-priority research tasks
+    duration: 30-60 minutes (varies by scope)
+    steps:
+      - agent: video-researcher
+        action: Execute critical research tasks
+        deliverable: Completed research files moved to -draft.md status
+        dependencies: [research tasks todo files, research strategy]
+        iteration_support: true
+        details: |
+          - EXECUTE research tasks in priority order
+          - VERIFY STEM and scientific claims with credible sources
+          - GATHER expert opinions and authoritative quotes
+          - COMPILE statistical data with proper attribution
+          - **CRITICAL: DOCUMENT complete website URLs for every source**
+          - DOCUMENT findings in -draft.md files with mandatory website links
+        quality_criteria:
+          - All critical facts verified with primary sources
+          - STEM claims validated by authoritative sources
+          - Expert opinions properly attributed
+          - Statistical data verified for accuracy and currency
+          - Source credibility assessed and documented
+          - **MANDATORY: Every source includes complete website URL**
+
+      - action: Research validation and review
+        details: |
+          - REVIEW all -draft.md files for completeness
+          - VERIFY source credibility and appropriateness
+          - **VALIDATE that every source includes complete website URL**
+          - CROSS-CHECK facts across multiple sources where possible
+          - ASSESS research quality against standards
+          - IDENTIFY any gaps requiring additional research
+        deliverable: Research quality assessment
+
+  # Phase 3: Research Finalization
+  - name: Research Finalization
+    description: Finalize research and move completed tasks to approved status
+    duration: 15-25 minutes
+    steps:
+      - agent: video-researcher
+        action: Finalize and approve research
+        deliverable: Research files moved to -approved.md status
+        dependencies: [draft research files, quality assessment]
+        details: |
+          - REVIEW all draft research for completion
+          - **ENSURE every source has complete website URL documented**
+          - FINALIZE source citations and attributions with website links
+          - MOVE completed research to -approved.md files
+          - COMPILE comprehensive research summary
+          - PREPARE research for script integration
+        quality_criteria:
+          - All research meets quality standards
+          - Source citations properly formatted with website URLs
+          - Facts ready for script integration
+          - Research summary comprehensive
+          - Attribution requirements clear
+          - **CRITICAL: Every approved source includes complete website link**
+
+      - action: Update video production status
+        details: |
+          - UPDATE tasks.md with research completion status
+          - LOG research completion in ChangeLog.md
+          - SET video status to 'research_completed'
+          - UPDATE registry with research completion
+          - PREPARE for next workflow phase
+        deliverable: Updated tracking and status systems
+
+  # Phase 4: Research Integration Preparation
+  - name: Research Integration Preparation
+    description: Prepare research findings for integration into video production
+    duration: 10-15 minutes
+    steps:
+      - agent: video-researcher
+        action: Create research compilation document
+        deliverable: research-tasks/research-compiled-approved.md
+        dependencies: [all approved research files]
+        details: |
+          - COMPILE all approved research into single document
+          - ORGANIZE findings by topic and video section
+          - CREATE fact integration guide for script writing
+          - PREPARE source attribution requirements
+          - DOCUMENT research confidence levels
+        quality_criteria:
+          - All research compiled comprehensively
+          - Facts organized for easy script integration
+          - Attribution requirements clearly documented
+          - Confidence levels assigned appropriately
+          - Integration guidance provided
+
+# Research Execution Framework
+execution_framework:
+  research_lifecycle:
+    todo_phase:
+      - status: "Research requirement identified"
+      - content: "Research objectives and requirements"
+      - next_action: "Begin research execution"
+
+    draft_phase:
+      - status: "Research in progress or completed"
+      - content: "Initial findings and source materials"
+      - next_action: "Review, validate, and finalize"
+
+    approved_phase:
+      - status: "Research completed and validated"
+      - content: "Final verified facts with proper attribution"
+      - next_action: "Ready for script integration"
+
+  quality_validation:
+    source_credibility:
+      - academic_sources: "Peer-reviewed research preferred"
+      - government_data: "Official statistics and reports"
+      - expert_opinions: "Qualified professional perspectives"
+      - industry_reports: "Authoritative industry analysis"
+
+    fact_verification:
+      - multiple_source_confirmation: "Critical facts verified by 2+ sources"
+      - currency_validation: "Recent data confirmed as current"
+      - context_appropriateness: "Facts relevant to video context"
+      - attribution_completeness: "All sources properly documented"
+
+# File Management System
+file_management:
+  task_progression:
+    - "{task-name}-todo.md" → "{task-name}-draft.md" → "{task-name}-approved.md"
+    - Original todo files archived or deleted after completion
+    - Draft files contain work-in-progress research
+    - Approved files contain final verified research
+
+  research_compilation:
+    - "research-compiled-approved.md": Master research document
+    - Contains all approved research organized for script integration
+    - Includes source attributions and confidence assessments
+    - Provides integration guidance for script writing
+
+# Research Quality Standards
+quality_standards:
+  critical_research:
+    - primary_sources_required: "Original research, official data"
+    - expert_validation: "Qualified expert confirmation when possible"
+    - current_accuracy: "Information verified as current and accurate"
+    - multiple_verification: "Cross-checked with additional sources"
+
+  supporting_research:
+    - credible_sources: "Reputable publications and organizations"
+    - proper_attribution: "Source information complete and accurate"
+    - context_relevance: "Information appropriate for video context"
+    - integration_ready: "Facts formatted for easy script use"
+
+# Progress Tracking
+progress_tracking:
+  research_metrics:
+    - tasks_completed: "Number of research tasks finished"
+    - source_quality_average: "Average credibility score of sources"
+    - verification_coverage: "Percentage of critical facts verified"
+    - timeline_adherence: "Research completed on schedule"
+
+  status_reporting:
+    - task_completion_rate: "Percentage of research tasks completed"
+    - quality_compliance: "Research meeting quality standards"
+    - integration_readiness: "Research prepared for script writing"
+    - timeline_status: "On schedule/delayed/ahead of schedule"
+
+# Integration Preparation
+integration_preparation:
+  script_writing_handoff:
+    - facts_organized: "Research organized by video section"
+    - attribution_planned: "Source citation requirements documented"
+    - confidence_levels: "Research reliability indicated"
+    - integration_notes: "Guidance for natural fact incorporation"
+
+  next_workflow_setup:
+    - research_phase_complete: "All research tasks finished and approved"
+    - compilation_document_ready: "Master research document created"
+    - video_status_updated: "Status changed to 'research_completed'"
+    - ready_for_script_planning: "Prepared for plan-video-script workflow"
+
+# Success Criteria
+success_criteria:
+  - All research tasks in todo status completed and moved to approved
+  - Research quality standards met for all critical facts
+  - Comprehensive research compilation document created
+  - Source attributions properly documented and formatted
+  - Video status updated to 'research_completed'
+  - Research prepared for integration into script writing
+  - Timeline maintained for overall video production
+
+# Next Steps
+next_workflow: plan-video-script.yaml
+preparation_for_next:
+  - All research completed and verified
+  - Research compilation document ready for script integration
+  - Source attribution requirements documented
+  - Video status indicates research phase completion
+
+# Error Handling
+error_handling:
+  incomplete_research:
+    - action: "Identify gaps and create additional research tasks"
+    - escalation: "Consult subject matter experts or adjust video scope"
+    - timeline_impact: "Adjust production schedule if needed"
+
+  source_quality_issues:
+    - action: "Seek higher quality sources or expert validation"
+    - fallback: "Clearly note limitations in research compilation"
+    - quality_gate: "Do not approve research below quality standards"
+
+  timeline_overruns:
+    - assessment: "Evaluate research scope vs. available time"
+    - prioritization: "Focus on critical facts, defer supporting research"
+    - escalation: "Consult video planner for scope adjustment"
+
+outputs:
+  primary:
+    name: Complete Research Package
+    format: Verified research compilation
+    components:
+      - All research tasks completed (approved status)
+      - Comprehensive research compilation document
+      - Source attribution documentation
+      - Research quality assessment
+  secondary:
+    - Research timeline performance report
+    - Source credibility analysis
+    - Integration preparation guidance

@@ -1,0 +1,218 @@
+# Extract Research Workflow
+name: Extract Research Requirements
+description: Analyze video content to identify and create STEM-related research tasks
+version: 1.0.0
+
+metadata:
+  category: research-extraction
+  complexity: standard
+  estimated_duration: 20-30 minutes
+  prerequisites:
+    - Video planning completed (chapters.md)
+    - Video tasks initialized (tasks.md)
+    - Video folder structure exists
+
+phases:
+  # Phase 1: Content Analysis
+  - name: Content Analysis
+    description: Systematically analyze video content for research requirements
+    duration: 8-12 minutes
+    steps:
+      - action: Gather video content files
+        details: |
+          - READ chapters.md for video plan and structure
+          - READ tasks.md for current status and notes
+          - READ any existing {video-title}-final.md content
+          - SCAN research-tasks/ folder for existing research
+        deliverable: Complete content inventory
+
+      - agent: video-researcher
+        action: Execute extract-research-steps task
+        deliverable: Comprehensive research requirements analysis
+        dependencies: [chapters.md, tasks.md, existing content]
+        details: |
+          - ANALYZE all video content for factual claims
+          - IDENTIFY STEM, scientific, and technical statements
+          - CATALOG historical facts and current events
+          - NOTE expert opinions requiring attribution
+          - ASSESS statistical data and research citations needed
+        quality_criteria:
+          - All factual claims identified and categorized
+          - STEM content prioritized appropriately
+          - Research complexity assessed
+          - Timeline requirements considered
+
+  # Phase 2: Research Task Creation
+  - name: Research Task Creation
+    description: Create specific, actionable research tasks in research-tasks folder
+    duration: 10-15 minutes
+    steps:
+      - agent: video-researcher
+        action: Create individual research task files
+        deliverable: Research task files in research-tasks/ folder
+        dependencies: [research requirements analysis]
+        details: |
+          - CREATE {task-name}-todo.md for each research requirement
+          - PRIORITIZE tasks by importance and complexity
+          - DEFINE specific research objectives and success criteria
+          - PLAN research approach and source requirements
+          - ESTIMATE time requirements for each task
+        quality_criteria:
+          - Each research task is specific and actionable
+          - Priority levels assigned appropriately
+          - Success criteria clearly defined
+          - Research approach planned
+          - Time estimates realistic
+
+      - action: Update video tracking systems
+        details: |
+          - UPDATE tasks.md with research task list and status
+          - LOG research extraction in ChangeLog.md
+          - SET video status to 'research_required'
+          - UPDATE registry with research phase entry
+        deliverable: Updated tracking and status systems
+
+  # Phase 3: Research Strategy Planning
+  - name: Research Strategy Planning
+    description: Plan comprehensive research approach and timeline
+    duration: 5-8 minutes
+    steps:
+      - agent: video-researcher
+        action: Create research strategy document
+        deliverable: research-tasks/research-strategy.md
+        dependencies: [all research tasks created]
+        details: |
+          - PLAN research execution sequence
+          - IDENTIFY resource requirements and source types
+          - ESTIMATE total research timeline
+          - PLAN verification and quality assurance approach
+          - COORDINATE with video production timeline
+        quality_criteria:
+          - Research sequence optimized for efficiency
+          - Resource requirements clearly identified
+          - Timeline realistic and coordinated
+          - Quality assurance planned
+          - Dependencies properly mapped
+
+# Research Extraction Framework
+extraction_framework:
+  content_analysis_targets:
+    - factual_claims: "Statements presented as facts"
+    - statistical_data: "Numbers, percentages, measurements"
+    - scientific_processes: "Technical explanations and mechanisms"
+    - historical_events: "Dates, sequences, historical facts"
+    - expert_opinions: "Attributed statements and quotes"
+    - comparative_data: "Benchmarks, comparisons, rankings"
+
+  research_categorization:
+    critical_verification:
+      - stem_facts: "Scientific and technical claims"
+      - safety_information: "Health, safety, or risk-related data"
+      - current_events: "Recent developments or breaking news"
+      - expert_quotes: "Statements requiring attribution"
+
+    supporting_research:
+      - background_context: "Additional context and explanation"
+      - comparative_analysis: "Industry standards and benchmarks"
+      - historical_background: "Relevant historical information"
+      - case_studies: "Examples and real-world applications"
+
+# Task File Structure
+task_file_format:
+  todo_files:
+    naming: "{task-name}-todo.md"
+    content_structure:
+      - research_objective: "What needs to be verified/found"
+      - priority_level: "Critical/Important/Supporting"
+      - source_requirements: "Types of sources needed"
+      - success_criteria: "What constitutes completion"
+      - timeline_estimate: "Expected research duration"
+      - complexity_assessment: "Difficulty and resource requirements"
+
+  research_strategy:
+    filename: "research-strategy.md"
+    content_includes:
+      - execution_sequence: "Order of research task completion"
+      - resource_planning: "Required databases, tools, expertise"
+      - timeline_coordination: "Integration with video production schedule"
+      - quality_standards: "Verification and validation requirements"
+
+# Quality Standards
+quality_standards:
+  completeness_criteria:
+    - all_claims_identified: "Every factual statement cataloged"
+    - priorities_assigned: "Critical vs supporting research distinguished"
+    - tasks_actionable: "Each task can be immediately executed"
+    - timeline_realistic: "Research schedule achievable"
+
+  accuracy_requirements:
+    - claim_specificity: "Exact claims requiring verification clearly stated"
+    - source_guidance: "Appropriate source types identified"
+    - success_metrics: "Clear completion criteria defined"
+    - verification_planning: "Cross-checking approach established"
+
+# Integration with Video Production
+production_integration:
+  status_updates:
+    - video_status: "Changed to 'research_required'"
+    - timeline_impact: "Research phase duration added to production schedule"
+    - dependency_mapping: "Research completion requirements for next phases"
+
+  handoff_preparation:
+    - research_tasks_ready: "All tasks created and prioritized"
+    - strategy_documented: "Approach planned and documented"
+    - timeline_coordinated: "Research schedule integrated with production"
+    - next_phase_prepared: "Ready for execute-research workflow"
+
+# Success Criteria
+success_criteria:
+  - All factual claims in video content identified and categorized
+  - Specific research tasks created for each requirement
+  - Research priority levels assigned appropriately
+  - Research strategy documented and planned
+  - Video tracking systems updated with research phase
+  - Timeline coordinated with overall production schedule
+  - Ready for execute-research workflow
+
+# Next Steps
+next_workflow: execute-research.yaml
+preparation_for_next:
+  - Research tasks created and prioritized in research-tasks/ folder
+  - Research strategy documented
+  - Video status updated to research_required
+  - Timeline established for research completion
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-researcher
+  fallback_workflow: manual-research-planning
+
+# Special Considerations
+special_considerations:
+  stem_content_priority:
+    - scientific_accuracy: "STEM claims get highest priority"
+    - source_credibility: "Academic and authoritative sources required"
+    - current_validity: "Recent developments and updates considered"
+    - expert_validation: "Expert review recommended for complex topics"
+
+  efficiency_optimization:
+    - batch_similar_research: "Group related research tasks"
+    - leverage_existing_research: "Check for previously completed research"
+    - prioritize_impact: "Focus on high-impact verification first"
+    - plan_verification: "Include cross-checking in research strategy"
+
+outputs:
+  primary:
+    name: Complete Research Requirements Package
+    format: Research task files and strategy
+    components:
+      - Individual research task files (todo status)
+      - Comprehensive research strategy document
+      - Updated video tracking and status
+      - Production timeline integration
+  secondary:
+    - Research priority matrix
+    - Source requirement planning
+    - Quality assurance framework

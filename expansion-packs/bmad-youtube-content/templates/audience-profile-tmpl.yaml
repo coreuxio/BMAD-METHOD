@@ -1,0 +1,272 @@
+# <!-- Powered by BMAD™ Core -->
+template:
+  id: audience-profile-template-v1
+  name: YouTube Audience Profile Template
+  version: 1.0
+  output:
+    format: markdown
+    filename: audience-analysis.md
+    title: "Audience Profile: {{video_title}}"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+
+sections:
+  - id: primary-persona
+    title: Primary Audience Persona
+    instruction: |
+      Define the core characteristics of your target audience to guide content decisions and tone.
+    elicit: true
+    sections:
+      - id: demographics
+        title: Demographics
+        type: structured-list
+        instruction: Basic demographic information about your primary audience
+        fields:
+          - "Age Range": "XX-XX years old"
+          - "Gender": "Distribution or primary gender"
+          - "Location": "Geographic regions/countries"
+          - "Language": "Primary language(s)"
+          - "Education": "Education level and common fields"
+          - "Occupation": "Common professions or work areas"
+          - "Income": "Income bracket or range if relevant"
+      - id: psychographics
+        title: Psychographics
+        instruction: Deeper personality and lifestyle characteristics
+        sections:
+          - id: core-values
+            title: Core Values
+            type: bullet-list
+            instruction: What matters most to this audience
+            examples:
+              - "Authenticity and genuine information"
+              - "Practical value and actionable insights"
+              - "Innovation and cutting-edge knowledge"
+          - id: interests-hobbies
+            title: Interests & Hobbies
+            type: bullet-list
+            instruction: What this audience is passionate about
+            examples:
+              - "Technology and gadgets"
+              - "Learning and self-improvement"
+              - "Creative pursuits and hobbies"
+          - id: personality-traits
+            title: Personality Traits
+            type: bullet-list
+            instruction: Key character traits of your audience
+            examples:
+              - "Curious and eager to learn"
+              - "Practical and results-oriented"
+              - "Skeptical and needs proof"
+          - id: lifestyle
+            title: Lifestyle
+            type: structured-list
+            instruction: How this audience lives and consumes content
+            fields:
+              - "Daily Routine": "Brief description of typical day"
+              - "Free Time": "How they spend leisure time"
+              - "Media Consumption": "Content habits and preferences"
+
+  - id: youtube-behavior
+    title: YouTube Behavior
+    instruction: |
+      Understanding how your audience uses YouTube specifically helps optimize content strategy.
+    elicit: true
+    sections:
+      - id: viewing-patterns
+        title: Viewing Patterns
+        type: structured-list
+        instruction: How and when your audience watches YouTube
+        fields:
+          - "Watch Frequency": "Daily/Weekly/Occasional"
+          - "Session Length": "Average time spent per session"
+          - "Time of Day": "Peak viewing hours"
+          - "Primary Device": "Mobile/Desktop/TV/Tablet"
+          - "Secondary Device": "Backup viewing device"
+      - id: content-preferences
+        title: Content Preferences
+        instruction: What types of content resonate with this audience
+        sections:
+          - id: favorite-genres
+            title: Favorite Genres
+            type: bullet-list
+            instruction: Content types this audience gravitates toward
+            examples:
+              - "Educational tutorials and how-tos"
+              - "Industry news and analysis"
+              - "Product reviews and comparisons"
+          - id: video-length
+            title: Preferred Video Length
+            type: structured-list
+            fields:
+              - "Optimal Length": "Sweet spot for engagement"
+              - "Maximum Tolerance": "Longest they'll watch"
+              - "Quick Content": "Preference for short videos"
+          - id: production-style
+            title: Production Style Preferences
+            type: structured-list
+            fields:
+              - "Energy Level": "High/Medium/Calm preference"
+              - "Visual Style": "Professional/Casual/Creative"
+              - "Pacing": "Fast/Moderate/Detailed preference"
+
+  - id: content-motivations
+    title: Content Motivations
+    instruction: |
+      Why does your audience seek out content? What drives their viewing decisions?
+    elicit: true
+    sections:
+      - id: primary-motivations
+        title: Primary Motivations
+        type: numbered-list
+        instruction: Top reasons this audience watches content
+        examples:
+          - "Learning new skills for career advancement"
+          - "Staying current with industry trends"
+          - "Entertainment and relaxation"
+          - "Problem-solving and troubleshooting"
+      - id: pain-points
+        title: Pain Points & Challenges
+        type: bullet-list
+        instruction: What problems is your audience trying to solve
+        examples:
+          - "Information overload and need for curation"
+          - "Lack of time for deep learning"
+          - "Difficulty finding trustworthy sources"
+      - id: success-metrics
+        title: What Success Looks Like
+        type: bullet-list
+        instruction: How your audience defines value from content
+        examples:
+          - "Practical skills they can apply immediately"
+          - "Time saved through efficient solutions"
+          - "Confidence gained in decision-making"
+
+  - id: engagement-preferences
+    title: Engagement Preferences
+    instruction: |
+      How does your audience prefer to interact with content and creators?
+    sections:
+      - id: interaction-style
+        title: Interaction Style
+        type: structured-list
+        instruction: Preferred ways to engage with content and community
+        fields:
+          - "Comment Behavior": "Active commenters/Lurkers/Occasional"
+          - "Social Sharing": "Likely to share/Private consumption"
+          - "Community Participation": "Discord/Forum activity level"
+          - "Direct Contact": "Email/DM preferences"
+      - id: feedback-preferences
+        title: Feedback Preferences
+        type: structured-list
+        instruction: How this audience likes to give and receive feedback
+        fields:
+          - "Constructive Criticism": "Tolerance level"
+          - "Question Asking": "Comfort with asking questions"
+          - "Peer Learning": "Interest in community learning"
+
+  - id: platform-behavior
+    title: Multi-Platform Behavior
+    instruction: |
+      Understanding audience behavior across platforms helps with cross-promotion.
+    sections:
+      - id: platform-usage
+        title: Other Platform Usage
+        type: structured-list
+        instruction: Where else your audience spends time online
+        fields:
+          - "Primary Social": "Main social media platform"
+          - "Professional Networks": "LinkedIn, industry forums"
+          - "Learning Platforms": "Courses, tutorials, blogs"
+          - "News Sources": "Where they get industry news"
+      - id: cross-platform-behavior
+        title: Cross-Platform Behavior
+        type: structured-list
+        instruction: How they move between platforms
+        fields:
+          - "Discovery Method": "How they find new content"
+          - "Platform Loyalty": "Stick to one or explore multiple"
+          - "Content Consumption": "Video/Text/Audio preferences"
+
+  - id: competitor-analysis
+    title: Competitor Analysis
+    instruction: |
+      Understanding what similar audiences watch helps position your content.
+    sections:
+      - id: similar-channels
+        title: Similar Channels They Watch
+        type: bullet-list
+        instruction: Channels your audience also follows
+        examples:
+          - "Channel Name - What they offer that resonates"
+          - "Creator Name - Style and content approach"
+      - id: content-gaps
+        title: Content Gaps & Opportunities
+        type: bullet-list
+        instruction: What's missing in current content landscape
+        examples:
+          - "More beginner-friendly explanations"
+          - "Real-world application examples"
+          - "Honest, unbiased reviews"
+
+  - id: messaging-strategy
+    title: Messaging Strategy
+    instruction: |
+      How to communicate with this audience effectively.
+    sections:
+      - id: communication-style
+        title: Communication Style
+        type: structured-list
+        instruction: Language and tone that resonates
+        fields:
+          - "Tone": "Professional/Casual/Friendly/Authoritative"
+          - "Technical Level": "Beginner/Intermediate/Advanced"
+          - "Humor": "Appropriate level and type"
+          - "Formality": "Formal/Conversational/Relaxed"
+      - id: key-messages
+        title: Key Messages That Resonate
+        type: bullet-list
+        instruction: Core messages that connect with this audience
+        examples:
+          - "Practical value and immediate application"
+          - "Transparency and honest assessment"
+          - "Respect for their time and intelligence"
+      - id: avoid-messaging
+        title: Messaging to Avoid
+        type: bullet-list
+        instruction: Communication styles or topics that alienate
+        examples:
+          - "Overly technical jargon without explanation"
+          - "Promotional content without clear value"
+          - "Assumptions about prior knowledge"
+
+  - id: content-optimization
+    title: Content Optimization Insights
+    instruction: |
+      How to tailor content specifically for this audience.
+    sections:
+      - id: optimal-structure
+        title: Optimal Content Structure
+        type: structured-list
+        instruction: How to organize content for maximum impact
+        fields:
+          - "Opening Hook": "What grabs their attention"
+          - "Information Delivery": "Preferred learning style"
+          - "Examples": "Types of examples that resonate"
+          - "Conclusion": "How they like content to end"
+      - id: retention-strategies
+        title: Retention Strategies
+        type: bullet-list
+        instruction: What keeps this audience watching
+        examples:
+          - "Clear value proposition upfront"
+          - "Logical progression of information"
+          - "Regular engagement check-ins"
+          - "Visual variety and pacing changes"
+
+  - id: changelog
+    title: Change Log
+    type: table
+    columns: [Date, Version, Description, Author]
+    instruction: Track audience insights and profile updates over time
