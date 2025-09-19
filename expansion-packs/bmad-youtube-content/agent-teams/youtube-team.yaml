@@ -1,0 +1,14 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: YouTube Content Creation Team
+  icon: 🎬
+  description: Specialized team for creating YouTube video scripts with research and documentation
+agents:
+  - bmad-orchestrator
+  - video-planner
+  - video-researcher
+  - scene-planner
+  - script-writer
+  - video-description-writer
+workflows:
+  - create-video.yaml

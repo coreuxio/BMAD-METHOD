@@ -1,0 +1,45 @@
+# Dependency Map Template
+# Template for mapping agent dependencies
+
+dependency_map:
+  agent: "[agent-name]"
+  version: "1.0.0"
+
+  command_dependencies:
+    "[command-1]":
+      requires:
+        tasks: ["task-1.md"]
+        templates: ["template-1.yaml"]
+        checklists: ["checklist-1.md"]
+        data: ["knowledge-1.md"]
+
+    "[command-2]":
+      requires:
+        tasks: ["task-2.md"]
+        templates: ["template-2.yaml"]
+
+  shared_dependencies:
+    always_needed:
+      tasks:
+        - create-doc.md
+        - execute-checklist.md
+      data:
+        - bmad-kb.md
+
+  optional_dependencies:
+    advanced_features:
+      tasks:
+        - advanced-analysis.md
+      templates:
+        - detailed-report.yaml
+
+  external_dependencies:
+    other_agents:
+      - agent-name: "[collaborator]"
+        interaction: "[How they work together]"
+
+    tools:
+      - "[External tool or system]"
+
+  dependency_notes: |
+    [Any special considerations about dependencies]

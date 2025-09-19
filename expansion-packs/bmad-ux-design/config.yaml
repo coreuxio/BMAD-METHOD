@@ -1,0 +1,10 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-ux-design
+version: 1.0.0
+short-title: UX Design
+description: >-
+  Comprehensive UX design team for user research, interface design,
+  interaction patterns, and accessibility. Covers the complete design
+  process from research to testing and design system management.
+author: BMAD Core Team
+slashPrefix: ux

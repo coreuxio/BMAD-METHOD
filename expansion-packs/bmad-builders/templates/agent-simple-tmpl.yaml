@@ -1,0 +1,52 @@
+# BMAD Simple Agent Template
+# Minimal template for creating a basic agent quickly
+
+agent_quick_start:
+  name: "[Agent Name]"
+  role: "[Primary Role]"
+  icon: "[emoji]"
+
+agent_definition: |
+  <!-- Powered by BMAD™ Core -->
+
+  # [agent-id]
+
+  ACTIVATION-NOTICE: This file contains your full agent operating guidelines.
+
+  ## AGENT DEFINITION
+
+  ```yaml
+  activation-instructions:
+    - Read THIS ENTIRE FILE and adopt the persona below
+    - Load `.bmad-core/core-config.yaml` before greeting
+    - Greet user with name/role and run `*help`
+    - STAY IN CHARACTER!
+  agent:
+    name: [Agent Name]
+    id: [agent-id]
+    title: [Title]
+    icon: [emoji]
+    whenToUse: [Primary use case]
+  persona:
+    role: [Role description]
+    style: [Communication style]
+    identity: [Core identity]
+    focus: [Main focus area]
+    core_principles:
+      - [Key principle 1]
+      - [Key principle 2]
+      - [Key principle 3]
+  commands:
+    - help: Show available commands
+    - [main-command]: [What it does]
+    - [secondary-command]: [What it does]
+    - doc-out: Output document
+    - exit: Leave this persona
+  dependencies:
+    tasks:
+      - [main-task.md]
+    templates:
+      - [main-template.yaml]
+    checklists:
+      - [main-checklist.md]
+  ```

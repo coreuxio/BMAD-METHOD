@@ -1,0 +1,183 @@
+# BMAD Workflow Template
+# Template for creating multi-agent collaboration workflows
+
+workflow_metadata:
+  name: "[Workflow Name]"
+  version: "1.0.0"
+  category: "[development|content|analysis|management|other]"
+  complexity: "[simple|standard|complex]"
+
+workflow_definition: |
+  # [Workflow Name]
+  name: [Workflow Name]
+  description: [Clear description of what this workflow accomplishes]
+  version: 1.0.0
+
+  # Metadata
+  metadata:
+    category: [workflow-category]
+    complexity: [simple|standard|complex]
+    estimated_duration: [time-estimate]
+    prerequisites:
+      - [Prerequisite 1]
+      - [Prerequisite 2]
+
+  # Phases - Each phase is a logical grouping of related steps
+  phases:
+    # Phase 1: Initial Phase
+    - name: [Phase Name]
+      description: [What happens in this phase]
+      duration: [optional time estimate]
+      steps:
+        - agent: [agent-id]
+          action: [What the agent does]
+          deliverable: [What is produced]
+          dependencies: [Optional: what this step needs]
+
+        - agent: [another-agent]
+          action: [Their action]
+          deliverable: [Their output]
+          parallel: [Optional: true if can run parallel with previous]
+
+    # Phase 2: Processing Phase
+    - name: [Phase Name]
+      description: [Phase description]
+      steps:
+        - agent: [agent-id]
+          action: [Detailed action description]
+          deliverable: [Specific deliverable]
+          quality_criteria:
+            - [Criterion 1]
+            - [Criterion 2]
+
+    # Phase 3: Review Phase
+    - name: [Review Phase Name]
+      description: [Review and validation activities]
+      steps:
+        - agent: [reviewer-agent]
+          action: [Review action]
+          deliverable: [Review output]
+          decision_point: true  # Optional: marks a go/no-go decision
+
+    # Phase 4: Finalization
+    - name: [Final Phase Name]
+      description: [Completion activities]
+      steps:
+        - agent: [agent-id]
+          action: [Final action]
+          deliverable: [Final deliverable]
+          artifacts:  # Optional: list of generated artifacts
+            - [Artifact 1]
+            - [Artifact 2]
+
+  # Optional: Success Criteria
+  success_criteria:
+    - [Measurable outcome 1]
+    - [Measurable outcome 2]
+    - [Quality metric]
+
+  # Optional: Error Handling
+  error_handling:
+    on_failure: [rollback|retry|escalate|abort]
+    max_retries: [number]
+    escalation_agent: [agent-id]
+    fallback_workflow: [alternative-workflow]
+
+  # Optional: Resources Required
+  resources:
+    agents:
+      - [agent-1]: [role description]
+      - [agent-2]: [role description]
+    tools:
+      - [Tool or system needed]
+    data:
+      - [Data requirement]
+
+  # Optional: Outputs
+  outputs:
+    primary:
+      name: [Primary output name]
+      format: [Format type]
+      location: [Where it's stored]
+    secondary:
+      - name: [Secondary output]
+        format: [Format]
+
+examples:
+  # Simple 3-phase workflow
+  simple_workflow: |
+    phases:
+      - name: Planning
+        steps:
+          - agent: analyst
+            action: Analyze requirements
+            deliverable: Requirements document
+
+      - name: Implementation
+        steps:
+          - agent: developer
+            action: Build solution
+            deliverable: Implementation
+
+      - name: Testing
+        steps:
+          - agent: qa
+            action: Test solution
+            deliverable: Test report
+
+  # Complex parallel workflow
+  complex_workflow: |
+    phases:
+      - name: Parallel Analysis
+        steps:
+          - agent: analyst-1
+            action: Market analysis
+            deliverable: Market report
+
+          - agent: analyst-2
+            action: Technical analysis
+            deliverable: Tech report
+            parallel: true
+
+          - agent: coordinator
+            action: Synthesize reports
+            deliverable: Combined analysis
+            dependencies: [Market report, Tech report]
+
+workflow_patterns:
+  sequential: |
+    # Each step depends on previous
+    Agent A → Agent B → Agent C
+
+  parallel: |
+    # Multiple agents work simultaneously
+    Agent A ─┐
+    Agent B ─┼→ Agent D
+    Agent C ─┘
+
+  iterative: |
+    # Repeat until condition met
+    Agent A → Agent B → Review → [Loop or Continue]
+
+  branching: |
+    # Different paths based on conditions
+    Agent A → Decision → Path 1: Agent B
+                      → Path 2: Agent C
+
+notes:
+  best_practices: |
+    - Keep phases focused (single responsibility)
+    - Limit steps per phase (3-5 ideal)
+    - Clearly define deliverables
+    - Specify decision points
+    - Include quality gates
+    - Document prerequisites
+    - Consider parallel opportunities
+    - Plan error handling
+
+  anti_patterns: |
+    - Avoid circular dependencies
+    - Don't overload single agents
+    - Prevent undefined deliverables
+    - Avoid vague action descriptions
+    - Don't skip validation phases

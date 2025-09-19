@@ -1,0 +1,71 @@
+# Team Building Workflow
+name: Team Building
+description: Workflow for creating a complete team of collaborative agents
+version: 1.0.0
+
+phases:
+  - name: Domain Analysis
+    description: Understand the domain and requirements
+    steps:
+      - agent: team-architect
+        action: Analyze domain requirements
+        deliverable: Domain analysis report
+
+      - agent: team-architect
+        action: Identify required capabilities
+        deliverable: Capability matrix
+
+  - name: Team Design
+    description: Design team structure and roles
+    steps:
+      - agent: team-architect
+        action: Define team composition
+        deliverable: Team structure document
+
+      - agent: team-architect
+        action: Map agent roles and responsibilities
+        deliverable: Role definitions
+
+  - name: Agent Creation
+    description: Create individual team agents
+    steps:
+      - agent: agent-creator
+        action: Create each team agent
+        deliverable: Agent definition files
+
+      - agent: agent-creator
+        action: Develop shared resources
+        deliverable: Templates and tasks
+
+  - name: Workflow Design
+    description: Create team workflows
+    steps:
+      - agent: workflow-designer
+        action: Design collaboration workflows
+        deliverable: Workflow specifications
+
+      - agent: workflow-designer
+        action: Define handoff patterns
+        deliverable: Integration patterns
+
+  - name: Integration
+    description: Integrate team components
+    steps:
+      - agent: team-architect
+        action: Configure team bundle
+        deliverable: Team configuration
+
+      - agent: workflow-designer
+        action: Test team workflows
+        deliverable: Integration test results
+
+  - name: Deployment
+    description: Deploy and document team
+    steps:
+      - agent: team-architect
+        action: Package team for distribution
+        deliverable: Team package
+
+      - agent: team-architect
+        action: Create team documentation
+        deliverable: Team handbook

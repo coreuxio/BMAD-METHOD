@@ -1,0 +1,71 @@
+# System Expansion Workflow
+name: System Expansion
+description: Workflow for expanding BMAD into new domains
+version: 1.0.0
+
+phases:
+  - name: Opportunity Identification
+    description: Identify expansion opportunity
+    steps:
+      - agent: team-architect
+        action: Analyze new domain potential
+        deliverable: Opportunity assessment
+
+      - agent: team-architect
+        action: Define expansion scope
+        deliverable: Expansion proposal
+
+  - name: Requirements Gathering
+    description: Gather domain requirements
+    steps:
+      - agent: team-architect
+        action: Research domain needs
+        deliverable: Requirements document
+
+      - agent: workflow-designer
+        action: Identify process patterns
+        deliverable: Process analysis
+
+  - name: Architecture Planning
+    description: Plan expansion architecture
+    steps:
+      - agent: team-architect
+        action: Design expansion structure
+        deliverable: Architecture plan
+
+      - agent: agent-creator
+        action: Identify required agents
+        deliverable: Agent inventory
+
+  - name: Development
+    description: Build expansion components
+    steps:
+      - agent: agent-creator
+        action: Create domain agents
+        deliverable: Agent implementations
+
+      - agent: workflow-designer
+        action: Create domain workflows
+        deliverable: Workflow implementations
+
+  - name: Testing
+    description: Test expansion pack
+    steps:
+      - agent: agent-creator
+        action: Test individual agents
+        deliverable: Agent test results
+
+      - agent: workflow-designer
+        action: Test integrated workflows
+        deliverable: Workflow test results
+
+  - name: Package & Release
+    description: Package and release expansion
+    steps:
+      - agent: team-architect
+        action: Create expansion package
+        deliverable: Expansion pack
+
+      - agent: team-architect
+        action: Publish documentation
+        deliverable: Public documentation

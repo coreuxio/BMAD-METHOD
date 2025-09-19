@@ -1,0 +1,49 @@
+# Blog Post Creation Workflow
+name: Blog Post Creation
+description: End-to-end workflow for creating optimized blog posts
+version: 1.0.0
+
+phases:
+  - name: Planning
+    description: Research and planning phase
+    steps:
+      - agent: content-strategist
+        action: Define blog post objectives and target audience
+        deliverable: Content brief with goals and audience
+
+      - agent: seo-specialist
+        action: Conduct keyword research and search intent analysis
+        deliverable: Keyword targets and SEO guidelines
+
+  - name: Creation
+    description: Content creation phase
+    steps:
+      - agent: blog-author
+        action: Research topic and write first draft
+        deliverable: Complete blog post draft
+
+      - agent: seo-specialist
+        action: Optimize draft for search engines
+        deliverable: SEO-optimized content
+
+  - name: Refinement
+    description: Editing and polish phase
+    steps:
+      - agent: editor
+        action: Edit for clarity, grammar, and style
+        deliverable: Edited blog post
+
+      - agent: copywriter
+        action: Create compelling title and meta description
+        deliverable: Optimized title and meta
+
+  - name: Quality Assurance
+    description: Final review and checks
+    steps:
+      - agent: editor
+        action: Final proofread and quality check
+        deliverable: Publication-ready blog post
+
+      - agent: seo-specialist
+        action: Final SEO validation
+        deliverable: SEO scorecard and recommendations

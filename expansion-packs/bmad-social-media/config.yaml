@@ -1,0 +1,10 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-social-media
+version: 1.0.0
+short-title: Social Media
+description: >-
+  Complete social media management team for strategy, content creation,
+  community management, and performance analytics. Handles multi-platform
+  campaigns, influencer partnerships, and crisis management.
+author: BMAD Core Team
+slashPrefix: social

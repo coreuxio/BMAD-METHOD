@@ -1,0 +1,217 @@
+# BMAD Expansion Pack Template
+# Template for creating new expansion packs with teams
+
+expansion_pack_metadata:
+  id: "bmad-[name-lowercase]"
+  name: "[Pack Display Name]"
+  version: "1.0.0"
+  category: "[development|content|marketing|design|business|system|other]"
+
+configuration_file: |
+  # <!-- Powered by BMAD™ Core -->
+  name: bmad-[name]
+  version: 1.0.0
+  short-title: [Short Pack Name]
+  description: >-
+    [Comprehensive description of the expansion pack's purpose, capabilities,
+    and value proposition. Should be 2-4 sentences explaining what
+    problems this pack solves and who should use it.]
+  author: [Author Name or Organization]
+  slashPrefix: [2-4 character prefix for commands]
+
+  # Optional: Extended configuration
+  configuration:
+    primary_domain: [Main domain of expertise]
+    secondary_domains:
+      - [Additional domain 1]
+      - [Additional domain 2]
+
+    target_users:
+      - [User type 1]
+      - [User type 2]
+
+    key_capabilities:
+      - [Capability 1]
+      - [Capability 2]
+      - [Capability 3]
+
+    integration_points:
+      - [System or tool 1]
+      - [System or tool 2]
+
+team_bundle_file: |
+  # <!-- Powered by BMAD™ Core -->
+  bundle:
+    name: [Team Display Name]
+    icon: [emoji representing team]
+    description: [One-line description of team purpose]
+
+  # Agents that comprise this team
+  agents:
+    - [agent-id-1]  # Role: [brief role description]
+    - [agent-id-2]  # Role: [brief role description]
+    - [agent-id-3]  # Role: [brief role description]
+    # Add 2-10 agents total
+
+  # Team workflows
+  workflows:
+    - [workflow-1.yaml]  # [Brief description]
+    - [workflow-2.yaml]  # [Brief description]
+    - [workflow-3.yaml]  # [Brief description]
+
+  # Optional: Shared resources
+  shared_resources:
+    templates:
+      - [shared-template-1.yaml]
+      - [shared-template-2.yaml]
+
+    tasks:
+      - [shared-task-1.md]
+      - [shared-task-2.md]
+
+    checklists:
+      - [team-checklist-1.md]
+      - [team-checklist-2.md]
+
+    data:
+      - [team-knowledge-1.md]
+      - [team-knowledge-2.md]
+
+directory_structure: |
+  expansion-packs/
+  └── bmad-[name]/
+      ├── config.yaml              # Expansion pack configuration
+      ├── agent-teams/            # Team bundle configurations
+      │   └── team.yaml          # Team definition
+      ├── README.md               # Pack documentation
+      ├── agents/                 # Pack-specific agents
+      │   ├── [agent-1].md
+      │   ├── [agent-2].md
+      │   └── [agent-3].md
+      ├── workflows/              # Pack workflows
+      │   ├── [workflow-1].yaml
+      │   ├── [workflow-2].yaml
+      │   └── [workflow-3].yaml
+      ├── templates/              # Shared templates
+      │   ├── [template-1].yaml
+      │   └── [template-2].yaml
+      ├── tasks/                  # Shared tasks
+      │   ├── [task-1].md
+      │   └── [task-2].md
+      ├── checklists/             # Quality checklists
+      │   ├── [checklist-1].md
+      │   └── [checklist-2].md
+      └── data/                   # Knowledge base
+          ├── [knowledge-1].md
+          └── [knowledge-2].md
+
+team_patterns:
+  small_specialist_team: |
+    # 2-3 highly focused agents
+    agents:
+      - specialist-1  # Deep expertise
+      - specialist-2  # Complementary skills
+      - coordinator   # Orchestration
+
+  standard_team: |
+    # 4-6 agents covering full workflow
+    agents:
+      - analyst       # Requirements/research
+      - designer      # Solution design
+      - implementer   # Execution
+      - reviewer      # Quality assurance
+      - coordinator   # Management
+
+  large_comprehensive_team: |
+    # 7-10 agents for complex domains
+    agents:
+      - strategist    # High-level planning
+      - analyst-1     # Domain analysis
+      - analyst-2     # Data analysis
+      - designer      # Solution design
+      - builder-1     # Primary implementation
+      - builder-2     # Secondary implementation
+      - tester        # Validation
+      - documenter    # Documentation
+      - coordinator   # Orchestration
+
+team_categories:
+  development: |
+    Focus: Software creation and engineering
+    Typical agents: developer, architect, qa, devops
+    Key workflows: development, deployment, testing
+
+  content: |
+    Focus: Content creation and management
+    Typical agents: writer, editor, strategist, seo
+    Key workflows: creation, review, publishing
+
+  marketing: |
+    Focus: Marketing and promotion
+    Typical agents: strategist, creator, analyst, manager
+    Key workflows: campaign, analysis, optimization
+
+  design: |
+    Focus: Design and user experience
+    Typical agents: ux-designer, ui-designer, researcher
+    Key workflows: research, design, testing
+
+  business: |
+    Focus: Business operations and strategy
+    Typical agents: analyst, strategist, manager, advisor
+    Key workflows: planning, analysis, execution
+
+  system: |
+    Focus: System administration and meta-operations
+    Typical agents: builder, validator, manager
+    Key workflows: creation, validation, deployment
+
+validation_checklist: |
+  Before finalizing team configuration:
+  - [ ] Team has clear, unique purpose
+  - [ ] 2-10 agents defined
+  - [ ] No major role overlaps
+  - [ ] At least 1 workflow defined
+  - [ ] Slash prefix is unique
+  - [ ] Version number set
+  - [ ] Author information complete
+  - [ ] Dependencies documented
+  - [ ] Icon emoji selected
+  - [ ] Description is compelling
+
+examples:
+  minimal_config: |
+    name: team-example
+    version: 1.0.0
+    short-title: Example Team
+    description: >-
+      A simple team for demonstration purposes.
+    author: Your Name
+    slashPrefix: ex
+    dependencies: []
+
+  full_config: |
+    name: team-advanced
+    version: 1.0.0
+    short-title: Advanced Team
+    description: >-
+      Comprehensive team with full configuration for complex
+      domain operations including analysis, implementation,
+      and continuous optimization.
+    author: Team Builder
+    slashPrefix: adv
+    dependencies:
+      - team-core-development
+    configuration:
+      primary_domain: advanced-analytics
+      secondary_domains:
+        - machine-learning
+        - data-engineering
+      target_users:
+        - data-scientists
+        - ml-engineers
+        - analysts
+      key_capabilities:
+        - predictive-modeling
+        - data-pipeline-creation
+        - insight-generation

@@ -1,0 +1,60 @@
+# Design Sprint Workflow
+name: Design Sprint
+description: Five-phase design sprint for rapid problem solving
+version: 1.0.0
+
+phases:
+  - name: Understand
+    description: Define the problem and gather insights
+    steps:
+      - agent: ux-researcher
+        action: Conduct stakeholder interviews and user research
+        deliverable: Problem definition and user insights
+
+      - agent: accessibility-expert
+        action: Identify accessibility requirements
+        deliverable: Accessibility constraints and guidelines
+
+  - name: Diverge
+    description: Generate multiple solution ideas
+    steps:
+      - agent: ui-designer
+        action: Create multiple design concepts
+        deliverable: Design sketches and concepts
+
+      - agent: interaction-designer
+        action: Propose interaction patterns
+        deliverable: Interaction ideas and flows
+
+  - name: Converge
+    description: Select best solution
+    steps:
+      - agent: ux-researcher
+        action: Facilitate decision making with stakeholders
+        deliverable: Selected design direction
+
+      - agent: design-system-architect
+        action: Assess feasibility with existing system
+        deliverable: Implementation recommendations
+
+  - name: Prototype
+    description: Build testable prototype
+    steps:
+      - agent: ui-designer
+        action: Create high-fidelity mockups
+        deliverable: Visual prototype
+
+      - agent: interaction-designer
+        action: Define interactions and flows
+        deliverable: Interactive prototype
+
+  - name: Test
+    description: Validate with users
+    steps:
+      - agent: usability-tester
+        action: Conduct usability testing
+        deliverable: Test results and findings
+
+      - agent: accessibility-expert
+        action: Perform accessibility testing
+        deliverable: Accessibility validation report

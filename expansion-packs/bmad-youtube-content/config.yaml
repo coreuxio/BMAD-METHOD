@@ -1,0 +1,37 @@
+name: bmad-youtube-content
+version: 1.0.0
+short-title: YouTube Content Team
+description: >-
+  Specialized team for creating comprehensive YouTube video scripts
+  with research, documentation, and proper source attribution.
+  Designed for educational and informational content creators who need
+  well-researched, engaging scripts with flexible visual guidance.
+author: BMAD Team Architect
+slashPrefix: yt
+dependencies:
+  - bmad-core
+configuration:
+  primary_domain: content-creation
+  secondary_domains:
+    - research
+    - scriptwriting
+    - seo-optimization
+    - educational-content
+  target_users:
+    - youtube-creators
+    - educational-channels
+    - science-communicators
+    - tech-reviewers
+    - documentary-makers
+  key_capabilities:
+    - interactive-video-planning
+    - web-based-research
+    - source-verification
+    - scene-structuring
+    - script-writing
+    - seo-optimization
+    - citation-management
+  integration_points:
+    - youtube-platform
+    - web-research-tools
+    - seo-analyzers

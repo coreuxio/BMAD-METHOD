@@ -1,0 +1,18 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: UX Design Team
+  icon: 🎨
+  description: User-centered design team for exceptional digital experiences.
+agents:
+  - ux-researcher
+  - ui-designer
+  - interaction-designer
+  - design-system-architect
+  - accessibility-expert
+  - usability-tester
+workflows:
+  - design-sprint.yaml
+  - user-research.yaml
+  - design-system-creation.yaml
+  - usability-testing.yaml
+  - accessibility-audit.yaml

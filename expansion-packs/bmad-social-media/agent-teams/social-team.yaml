@@ -1,0 +1,18 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: Social Media Team
+  icon: 📱
+  description: Strategic social media management for brand growth and engagement
+agents:
+  - bmad-orchestrator
+  - social-strategist
+  - content-creator
+  - community-manager
+  - analytics-expert
+  - campaign-manager
+  - influencer-coordinator
+workflows:
+  - social-campaign
+  - content-calendar
+  - crisis-management
+  - influencer-outreach

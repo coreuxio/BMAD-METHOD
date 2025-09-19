@@ -1,0 +1,32 @@
+# Command Structure Template
+# Template for defining agent command structures
+
+command_structure:
+  standard_commands:
+    - help: "Show numbered list of available commands"
+    - doc-out: "Output document to destination"
+    - exit: "Leave agent persona"
+    - yolo: "Toggle Yolo Mode (optional)"
+
+  primary_commands:
+    - name: "[command-name]"
+      description: "[What it does]"
+      parameters: "[Optional: {param1} {param2}]"
+      dependencies:
+        task: "[task-name.md]"
+        template: "[template-name.yaml]"
+
+  analysis_commands:
+    - analyze: "Analyze [subject]"
+    - evaluate: "Evaluate [item]"
+    - compare: "Compare [options]"
+
+  creation_commands:
+    - create: "Create [output]"
+    - generate: "Generate [artifact]"
+    - build: "Build [structure]"
+
+  utility_commands:
+    - list: "List [items]"
+    - validate: "Validate [input]"
+    - export: "Export [data]"

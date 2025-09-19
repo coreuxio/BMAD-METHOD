@@ -1,0 +1,10 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-writing-studio
+version: 1.0.0
+short-title: Writing Studio
+description: >-
+  Professional content creation team for all writing needs including
+  blog posts, technical documentation, marketing copy, and SEO-optimized content.
+  Features specialized writers, editors, and content strategists.
+author: BMAD Core Team
+slashPrefix: write

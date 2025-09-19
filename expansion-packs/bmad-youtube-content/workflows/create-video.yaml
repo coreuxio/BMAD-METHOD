@@ -1,0 +1,146 @@
+# YouTube Video Script Creation Workflow
+name: Create YouTube Video Script
+description: End-to-end video script creation with research, documentation, and SEO optimization
+version: 1.0.0
+
+# Metadata
+metadata:
+  category: content-creation
+  complexity: standard
+  estimated_duration: 4-6 hours
+  prerequisites:
+    - Clear video concept or topic idea
+    - Target audience definition
+    - Access to research resources
+
+# Phases - Each phase builds on the previous one
+phases:
+  # Phase 1: Concept Development
+  - name: Concept Development
+    description: Interactive planning session to establish video vision and core message
+    duration: 30-60 minutes
+    steps:
+      - agent: video-planner
+        action: Conduct interactive planning session with user to develop video concept
+        deliverable: video-plan.md - Comprehensive planning document with message, facts, and approach
+        dependencies: []
+        interaction_level: high
+        requires_user_input: true
+        quality_criteria:
+          - Clear core message defined
+          - Target audience identified
+          - Supporting facts outlined
+          - Success metrics established
+
+  # Phase 2: Research Phase
+  - name: Research Phase
+    description: Gather and verify all necessary information with proper sources
+    duration: 60-120 minutes
+    steps:
+      - agent: video-researcher
+        action: Research facts and gather credible sources based on video plan
+        deliverable: research-doc.md - Comprehensive research with citations and credibility assessments
+        dependencies: [video-plan.md]
+        web_access_required: true
+        quality_criteria:
+          - All STEM claims have sources
+          - Source credibility assessed
+          - Citations properly formatted
+          - Research gaps identified
+
+  # Phase 3: Scene Planning
+  - name: Scene Planning
+    description: Structure the visual and narrative flow of the video
+    duration: 30-45 minutes
+    steps:
+      - agent: scene-planner
+        action: Create detailed scene-by-scene breakdown with information mapping
+        deliverable: scene-outline.md - Scene structure with timing and visual suggestions
+        dependencies: [video-plan.md, research-doc.md]
+        quality_criteria:
+          - Logical scene progression
+          - Information properly mapped
+          - Timing estimates provided
+          - Visual suggestions included
+
+  # Phase 4: Script Writing
+  - name: Script Writing
+    description: Write complete script with all narrative elements
+    duration: 60-90 minutes
+    steps:
+      - agent: script-writer
+        action: Write full script with natural flow and optional visual notes
+        deliverable: video-script.md - Complete script with visual/editor notes
+        dependencies: [scene-outline.md, research-doc.md]
+        quality_criteria:
+          - Natural conversational tone
+          - Facts properly integrated
+          - Visual notes clearly marked
+          - Source attribution included
+
+  # Phase 5: Description Creation
+  - name: Description Creation
+    description: Generate YouTube-optimized description with SEO elements
+    duration: 20-30 minutes
+    steps:
+      - agent: video-description-writer
+        action: Create comprehensive video description with timestamps and sources
+        deliverable: video-description.md - SEO-optimized YouTube description
+        dependencies: [video-script.md, research-doc.md]
+        quality_criteria:
+          - Compelling hook in first 125 chars
+          - All sources properly formatted
+          - Timestamps included
+          - SEO elements integrated
+
+# Success Criteria
+success_criteria:
+  - Complete script with clear narrative flow
+  - All factual claims properly sourced
+  - Flexible visual guidance provided
+  - SEO-optimized description ready
+  - All deliverables quality-checked
+  - User satisfaction with final outputs
+
+# Error Handling
+error_handling:
+  on_failure: escalate
+  max_retries: 2
+  escalation_agent: video-planner
+  fallback_workflow: revise-video-concept
+
+# Resources Required
+resources:
+  agents:
+    - video-planner: Concept development and planning
+    - video-researcher: Fact-finding and source validation
+    - scene-planner: Scene structure and flow
+    - script-writer: Script creation and narrative
+    - video-description-writer: SEO and description optimization
+  tools:
+    - Web research capabilities
+    - Document generation system
+    - Template processing
+  data:
+    - YouTube best practices
+    - Source citation guidelines
+    - SEO optimization strategies
+
+# Outputs
+outputs:
+  primary:
+    name: Complete Video Package
+    format: Multiple markdown documents
+    components:
+      - video-plan.md
+      - research-doc.md
+      - scene-outline.md
+      - video-script.md
+      - video-description.md
+  secondary:
+    - name: Source Bibliography
+      format: Markdown list with links
+    - name: Visual Suggestions
+      format: Annotated notes in script
+    - name: Editor Guidelines
+      format: Flexible notes throughout

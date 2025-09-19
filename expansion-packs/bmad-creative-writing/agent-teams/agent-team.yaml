@@ -4,6 +4,7 @@ bundle:
   icon: ✍️
   description: Complete creative writing team for fiction, narrative design, and storytelling projects
 agents:
+  - bmad-orchestrator
   - plot-architect
   - character-psychologist
   - world-builder

@@ -1,0 +1,18 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: Writing Studio Team
+  icon: ✍️
+  description: Professional content creation team for all writing needs
+agents:
+  - bmad-orchestrator
+  - content-strategist
+  - copywriter
+  - technical-writer
+  - blog-author
+  - editor
+  - seo-specialist
+workflows:
+  - content-creation
+  - blog-post-workflow
+  - technical-documentation
+  - marketing-copy

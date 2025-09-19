@@ -1,0 +1,71 @@
+# Agent Creation Workflow
+name: Agent Creation
+description: Complete workflow for creating a new BMAD agent from concept to deployment
+version: 1.0.0
+
+phases:
+  - name: Discovery
+    description: Understand the need and define requirements
+    steps:
+      - agent: team-architect
+        action: Analyze domain and identify agent need
+        deliverable: Agent requirements document
+
+      - agent: agent-creator
+        action: Define agent purpose and capabilities
+        deliverable: Agent specification
+
+  - name: Design
+    description: Design the agent persona and structure
+    steps:
+      - agent: agent-creator
+        action: Develop persona and characteristics
+        deliverable: Persona definition
+
+      - agent: agent-creator
+        action: Design command structure and dependencies
+        deliverable: Command and dependency map
+
+  - name: Implementation
+    description: Create the agent and supporting resources
+    steps:
+      - agent: agent-creator
+        action: Generate agent definition file
+        deliverable: Agent YAML file
+
+      - agent: agent-creator
+        action: Create tasks and templates
+        deliverable: Supporting resources
+
+  - name: Integration
+    description: Integrate agent into team or system
+    steps:
+      - agent: team-architect
+        action: Determine team placement
+        deliverable: Team integration plan
+
+      - agent: workflow-designer
+        action: Create collaboration workflows
+        deliverable: Workflow definitions
+
+  - name: Validation
+    description: Test and validate the agent
+    steps:
+      - agent: agent-creator
+        action: Run quality checklist
+        deliverable: Validation report
+
+      - agent: agent-creator
+        action: Test agent activation and commands
+        deliverable: Test results
+
+  - name: Documentation
+    description: Create documentation and guides
+    steps:
+      - agent: agent-creator
+        action: Generate agent documentation
+        deliverable: README and usage guide
+
+      - agent: team-architect
+        action: Update team documentation
+        deliverable: Updated team docs

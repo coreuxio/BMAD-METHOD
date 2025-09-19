@@ -1,0 +1,40 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: YouTube Video Script Team
+  icon: 🎬
+  description: Complete video script creation with research, documentation, and SEO optimization
+
+agents:
+  - bmad-orchestrator      # Team coordinator for different production levels
+  - video-planner           # Interactive concept development and planning
+  - video-researcher        # Web-based fact-finding and source validation
+  - scene-planner          # Scene breakdown and narrative structure
+  - script-writer          # Script writing with visual notes
+  - video-description-writer # YouTube SEO and description optimization
+
+workflows:
+  - create-video.yaml      # Main end-to-end video creation workflow
+
+shared_resources:
+  templates:
+    - video-plan-tmpl.md
+    - research-doc-tmpl.md
+    - scene-outline-tmpl.md
+    - video-script-tmpl.md
+    - video-description-tmpl.md
+
+  tasks:
+    - plan-video-concept.md
+    - research-topics.md
+    - outline-scenes.md
+    - write-scene-script.md
+    - create-description.md
+
+  checklists:
+    - video-script-checklist.md
+    - source-verification-checklist.md
+
+  data:
+    - youtube-best-practices.md
+    - source-citation-guide.md
+    - seo-optimization-tips.md

@@ -1,0 +1,10 @@
+# <!-- Powered by BMAD™ Core -->
+name: bmad-builders
+version: 1.0.0
+short-title: Builders
+description: >-
+  Meta-team for building and managing BMAD agents, teams, and workflows.
+  Includes the Agent Creator and supporting builder roles for expanding
+  the BMAD ecosystem.
+author: BMAD Core Team
+slashPrefix: build

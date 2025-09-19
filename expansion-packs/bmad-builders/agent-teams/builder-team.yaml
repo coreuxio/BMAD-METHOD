@@ -1,0 +1,14 @@
+# <!-- Powered by BMAD™ Core -->
+bundle:
+  name: Builder Team
+  icon: 🔧
+  description: Meta-team for creating agents, teams, and expanding BMAD capabilities
+agents:
+  - bmad-orchestrator
+  - agent-creator
+  - team-architect
+  - workflow-designer
+workflows:
+  - agent-creation
+  - team-building
+  - workflow-design
